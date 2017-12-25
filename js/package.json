@@ -10,11 +10,19 @@
       "latest",
       "stage-1"
     ],
-    "plugins": [ [ "module-resolver", { "root": 
-      [ 
-        "C:/Users/guanghui/react_playground/node_modules",
-        "C:/Users/guanghui/react_playground/src/utils"
-      ] 
-    } ] ]
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "root": [
+            "C:/Users/guanghui/react_playground/node_modules",
+            "C:/Users/guanghui/react_playground/src/utils"
+          ]
+        }
+      ]
+    ]
+  },
+  "dependencies": {
+    "jss-cli": "^5.0.0"
   }
 }
