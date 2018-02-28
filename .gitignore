@@ -1,3 +1,10 @@
 /Run History.csv
 /Everything.db
 /Everything.ini
+*.swp
+*.swo
+*.log
+*.exe
+*.tmp
+package-lock.json
+node_modules
