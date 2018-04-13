@@ -19,14 +19,18 @@ function filter(content) {
 
 // 同步单个函数
 function syncFile(src, dist) {
-  const content = fs.readFileSync(src, 'utf8')
   if ( fs.existsSync(dist) && fs.statSync(src).ctimeMs <=  fs.statSync(dist).ctimeMs) {
     // 没有更新，不用同步
     return
   } 
 
+  let content = fs.readFileSync(src)
+  if ( src.endsWith('.js') ) {
+    content = filter(content.toString())
+  } 
+
   fs.ensureFileSync(dist)
-  fs.writeFileSync(dist, filter(content))
+  fs.writeFileSync(dist, content)
   console.log(`${src} -> ${dist}`)
 }
 
