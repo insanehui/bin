@@ -12,9 +12,6 @@ const js = {
 const rules = [js]
 
 module.exports = {
-  /*
-   * 在此指定node环境
-   */
   target: 'node',
   entry : {
     code_sync : d('./code_sync.js'),

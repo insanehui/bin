@@ -9,15 +9,19 @@ import {stat} from './utils/node/fs.js'
 
 const {_:[src,dist]} = args()
 
+// 同步单个函数
 function syncFile(src, dist) {
+  const content = fs.readFileSync(src, 'utf8')
+  fs.ensureFileSync(dist)
+  fs.writeFileSync(dist, content)
+  console.log(`${src} -> ${dist}`)
 }
 
-// 以下尽可能使用sync类型的方法
+// 主函数
 function main(src, dist) {
   if ( stat.isDirectory(src) ) {
     need(stat.isDirectory(dist), 'dir only -> dir')
   } 
-  console.log(`${src} -> ${dist}`)
 }
 
 process.on('uncaughtException', e=>{
@@ -26,5 +30,6 @@ process.on('uncaughtException', e=>{
   } 
 })
 
-main(src, dist)
+// main(src, dist)
+syncFile(src, dist)
 
