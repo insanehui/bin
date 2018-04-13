@@ -4,7 +4,7 @@
  */
 const fs = require('fs-extra')
 const path = require('path')
-const d = path.resolve.bind(null, __dirname)
+const p = path.resolve
 
 import {args} from './utils/node/args.js'
 import {need} from './utils/node/cmd_line.js'
@@ -35,7 +35,7 @@ function main(src, dist) {
   if ( stat.isDirectory(src) ) {
     const files = fs.readdirSync(src)
     for (const file of files) {
-      main(d(src, file), d(dist, file))
+      main(p(src, file), p(dist, file))
     }
   } 
   else {
