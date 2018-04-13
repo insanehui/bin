@@ -12,6 +12,11 @@ import {stat} from './utils/node/fs.js'
 
 const {_:[src,dist]} = args()
 
+function filter(content) {
+  // 删除掉多行的注释
+  return content.replace(/\/\*[\s\S]*?\*\//mg, '')
+}
+
 // 同步单个函数
 function syncFile(src, dist) {
   const content = fs.readFileSync(src, 'utf8')
@@ -21,7 +26,7 @@ function syncFile(src, dist) {
   } 
 
   fs.ensureFileSync(dist)
-  fs.writeFileSync(dist, content)
+  fs.writeFileSync(dist, filter(content))
   console.log(`${src} -> ${dist}`)
 }
 
