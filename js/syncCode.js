@@ -10,7 +10,7 @@ import {args} from './utils/node/args.js'
 import {need} from './utils/node/cmd_line.js'
 import {stat} from './utils/node/fs.js'
 
-const {_:[src,dist]} = args()
+const {_:[src, dist, exclude]} = args()
 
 function filter(content) {
   // 删除掉多行的注释
@@ -35,11 +35,15 @@ function syncFile(src, dist) {
 }
 
 // 主函数
-function main(src, dist) {
+function main(src, dist, exclude) {
+  if ( exclude && new RegExp(exclude).test(src) ) {
+    return
+  } 
+
   if ( stat.isDirectory(src) ) {
     const files = fs.readdirSync(src)
     for (const file of files) {
-      main(p(src, file), p(dist, file))
+      main(p(src, file), p(dist, file), exclude)
     }
   } 
   else {
@@ -56,5 +60,5 @@ process.on('uncaughtException', e=>{
   }
 })
 
-main(src, dist)
+main(src, dist, exclude)
 
