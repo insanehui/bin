@@ -14,7 +14,7 @@ const rules = [js]
 module.exports = {
   target: 'node',
   entry : {
-    code_sync : d('./code_sync.js'),
+    syncCode : d('./syncCode.js'),
   },
   output : {
     filename : '[name].js',
