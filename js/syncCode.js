@@ -13,8 +13,9 @@ import {stat} from './utils/node/fs.js'
 const {_:[src, dist, exclude]} = args()
 
 function filter(content) {
-  // 删除掉多行的注释
-  return content.replace(/\/\*[\s\S]*?\*\//mg, '')
+  content =  content.replace(/\/\*[\s\S]*?\*\//mg, '') // 删除掉多行的注释
+  content = content.replace(/^(\s*\n)*\s*(?=\S)/g, '') // 删除前面的空行
+  return content
 }
 
 // 同步单个函数
