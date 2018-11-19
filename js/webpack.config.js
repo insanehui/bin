@@ -15,6 +15,7 @@ module.exports = {
   target: 'node',
   entry : {
     syncCode : d('./syncCode.js'),
+    numberList : d('./numberList.js'),
   },
   output : {
     filename : '[name].js',
