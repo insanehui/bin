@@ -18,7 +18,7 @@ rl.on('line', line => {
   } 
 
   // 判断是不是指定的indent
-  const check_indent_exp = new RegExp(indent + '(.*)$')
+  const check_indent_exp = new RegExp('^' + indent + '($|\\S.*)')
   const res = check_indent_exp.exec(line)
   if ( res && res.length ) {
     const content = res[1]
