@@ -9,7 +9,7 @@ import _ from 'lodash'
 const name = argv._[0] || '' // 编号的名字
 
 // 找到name里的第一个数字
-let count = +(/\d+/.exec(name)[0])
+let count = +(_.get(/\d+/.exec(name), '0'))
 
 let indent = null // 用来保存缩进
 
