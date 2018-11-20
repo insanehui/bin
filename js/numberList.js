@@ -7,6 +7,10 @@ const argv = require('yargs').argv
 import _ from 'lodash'
 
 const name = argv._[0] || '' // 编号的名字
+
+// 找到name里的第一个数字
+let count = +(/\d+/.exec(name)[0])
+
 let indent = null // 用来保存缩进
 
 const rl = readline.createInterface({ input: process.stdin })
@@ -22,7 +26,9 @@ rl.on('line', line => {
   const res = check_indent_exp.exec(line)
   if ( res && res.length ) {
     const content = res[1]
-    console.log(`${indent}${name} ${content}`)
+    const new_name = name.replace(/\d+/, count)
+    count++
+    console.log(`${indent}${new_name} ${content}`)
   } 
   else {
     console.log(line)
