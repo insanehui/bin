@@ -1,5 +1,9 @@
 /*
  * 给列表编号的一个程序
+ * 目前暂时约定编号与内容间固定一个空格
+ * 用法：
+ * number-list 第1课
+ * number-list 第1课 -d
  */
 const readline = require('readline')
 const argv = require('yargs').argv
@@ -34,16 +38,21 @@ rl.on('line', line => {
   const check_indent = check_indent_exp.exec(line)
   if ( check_indent ) {
     const content = check_indent[1]
-    const new_name = name.replace(/\d+/, count)
-    if ( name_exp.test(content) ) { // 如果已经有name形式的前缀
-      // 采用替换
-      const new_content = content.replace(name_exp, new_name)
-      console.log(`${indent}${new_content}`)
+    if ( argv.d ) { // 删除编号
+      console.log(`${indent}${content.replace(name_exp, '')}`)
     } 
     else {
-      console.log(`${indent}${new_name}${content}`)
+      const new_name = name.replace(/\d+/, count)
+      if ( name_exp.test(content) ) { // 如果已经有name形式的前缀
+        // 采用替换
+        const new_content = content.replace(name_exp, new_name)
+        console.log(`${indent}${new_content}`)
+      } 
+      else {
+        console.log(`${indent}${new_name}${content}`)
+      }
+      count++
     }
-    count++
   } 
   else {
     console.log(line)
