@@ -16,6 +16,7 @@ module.exports = {
   entry : {
     syncCode : d('./syncCode.js'),
     numberList : d('./numberList.js'),
+    music2jcx : d('./music2jcx.js'),
   },
   output : {
     filename : '[name].js',
