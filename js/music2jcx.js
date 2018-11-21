@@ -75,3 +75,50 @@ function tree2jianpu(tree, cx=4) {
 
 const jianpu = tree2jianpu(tree)
 console.log('jianpu', jianpu)
+
+const bar_score = '1 ( (23) (4 (56)) ) | 1 (12) 3 (34)'
+
+function parse(score) {
+  let res = ''
+  const bars = score.split('|')
+  for (const bar of bars) {
+    let i = 0
+    function bar2tree() {
+      let notes = []
+      while(1) {
+        const c = bar[i] // 当前字符
+
+        // 越界直接返回
+        if ( c === undefined ) {
+          return notes
+        } 
+
+        if ( /\s/.test(c) ) {
+          i++
+        } 
+        else if ( c==='(' ) {
+          i++
+          notes.push(bar2tree())
+        } 
+        else if ( c===')' ) {
+          i++
+          return notes
+        } 
+        else if ( /\d/.test(c) ) {
+          i++
+          notes.push(c)
+        } 
+        else {
+          i++
+        }
+      }
+    }
+    const tree = bar2tree()
+    res += tree2jianpu(tree) + '|'
+  }
+  return res
+}
+
+const jcx = parse(bar_score)
+console.log('jcx', jcx)
+
