@@ -15,44 +15,6 @@ const noteTable = {
   '7' : 'b',
 }
 
-let i = 0
-const score = '1 ( (23) (4 (56)) )'
-// const score = '1 (12) 3 (34)'
-
-function score2tree() {
-  let notes = []
-  while(1) {
-    const c = score[i] // 当前字符
-
-    // 越界直接返回
-    if ( c === undefined ) {
-      return notes
-    } 
-
-    if ( /\s/.test(c) ) {
-      i++
-    } 
-    else if ( c==='(' ) {
-      i++
-      notes.push(score2tree())
-    } 
-    else if ( c===')' ) {
-      i++
-      return notes
-    } 
-    else if ( /\d/.test(c) ) {
-      i++
-      notes.push(c)
-    } 
-    else {
-      i++
-    }
-  }
-}
-
-const tree = score2tree()
-console.log('tree', tree)
-
 function tree2jianpu(tree, cx=4) {
   let output = ''
   const x = cx / tree.length
@@ -72,11 +34,6 @@ function tree2jianpu(tree, cx=4) {
   }
   return output
 }
-
-const jianpu = tree2jianpu(tree)
-console.log('jianpu', jianpu)
-
-const bar_score = '1 ( (23) (4 (56)) ) | 1 (12) 3 (34)'
 
 function parse(score) {
   let res = ''
@@ -119,6 +76,7 @@ function parse(score) {
   return res
 }
 
+const bar_score = '1 ( (23) (4 (56)) ) | 1 (12) 3 (34)'
 const jcx = parse(bar_score)
 console.log('jcx', jcx)
 
