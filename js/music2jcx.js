@@ -1,10 +1,3 @@
-// const getStdin = require('get-stdin');
-
-// // 读取整个stdin
-// getStdin().then(score => {
-//   score_bars = score.split('|')
-// });
-
 const noteTable = {
   '1' : 'c',
   '2' : 'd',
@@ -76,7 +69,17 @@ function parse(score) {
   return res
 }
 
-const bar_score = '1 ( (23) (4 (56)) ) | 1 (12) 3 (34)'
-const jcx = parse(bar_score)
-console.log('jcx', jcx)
+if ( global.window ) {
+  const bar_score = '1 ( (23) (4 (56)) ) | 1 (12) 3 (34)'
+  const jcx = parse(bar_score)
+  console.log('jcx', jcx)
+} 
+else {
+  const getStdin = require('get-stdin');
+
+  // 读取整个stdin
+  getStdin().then(score => {
+    console.log(parse(score))
+  });
+}
 
