@@ -55,6 +55,7 @@ export function parse(score) {
           i++
           return notes
         } 
+        // 找到音符
         else if ( /\d/.test(c) ) {
           i++
           notes.push(c)
