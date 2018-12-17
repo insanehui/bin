@@ -1,8 +1,8 @@
 import jcxNote from './jcxNote.js'
 
-function tree2jianpu(tree, cx=4) {
+function tree2jianpu(tree, beats = tree.length) {
   let output = ''
-  const x = cx / tree.length
+  const x = beats / tree.length
   for (const item of tree) {
     if ( typeof item === 'string' ) {
       output += jcxNote(item)
