@@ -1,22 +1,11 @@
-// import {testify} from '../utils/modash.js'
-
-const noteTable = {
-  '1' : 'c',
-  '2' : 'd',
-  '3' : 'e',
-  '4' : 'f',
-  '5' : 'g',
-  '6' : 'a',
-  '7' : 'b',
-  '0' : 'z',
-}
+import jcxNote from './jcxNote.js'
 
 function tree2jianpu(tree, cx=4) {
   let output = ''
   const x = cx / tree.length
   for (const item of tree) {
     if ( typeof item === 'string' ) {
-      output += noteTable[item]
+      output += jcxNote(item)
       if ( x<1 ) {
         output += `/${1/x}`
       } 
