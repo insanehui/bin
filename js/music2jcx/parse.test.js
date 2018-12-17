@@ -10,7 +10,7 @@ describe('parse', () => {
     expect(fact).toEqual(hope)
   })
 
-  xit('high and low', () => {
+  it('high and low', () => {
     const para = [
       "1. 2 3' 4'"
     ]
