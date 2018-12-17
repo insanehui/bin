@@ -6,6 +6,7 @@ const noteTable = {
   '5' : 'g',
   '6' : 'a',
   '7' : 'b',
+  '0' : 'z',
 }
 
 function tree2jianpu(tree, cx=4) {

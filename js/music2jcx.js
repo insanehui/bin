@@ -5,9 +5,9 @@ if ( global.window ) {
   const ReactDOM = require('react-dom')
   const App = require('./music2jcx/WebApp.js').default
 
-  const bar_score = '1 ( (23) (4 (56)) ) | 1 (12) 3 (34)'
-  const jcx = parse(bar_score)
-  console.log('jcx', jcx)
+  // const bar_score = '1 ( (23) (4 (56)) ) | 1 (12) 3 (34)'
+  // const jcx = parse(bar_score)
+  // console.log('jcx', jcx)
 
   ReactDOM.render( <App />, document.getElementById('root'))
 } 
