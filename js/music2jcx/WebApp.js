@@ -16,7 +16,7 @@ export default class App extends React.PureComponent {
   }
 
   make = ()=>{
-    const {score, jcx} = this.refs
+    const {score} = this.refs
     const jcxData = parse(score.value) 
     this.setState({ jcx : jcxData })
     navigator.clipboard.writeText(jcxData)
@@ -26,7 +26,7 @@ export default class App extends React.PureComponent {
     const {jcx} = this.state 
     return <div>
       <Score ref='score'></Score>
-      <pre ref='jcx'>
+      <pre>
         {jcx}
       </pre>
       <button onClick={this.make}>生成</button>
