@@ -58,15 +58,8 @@ function seq2struct(seq) {
       note = c
       state = 'note'
     } 
-    else if ( c === '.' ) {
-      if ( state === 'note' ) {
-        note += ','
-      } 
-    } 
-    else if ( c === '\'' ) {
-      if ( state === 'note' ) {
-        note += c
-      } 
+    else {
+      note += c
     } 
   }
 }
