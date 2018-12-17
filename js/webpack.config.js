@@ -5,7 +5,7 @@ const js = {
   test: /\.js$/,
   loader: require.resolve('babel-loader'),
   options: {
-    presets : ['env', 'stage-1'],
+    presets : ['env', 'stage-1', 'react'],
   },
 }
 

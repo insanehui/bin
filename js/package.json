@@ -22,13 +22,14 @@
       ]
     ]
   },
-  "scripts" : {
-      "music2jcx" : "node scripts/music2jcx.js"
+  "scripts": {
+    "music2jcx": "node scripts/music2jcx.js"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
     "get-stdin": "^6.0.0",
     "jss-cli": "^5.0.0",
     "shelljs": "^0.8.1",
