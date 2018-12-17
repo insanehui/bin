@@ -23,6 +23,7 @@
     ]
   },
   "scripts": {
+    "update-utils": "node scripts/update_utils.js",
     "music2jcx": "node scripts/music2jcx.js"
   },
   "dependencies": {
