@@ -1,3 +1,5 @@
+// import {testify} from '../utils/modash.js'
+
 const noteTable = {
   '1' : 'c',
   '2' : 'd',
@@ -66,4 +68,3 @@ export function parse(score) {
   }
   return res
 }
-

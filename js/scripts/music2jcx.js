@@ -11,6 +11,7 @@ const fs = require('fs-extra')
 function main() {
   fs.copySync(d('../music2jcx.js'), 'C:\\Users\\guanghui\\react_playground2\\src\\index.js')
   fs.copySync(d('../music2jcx'), 'C:\\Users\\guanghui\\react_playground2\\src\\music2jcx')
+  fs.copySync(d('../utils'), 'C:\\Users\\guanghui\\react_playground2\\src\\utils')
 }
 
 main()
