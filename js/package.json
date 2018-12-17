@@ -22,6 +22,9 @@
       ]
     ]
   },
+  "scripts" : {
+      "music2jcx" : "node scripts/music2jcx.js"
+  },
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
