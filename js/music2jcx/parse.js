@@ -38,22 +38,46 @@ function seq2struct(seq) {
    * 递归。遇到序列尾或者 ) 即结束
    */
   let notes = []
+  let note = null // 当前音符
+  let state = 'blank'
   while(1) {
     const c = seq.shift() // 当前字符
 
     // 越界直接返回
     if ( c === undefined || c === ')' ) {
+      if ( state === 'note' ) {
+        notes.push(note)
+      } 
       return notes
     } 
     if ( /\s/.test(c) ) {
+      if ( state === 'note' ) {
+        notes.push(note)
+      } 
+      state = 'blank'
       continue
     } 
 
     if ( c==='(' ) {
       notes.push(seq2struct(seq))
+      state = 'blank'
     } 
     else if ( /\d/.test(c) ) { // 找到音符
-      notes.push(c)
+      if ( state === 'note' ) {
+        notes.push(note)
+      } 
+      note = c
+      state = 'note'
+    } 
+    else if ( c === '.' ) {
+      if ( state === 'note' ) {
+        note += ','
+      } 
+    } 
+    else if ( c === '\'' ) {
+      if ( state === 'note' ) {
+        note += c
+      } 
     } 
   }
 }
