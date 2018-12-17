@@ -25,7 +25,7 @@ export default class App extends React.PureComponent {
   render() {
     const {jcx} = this.state 
     return <div>
-      <Score ref='score'></Score>
+      <Score ref='score' defaultValue='1 ( (23) (4 (56)) ) | 1 (12) 3 (34)' ></Score>
       <pre>
         {jcx}
       </pre>
