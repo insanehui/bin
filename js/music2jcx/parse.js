@@ -60,36 +60,8 @@ export function parse(score) {
   let res = ''
   const bars = score.split('|')
   for (const bar of bars) {
-    const stream = [...bar]
-    function bar2tree() {
-      let notes = []
-      while(1) {
-        const c = stream.shift() // 当前字符
-
-        // 越界直接返回
-        if ( c === undefined ) {
-          return notes
-        } 
-
-        if ( /\s/.test(c) ) {
-          continue
-        } 
-
-        if ( c==='(' ) {
-          notes.push(bar2tree())
-          continue
-        } 
-        if ( c===')' ) {
-          return notes
-        } 
-        // 找到音符
-        if ( /\d/.test(c) ) {
-          notes.push(c)
-          continue
-        } 
-      }
-    }
-    const tree = bar2tree()
+    const seq = [...bar]
+    const tree = seq2struct(seq)
     res += tree2jianpu(tree) + '|'
   }
   return res
