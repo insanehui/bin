@@ -33,11 +33,11 @@ export function parse(score) {
   let res = ''
   const bars = score.split('|')
   for (const bar of bars) {
-    let i = 0
+    const stream = [...bar]
     function bar2tree() {
       let notes = []
       while(1) {
-        const c = bar[i] // 当前字符
+        const c = stream.shift() // 当前字符
 
         // 越界直接返回
         if ( c === undefined ) {
@@ -45,24 +45,21 @@ export function parse(score) {
         } 
 
         if ( /\s/.test(c) ) {
-          i++
+          continue
         } 
-        else if ( c==='(' ) {
-          i++
+
+        if ( c==='(' ) {
           notes.push(bar2tree())
+          continue
         } 
-        else if ( c===')' ) {
-          i++
+        if ( c===')' ) {
           return notes
         } 
         // 找到音符
-        else if ( /\d/.test(c) ) {
-          i++
+        if ( /\d/.test(c) ) {
           notes.push(c)
+          continue
         } 
-        else {
-          i++
-        }
       }
     }
     const tree = bar2tree()
