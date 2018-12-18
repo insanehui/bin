@@ -28,5 +28,25 @@ describe('parse', () => {
     expect(fact).toEqual(hope)
   })
 
+  xit('at string', () => {
+    // 标注琴弦的位置
+    const para = [
+      "0 0 (5.@g 5.) | 6. 5. 1@g | 7. - (5.5.)"
+    ]
+    const hope = ``
+    const fact = parse(...para)
+    expect(fact).toEqual(hope)
+  })
+
+  xit('carcassi', () => {
+    // 标注琴弦的位置
+    const para = [
+      "[73] 5 1' 5 | 1 5 5' 5 | [5'2] 5 4' 5 "
+    ]
+    const hope = ``
+    const fact = parse(...para)
+    expect(fact).toEqual(hope)
+  })
+
 });
 
