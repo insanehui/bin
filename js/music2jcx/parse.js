@@ -64,6 +64,23 @@ function text2struct(text) {
   }
 }
 
+// 将有连音线的序列合并
+function seqCollapse(seq) {
+  const res = []
+  for(const i in seq) {
+    const item = seq[i]
+    const {note, duration} = item
+    if ( note !== '-' ) {
+      res.push(item)
+    } 
+    else {
+      const lastNote = res[res.length-1]
+      lastNote.duration += duration
+    }
+  }
+  return res
+}
+
 // 将树状的数据结构平铺成序列的格式
 function structFlattern(tree, len = tree.length) {
   /*
@@ -86,21 +103,15 @@ function structFlattern(tree, len = tree.length) {
   return res
 }
 
-// 将一个小节转成jcx的音符
-function bar2JcxScore(list) {
-  let res = ''
-  for (const {note, duration} of list) {
-  }
-}
-
 function parse2(score) {
   let res = text2struct([...score])
   res = structFlattern(res)
+  res = seqCollapse(res)
   console.log('res', res)
   return res
 }
 
-const a = parse2('(5.5.) 6. - 5.')
+const a = parse2(' 6. - (-5.) 5.')
 
 export function parse(score) {
   let res = ''
