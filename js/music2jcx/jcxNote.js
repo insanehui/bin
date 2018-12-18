@@ -2,14 +2,14 @@
  * 将自己的note格式转成jcx的note
  */
 const noteTable = {
-  '1' : 'c',
-  '2' : 'd',
-  '3' : 'e',
-  '4' : 'f',
-  '5' : 'g',
-  '6' : 'a',
-  '7' : 'b',
-  '0' : 'z',
+  '1' : 'C',
+  '2' : 'D',
+  '3' : 'E',
+  '4' : 'F',
+  '5' : 'G',
+  '6' : 'A',
+  '7' : 'B',
+  '0' : 'Z',
 }
 
 export default function jcxNote(note){

@@ -14,7 +14,7 @@ describe('parse', () => {
     const para = [
       "1. 2 3' 4'"
     ]
-    const hope = `c,de'f'|`
+    const hope = `C,DE'F'|`
     const fact = parse(...para)
     expect(fact).toEqual(hope)
   })

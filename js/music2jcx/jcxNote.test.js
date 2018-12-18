@@ -4,7 +4,7 @@ it('low', () => {
   const para = [
   "1.."
 ]
-  const hope = `c,,`
+  const hope = `C,,`
   const fact = jcxNote(...para)
   expect(fact).toEqual(hope)
 })
@@ -13,7 +13,7 @@ it('high', () => {
   const para = [
   "6'"
 ]
-  const hope = `a'`
+  const hope = `A'`
   const fact = jcxNote(...para)
   expect(fact).toEqual(hope)
 })
