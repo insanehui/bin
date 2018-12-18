@@ -64,13 +64,18 @@ function text2struct(text) {
   }
 }
 
+// global.lastNote = 'c'
+
 // 将有连音线的序列合并
 function seqCollapse(seq) {
   const res = []
   for(const i in seq) {
     const item = seq[i]
     const {note, duration} = item
-    if ( note !== '-' ) {
+    if ( note !== '-' || i === 0) {
+      /*
+       * 如果第一个就是延音线，还是先插入
+       */
       res.push(item)
     } 
     else {
