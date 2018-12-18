@@ -1,25 +1,5 @@
 import jcxNote from './jcxNote.js'
 
-function tree2jianpu(tree, beats = tree.length) {
-  let output = ''
-  const x = beats / tree.length
-  for (const item of tree) {
-    if ( typeof item === 'string' ) {
-      output += jcxNote(item)
-      if ( x<1 ) {
-        output += `/${1/x}`
-      } 
-      else if(x>1) {
-        output += x
-      }
-    } 
-    else if ( Array.isArray(item) ) {
-      output += tree2jianpu(item, x)
-    } 
-  }
-  return output
-}
-
 // 将一个音符系列转成结构化的数据（这里的struct也就是之前说的tree）
 function text2struct(text) {
   /*
@@ -64,8 +44,6 @@ function text2struct(text) {
   }
 }
 
-// global.lastNote = 'c'
-
 // 将树状的数据结构平铺成序列的格式
 function structFlattern(tree, len = tree.length) {
   /*
@@ -108,13 +86,22 @@ function seqCollapse(seq) {
   return res
 }
 
+global.lastNote = '1'
+
 // 将collapse后的seq转成jcx的简谱格式（一小节）
 function seq2JcxScore(seq) {
   /*
    * 会读取或者修改global.lastNote。因为要处理跨小节的连音线
    */
   let output = ''
-  for (const {note, duration} of seq) {
+  for(const i in seq) {
+    let {note, duration} = seq[i]
+    // 如果第一个就是连音线
+    if ( i === '0' && note === '-' ) {
+      output += '-'
+      note = global.lastNote
+    } 
+    global.lastNote = note
     output += jcxNote(note)
     if ( duration<1 ) {
       output += `/${1/duration}`
@@ -126,24 +113,17 @@ function seq2JcxScore(seq) {
   return output
 }
 
-function parse2(score) {
+function parseBar(score) {
   let res = text2struct([...score])
   res = structFlattern(res)
   res = seqCollapse(res)
   res = seq2JcxScore(res)
-  console.log('res', res)
+  res += '|'
   return res
 }
 
-const a = parse2('6 - (5.5.) 1')
+// parseBar('- - (5.5.) 1')
 
 export function parse(score) {
-  let res = ''
-  const bars = score.split('|')
-  for (const bar of bars) {
-    const text = [...bar]
-    const tree = text2struct(text)
-    res += tree2jianpu(tree) + '|'
-  }
-  return res
+  return score.split('|').map(parseBar).join()
 }
