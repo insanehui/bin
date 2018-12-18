@@ -125,5 +125,5 @@ function parseBar(score) {
 // parseBar('- - (5.5.) 1')
 
 export function parse(score) {
-  return score.split('|').map(parseBar).join()
+  return score.split('|').map(parseBar).join('')
 }
