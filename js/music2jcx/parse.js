@@ -72,7 +72,7 @@ function seqCollapse(seq) {
   for(const i in seq) {
     const item = seq[i]
     const {note, duration} = item
-    if ( note !== '-' || i === 0) {
+    if ( note !== '-' || i === '0') { // 注：这里要用 '0' 而不是 0！否则条件会不成立
       /*
        * 如果第一个就是延音线，还是先插入
        */
@@ -116,7 +116,7 @@ function parse2(score) {
   return res
 }
 
-const a = parse2(' 6. - (-5.) 5.')
+const a = parse2('- - 6. - (-5.) 5.')
 
 export function parse(score) {
   let res = ''
