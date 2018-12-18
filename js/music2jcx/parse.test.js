@@ -19,6 +19,16 @@ describe('parse', () => {
     expect(fact).toEqual(hope)
   })
 
+  xit('跨小节连音线', () => {
+    // 标注琴弦的位置
+    const para = [
+      "1 2 3 4 | - 5 6 7"
+    ]
+    const hope = ``
+    const fact = parse(...para)
+    expect(fact).toEqual(hope)
+  })
+
   xit('bar', () => {
     const para = [
       "0 0 (5.5.) | 6. 5. 1 | 7. - (5.5.)"
