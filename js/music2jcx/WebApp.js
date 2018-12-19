@@ -2,7 +2,7 @@
  * 用来测试的一个前端界面
  */
 import React from 'react'
-import {parse} from './parse.js'
+import parse from './jcx/notation.js'
 import S from 'styled-components'
 
 // import {testify,} from '../utils/modash.js'

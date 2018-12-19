@@ -1,4 +1,4 @@
-import parseMusic from './musicFile.js'
+import parseMusic from '../musicFile.js'
 import jcxNote from './jcxNote.js'
 
 global.lastNote = '1'
@@ -36,6 +36,6 @@ function parseBar(score) {
 
 // parseBar('- - (5.5.) 1')
 
-export function parse(score) {
+export default function parse(score) {
   return score.split('|').map(parseBar).join('')
 }

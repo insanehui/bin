@@ -1,4 +1,4 @@
-import {parse} from './parse.js'
+import parse from './notation.js'
 
 describe('parse', () => {
   xit('normal', () => {
