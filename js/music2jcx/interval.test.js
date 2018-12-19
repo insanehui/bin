@@ -5,7 +5,7 @@ describe('interval', () => {
     const para = [
       "1"
     ]
-    const hope = 1
+    const hope = 0
     const fact = note2number(...para)
     expect(fact).toEqual(hope)
   })
@@ -15,7 +15,7 @@ describe('interval', () => {
     const para = [
       "1."
     ]
-    const hope = -11
+    const hope = -12
     const fact = note2number(...para)
     expect(fact).toEqual(hope)
   })
@@ -24,7 +24,7 @@ describe('interval', () => {
     const para = [
       "5''"
     ]
-    const hope = 29
+    const hope = 31
     const fact = note2number(...para)
     expect(fact).toEqual(hope)
   })
