@@ -13,7 +13,7 @@ const Score = (S.textarea`
     height: 300px;
 `)
 
-const musicExample = `
+const musicExample = (`
 title : 生日歌
 artist : 童话吉他编配
 timeSign : 3/4
@@ -27,7 +27,7 @@ track :
 :w:      * * 祝 你    生 日 快  乐    祝你    生 日 快
 <guitar> 1 - (5.5.) | 5 3 1 | 7. 6. (44) | 3 1 2 | 1 - -
 :w:      乐   祝你    生日快  乐 *  祝你   生日快  乐
-`
+`)
 
 export default class App extends React.PureComponent {
   state = {
