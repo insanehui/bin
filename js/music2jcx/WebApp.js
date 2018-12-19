@@ -2,7 +2,8 @@
  * 用来测试的一个前端界面
  */
 import React from 'react'
-import parse from './jcx/notation.js'
+import toNotation from './jcx/notation.js'
+import toTab from './jcx/tab.js'
 import S from 'styled-components'
 
 // import {testify,} from '../utils/modash.js'
@@ -17,8 +18,9 @@ export default class App extends React.PureComponent {
     jcx : '',
   }
 
-  make = ()=>{
+  make = (type)=>{
     const {score} = this.refs
+    const parse = type === 'notation' ? toNotation : toTab
     const jcxData = parse(score.value) 
     this.setState({ jcx : jcxData })
     navigator.clipboard.writeText(jcxData)
@@ -33,7 +35,8 @@ export default class App extends React.PureComponent {
       <pre>
         {jcx}
       </pre>
-      <button onClick={this.make}>生成</button>
+      <button onClick={()=>this.make('notation')}>简谱</button>
+      <button onClick={()=>this.make('tab')}>吉他谱</button>
     </div>
   }
 }
