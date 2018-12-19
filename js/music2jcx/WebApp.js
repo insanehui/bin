@@ -2,10 +2,11 @@
  * 用来测试的一个前端界面
  */
 import React from 'react'
-import toNotation from './jcx/notation.js'
-import toTab from './jcx/tab.js'
 import S from 'styled-components'
 
+import toNotation from './jcx/notation.js'
+import toTab from './jcx/tab.js'
+import parseFile from './musicFile/main.js'
 // import {testify,} from '../utils/modash.js'
 
 const Score = (S.textarea`
@@ -35,11 +36,17 @@ export default class App extends React.PureComponent {
   }
 
   make = (type)=>{
-    const {score} = this.refs
+    const {track} = this.refs
     const parse = type === 'notation' ? toNotation : toTab
-    const jcxData = parse(score.value) 
+    const jcxData = parse(track.value) 
     this.setState({ jcx : jcxData })
     navigator.clipboard.writeText(jcxData)
+  }
+
+  doFile = ()=>{
+    const {file} = this.refs
+    const res = parseFile(file.value) 
+    console.log('file', res)
   }
 
   render() {
@@ -52,9 +59,12 @@ export default class App extends React.PureComponent {
         <button onClick={()=>this.make('notation')}>简谱</button>
         <button onClick={()=>this.make('tab')}>吉他谱</button>
       </div>
-      <Score ref='score' defaultValue={def}></Score>
-      <div>完整曲谱</div>
-      <Score defaultValue={musicExample}></Score>
+      <Score ref='track' defaultValue={def}></Score>
+      <div>
+        完整曲谱
+        <button onClick={this.doFile}>转换</button>
+      </div>
+      <Score ref='file' defaultValue={musicExample}></Score>
       <pre>
         {jcx}
       </pre>
