@@ -10,8 +10,24 @@ import S from 'styled-components'
 
 const Score = (S.textarea`
     width: 900px;
-    height: 200px;
+    height: 300px;
 `)
+
+const musicExample = `
+title : 生日歌
+artist : 童话吉他编配
+timeSign : 3/4
+tempo : 1/4=90
+key : C
+track : 
+  - name: guitar
+    jcx: [jianpu, tab]
+=================
+<guitar> 0 0 (5.5.) | 6. 5. 1 | 7. - (5.5.) | 6. 5. 2 
+:w:      * * 祝 你    生 日 快  乐    祝你    生 日 快
+<guitar> 1 - (5.5.) | 5 3 1 | 7. 6. (44) | 3 1 2 | 1 - -
+:w:      乐   祝你    生日快  乐 *  祝你   生日快  乐
+`
 
 export default class App extends React.PureComponent {
   state = {
@@ -31,12 +47,17 @@ export default class App extends React.PureComponent {
     // const def = '1 ( (23) (4 (56)) ) | 1 (12) 3 (34)' 
     const def = '0 0 (5.5.) | 6. 5. 1 | 7. - (5.5.) | 6. 5. 2 | 1 - (5.5.) | 5 3 1 | 7. 6. (44) | 3 1 2 | 1 - -' 
     return <div>
+      <div>
+        单独音轨
+        <button onClick={()=>this.make('notation')}>简谱</button>
+        <button onClick={()=>this.make('tab')}>吉他谱</button>
+      </div>
       <Score ref='score' defaultValue={def}></Score>
+      <div>完整曲谱</div>
+      <Score defaultValue={musicExample}></Score>
       <pre>
         {jcx}
       </pre>
-      <button onClick={()=>this.make('notation')}>简谱</button>
-      <button onClick={()=>this.make('tab')}>吉他谱</button>
     </div>
   }
 }
