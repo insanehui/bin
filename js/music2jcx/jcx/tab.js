@@ -1,7 +1,7 @@
 /*
  * 将音符格式转为jcx的吉他谱
  */
-import parseMusic from '../musicFile.js'
+import parseMusic from '../musicFile/bar.js'
 import fret from './fret.js'
 
 global.lastNote = '1'

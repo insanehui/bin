@@ -1,7 +1,7 @@
 /*
  * 将音乐格式转为jcx的简谱或五线谱
  */
-import parseMusic from '../musicFile.js'
+import parseMusic from '../musicFile/bar.js'
 import jcxNote from './jcxNote.js'
 
 global.lastNote = '1'
