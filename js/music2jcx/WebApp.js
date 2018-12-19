@@ -5,6 +5,8 @@ import React from 'react'
 import {parse} from './parse.js'
 import S from 'styled-components'
 
+// import {testify,} from '../utils/modash.js'
+
 const Score = (S.textarea`
     width: 900px;
     height: 200px;
