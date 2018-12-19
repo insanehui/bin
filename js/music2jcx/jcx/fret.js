@@ -14,5 +14,8 @@ const table = {
 
 export default function jcxFret(note) {
   const {string,fret} = findNote(note)
+  if ( !string ) {
+    return 'z' // 休止符
+  } 
   return `${table[string]}${fret}`
 }
