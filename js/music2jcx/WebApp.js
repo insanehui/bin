@@ -20,7 +20,7 @@ artist : 童话吉他编配
 timeSign : 3/4
 tempo : 1/4=90
 key : C
-track : 
+tracks : 
   - name: guitar
     jcx: [jianpu, tab]
 =================
