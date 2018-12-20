@@ -2,7 +2,7 @@
  * 将一个完整的music文件转成jcx格式
  */
 import _ from 'lodash'
-import {wash} from '../../utils/modash.js'
+import wash from '../../utils/modash/arsonWash.js'
 
 import parseFile from '../musicFile/main.js'
 import {firstor} from '../../utils/modash.js'
