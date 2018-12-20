@@ -4,7 +4,26 @@
 import yaml from 'js-yaml'
 
 function groupTracks(score) {
-  return score
+  const tracks = {}
+  // 按行拆分
+  const lines = score.split('\n')
+  for (const line of lines) {
+    // 如果是曲谱音轨
+    const trackPre = /^<(\S+)>/
+    const regExec = trackPre.exec(line)
+    if ( regExec ) { // 是个音轨
+      const name = regExec[1]
+      if ( !tracks[name] ) {
+        tracks[name] = {
+          name,
+          lines : []
+        }
+      } 
+      const score = line.replace(trackPre, '')
+      tracks[name].lines.push(score)
+    } 
+  }
+  return tracks
 }
 
 export default function parse(file) {
