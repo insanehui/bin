@@ -36,12 +36,17 @@ function makeHeader(obj) {
    */
   let {header} = obj
   let {timeSign, beat} = header
+
+  // 处理缺省值
   if (!beat)  { // 如果没有节拍，根据timeSign来生成
     beat = '1' + (timeSign ? timeSign.slice(1) : '/4')
     header = {
       ...header,
       beat,
     }
+  } 
+  if ( !header.key ) {
+    header.key = 'C'
   } 
 
   const table = [

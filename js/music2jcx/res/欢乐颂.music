@@ -1,0 +1,11 @@
+title : 欢乐颂
+artist : 童话吉他编配
+timeSign : 4/4
+tracks : 
+  - name: guitar
+    jcx: [tab, jianpu]
+=================
+<guitar> 3 3 4 5 | 5 4 3 2 | 1 1 2 3 | 3 (-2) 2 -
+<guitar> 3 3 4 5 | 5 4 3 2 | 1 1 2 3 | 2 (-1) 1 -
+<guitar> 2 2 3 1 | 2 (34) 3 1 | 2 4 3 2 | 1 2 5 -
+<guitar> 3 3 4 5 | 5 4 3 2 | 1 1 2 3 | 2 (-1) 1 -
