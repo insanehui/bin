@@ -30,9 +30,9 @@ function makeTrackMeta(obj) {
   const first = firstor()
 
   for (let {name, jcx} of tracks) {
-    if ( !jcx ) {
-      jcx = ['tab', 'jianpu'] // 默认六线谱 + 简谱
-    } 
+    // if ( !jcx ) {
+    //   jcx = ['tab', 'jianpu'] // 默认六线谱 + 简谱
+    // } 
     for(const i in jcx) {
       const type = jcx[i]
       /*
@@ -45,7 +45,12 @@ function makeTrackMeta(obj) {
 }
 
 function makeTracks(obj) {
-  return '...'
+  const {tracks} = obj 
+  for(const key in tracks) {
+    const {name, lines} = tracks[key]
+    // 先读取jcx的配置
+    const jcx = obj.header.tracksObj[name]
+  }
 }
 
 export default function convert(music) {

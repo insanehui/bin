@@ -2,6 +2,7 @@
  * music文件的整体解析
  */
 import yaml from 'js-yaml'
+import _ from 'lodash'
 
 function groupTracks(score) {
   const tracks = {}
@@ -32,10 +33,17 @@ function groupTracks(score) {
   return tracks
 }
 
+function parseHeader(a) {
+  const header = yaml.load(a)
+  const {tracks} = header
+  header.tracksObj = _.mapKeys(tracks, v=>v.name)
+  return header
+}
+
 export default function parse(file) {
   // 先分成两部分，按 ==========（三个以上） 区分
   const [a, b] = file.split(/===+\n/)
-  const header = yaml.load(a)
+  const header = parseHeader(a)
   const tracks = groupTracks(b)
 
   return {
