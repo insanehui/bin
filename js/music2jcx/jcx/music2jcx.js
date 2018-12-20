@@ -3,6 +3,7 @@
  */
 
 import parseFile from '../musicFile/main.js'
+import {firstor} from '../../utils/modash.js'
 
 function makeHeader(obj) {
   let res = ''
@@ -22,6 +23,27 @@ function makeHeader(obj) {
   return res
 }
 
+function makeTrackMeta(obj) {
+  const {header:{tracks}} = obj
+  let res = ''
+
+  const first = firstor()
+
+  for (let {name, jcx} of tracks) {
+    if ( !jcx ) {
+      jcx = ['tab', 'jianpu'] // 默认六线谱 + 简谱
+    } 
+    for(const i in jcx) {
+      const type = jcx[i]
+      /*
+       * 先暂时把一些配置写死，因为它们只是用来播放的
+       */
+      res += `V:${name}${i} style=${type} ${first()?'bracket=10':''}\n`
+    }
+  }
+  return res
+}
+
 function makeTracks(obj) {
   return '...'
 }
@@ -29,10 +51,12 @@ function makeTracks(obj) {
 export default function convert(music) {
   const obj = parseFile(music)
   const header = makeHeader(obj)
+  const trackMeta = makeTrackMeta(obj)
   const tracks = makeTracks(obj)
 
   return `%MUSE2
 ${header}
+${trackMeta}
 ${tracks}
   `
 }

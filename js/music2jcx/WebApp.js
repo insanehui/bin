@@ -23,7 +23,7 @@ tempo : 1/4=90
 key : C
 tracks : 
   - name: guitar
-    jcx: [jianpu, tab]
+    jcx: [tab, jianpu]
 =================
 <guitar> 0 0 (5.5.) | 6. 5. 1 | 7. - (5.5.) | 6. 5. 2 
 :w:      * * 祝 你    生 日 快  乐    祝你    生 日 快
