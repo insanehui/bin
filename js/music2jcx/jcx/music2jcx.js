@@ -4,6 +4,8 @@
 
 import parseFile from '../musicFile/main.js'
 import {firstor} from '../../utils/modash.js'
+import notation from '../jcx/notation.js'
+import tab from '../jcx/tab.js'
 
 function makeHeader(obj) {
   let res = ''
@@ -46,11 +48,32 @@ function makeTrackMeta(obj) {
 
 function makeTracks(obj) {
   const {tracks} = obj 
+  let res = ''
   for(const key in tracks) {
     const {name, lines} = tracks[key]
     // 先读取jcx的配置
-    const jcx = obj.header.tracksObj[name]
+    const jcx = obj.header.tracksObj[name].jcx
+    for(const i in jcx) {
+      const type = jcx[i]
+      const parse = (type === 'jianpu' ? notation : tab)
+      res += `[V:${name}${i}]\n`
+      for (const line of lines) {
+        if ( line.startsWith('w:') ) {
+          if ( type === 'jianpu' ) {
+            res += line
+          } 
+          else {
+            continue
+          }
+        } 
+        else {
+          res += parse(line)
+        }
+        res += '\n'
+      }
+    }
   }
+  return res
 }
 
 export default function convert(music) {
