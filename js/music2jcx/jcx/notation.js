@@ -22,9 +22,10 @@ function seq2JcxScore(seq) {
     global.lastNote = note
     output += jcxNote(note)
     duration = duration.toFraction()
-    if ( duration !== '1' ) {
-      output += duration
+    if ( /^1$|^1\//.test(duration) ) { // 省掉不必要的1
+      duration = duration.slice(1)
     } 
+    output += duration
   }
   return output
 }
