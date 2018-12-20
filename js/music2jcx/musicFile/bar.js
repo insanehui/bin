@@ -2,6 +2,7 @@
  * 解释music类型文件. 转成一个序列的格式
  * 目前暂时先处理一个小节. 后面看看怎么扩展
  */
+import {fraction} from 'mathjs'
 
 // 将一个音符系列转成结构化的数据（这里的struct也就是之前说的tree）
 function text2struct(text) {
@@ -51,12 +52,12 @@ function text2struct(text) {
 }
 
 // 将树状的数据结构平铺成序列的格式
-function structFlattern(tree, len = tree.length) {
+function structFlattern(tree, len = fraction(tree.length)) {
   /*
    * 最终得到一个音符 + 时值组成的数组
    */
   let res = []
-  const duration = len / tree.length
+  const duration = len.div(tree.length)
   for (const item of tree) {
     if ( typeof item === 'string' ) { // 这是一个音符
       res.push({
@@ -86,7 +87,7 @@ function seqCollapse(seq) {
     } 
     else {
       const lastNote = res[res.length-1]
-      lastNote.duration += duration
+      lastNote.duration = lastNote.duration.add(duration)
     }
   }
   return res

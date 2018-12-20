@@ -21,12 +21,10 @@ function seq2JcxScore(seq) {
     } 
     global.lastNote = note
     output += jcxNote(note)
-    if ( duration<1 ) {
-      output += `/${1/duration}`
-    } 
-    else if(duration>1) {
+    duration = duration.toFraction()
+    if ( duration !== '1' ) {
       output += duration
-    }
+    } 
   }
   return output
 }

@@ -18,13 +18,10 @@ function seq2tab(seq, opt) {
     global.lastNote = note
 
     output += fret(note, opt)
-
-    if ( duration<1 ) {
-      output += `/${1/duration}`
-    } 
-    else if(duration>1) {
+    duration = duration.toFraction()
+    if ( duration !== '1' ) {
       output += `*${duration}`
-    }
+    } 
   }
   return output
 }
