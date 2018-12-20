@@ -19,6 +19,7 @@ function main() {
 
   copy(_src_, '../utils', [
     'modash.js',
+    'modash/arsonWash.js',
   ])
 
   console.log(chalk.cyan('premake done'))

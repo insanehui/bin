@@ -11,6 +11,7 @@ import tab from '../jcx/tab.js'
 
 // 调整一下obj，方便读取数据
 function refineObj(obj) {
+  // 之所以要用arson的wash是因为obj里有交叉引用的结构
   obj = wash(obj)
   for (const track of obj.header.tracks) {
     const {jcx} = track

@@ -6,7 +6,7 @@ import fret from './fret.js'
 
 global.lastNote = '1'
 
-function seq2tab(seq) {
+function seq2tab(seq, opt) {
   let output = ''
   for(const i in seq) {
     let {note, duration} = seq[i]
@@ -17,7 +17,7 @@ function seq2tab(seq) {
     } 
     global.lastNote = note
 
-    output += fret(note)
+    output += fret(note, opt)
 
     if ( duration<1 ) {
       output += `/${1/duration}`
@@ -29,12 +29,12 @@ function seq2tab(seq) {
   return output
 }
 
-function parseBar(score) {
-  const seq = parseMusic(score)
-  const res = seq2tab(seq) + '|'
+function parseBar(score, opt) {
+  const seq = parseMusic(score, opt)
+  const res = seq2tab(seq, opt) + '|'
   return res
 }
 
-export default function parse(score) {
-  return score.split('|').map(parseBar).join('')
+export default function parse(score, opt) {
+  return score.split('|').map(x=>parseBar(x, opt)).join('')
 }
