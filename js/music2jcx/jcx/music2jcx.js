@@ -31,14 +31,9 @@ function refineObj(obj) {
 
 function makeHeader(obj) {
   let res = ''
-  const table = {
-    title : 'T',
-    timeSign : 'M',
-    tempo : 'Q',
-    key : 'K',
-    artist : 'C',
-    beat : 'L', // 单位长度是多少
-  }
+  /*
+   * 由于jcx要求头部要有顺序，所以用数组作数据结构
+   */
   let {header} = obj
   let {timeSign, beat} = header
   if (!beat)  { // 如果没有节拍，根据timeSign来生成
@@ -48,10 +43,26 @@ function makeHeader(obj) {
       beat,
     }
   } 
-  for(const key in header) {
-    if ( key in table ) {
-      res += `${table[key]}: ${header[key]}\n`
+
+  const table = [
+    ['title', 'T'],
+    ['timeSign', 'M'],
+    ['beat','L'], // 单位长度是多少
+    ['tempo','Q'],
+    ['artist','C'],
+    ['key','K'],
+  ]
+  for (const [name, key] of table) {
+    let values = header[name]
+    if ( !values ) {
+      continue
     } 
+    if ( !Array.isArray(values) ) {
+      values = [values]
+    } 
+    for (const v of values) {
+      res += `${key}: ${v}\n`
+    }
   }
   return res
 }
