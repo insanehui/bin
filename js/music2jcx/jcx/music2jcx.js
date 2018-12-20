@@ -15,8 +15,17 @@ function makeHeader(obj) {
     tempo : 'Q',
     key : 'K',
     artist : 'C',
+    beat : 'L', // 单位长度是多少
   }
-  const {header} = obj
+  let {header} = obj
+  let {timeSign, beat} = header
+  if (!beat)  { // 如果没有节拍，根据timeSign来生成
+    beat = '1' + timeSign ? timeSign.slice(1) : '/4'
+    header = {
+      ...header,
+      beat,
+    }
+  } 
   for(const key in header) {
     if ( key in table ) {
       res += `${table[key]}: ${header[key]}\n`
