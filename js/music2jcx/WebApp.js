@@ -7,6 +7,7 @@ import S from 'styled-components'
 import toNotation from './jcx/notation.js'
 import toTab from './jcx/tab.js'
 import parseFile from './musicFile/main.js'
+import fromMusic from './jcx/music2jcx.js'
 // import {testify,} from '../utils/modash.js'
 
 const Score = (S.textarea`
@@ -35,17 +36,22 @@ export default class App extends React.PureComponent {
     jcx : '',
   }
 
+  setData = data=>{
+    this.setState({ jcx : data })
+    navigator.clipboard.writeText(data)
+  }
+
   make = (type)=>{
     const {track} = this.refs
     const parse = type === 'notation' ? toNotation : toTab
     const jcxData = parse(track.value) 
-    this.setState({ jcx : jcxData })
-    navigator.clipboard.writeText(jcxData)
+    this.setData(jcxData)
   }
 
   doFile = ()=>{
     const {file} = this.refs
     const res = parseFile(file.value) 
+    this.setData(fromMusic(file.value))
     console.log('file', res)
   }
 
