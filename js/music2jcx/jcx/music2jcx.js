@@ -1,11 +1,32 @@
 /*
  * 将一个完整的music文件转成jcx格式
  */
+import _ from 'lodash'
+import {wash} from '../../utils/modash.js'
 
 import parseFile from '../musicFile/main.js'
 import {firstor} from '../../utils/modash.js'
 import notation from '../jcx/notation.js'
 import tab from '../jcx/tab.js'
+
+// 调整一下obj，方便读取数据
+function refineObj(obj) {
+  obj = wash(obj)
+  for (const track of obj.header.tracks) {
+    const {jcx} = track
+    track.jcx = _.map(jcx, v=>{
+      if ( (typeof v) === 'string' ) {
+        return {
+          type : v,
+        }
+      } 
+      else {
+        return v
+      }
+    })
+  }
+  return obj
+}
 
 function makeHeader(obj) {
   let res = ''
@@ -20,7 +41,7 @@ function makeHeader(obj) {
   let {header} = obj
   let {timeSign, beat} = header
   if (!beat)  { // 如果没有节拍，根据timeSign来生成
-    beat = '1' + timeSign ? timeSign.slice(1) : '/4'
+    beat = '1' + (timeSign ? timeSign.slice(1) : '/4')
     header = {
       ...header,
       beat,
@@ -45,7 +66,7 @@ function makeTrackMeta(obj) {
     //   jcx = ['tab', 'jianpu'] // 默认六线谱 + 简谱
     // } 
     for(const i in jcx) {
-      const type = jcx[i]
+      const {type} = jcx[i]
       /*
        * 先暂时把一些配置写死，因为它们只是用来播放的
        */
@@ -63,7 +84,7 @@ function makeTracks(obj) {
     // 先读取jcx的配置
     const jcx = obj.header.tracksObj[name].jcx
     for(const i in jcx) {
-      const type = jcx[i]
+      const {type, translate} = jcx[i]
       const parse = (type === 'jianpu' ? notation : tab)
       res += `[V:${name}${i}]\n`
       for (const line of lines) {
@@ -76,7 +97,7 @@ function makeTracks(obj) {
           }
         } 
         else {
-          res += parse(line)
+          res += parse(line, {translate})
         }
         res += '\n'
       }
@@ -86,7 +107,9 @@ function makeTracks(obj) {
 }
 
 export default function convert(music) {
-  const obj = parseFile(music)
+  let obj = parseFile(music)
+  obj = refineObj(obj)
+
   const header = makeHeader(obj)
   const trackMeta = makeTrackMeta(obj)
   const tracks = makeTracks(obj)

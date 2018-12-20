@@ -5,7 +5,10 @@ tempo : 1/4=90
 key : C
 tracks : 
   - name: guitar
-    jcx: [tab, jianpu]
+    jcx: 
+      - type: tab
+        translate: -12
+      - jianpu
 =================
 <guitar> 1 (12) 3 (34) | 5 (65) 3 - | 5 (43) 2 - | 4 (32) 1- 
 <guitar> 1 (12) 3 (34) | 5 (65) 3 - | 5 (43) 2 (32) | 1---
