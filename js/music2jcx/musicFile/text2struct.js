@@ -23,16 +23,18 @@ export default function text2struct(text) {
    * 注意：pushNote函数不能改state！，切记！！
    */
   function pushNote() {
+    function reset() {
+      chord = ''
+      singleNote = ''
+    }
+
     if ( state === 'note') { // 单音完成
-      let note
-      note = new Note(singleNote)
       const item = {
-        note,
+        note : new Note(singleNote),
         ...(chord && {chord}),
       }
       notes.push(item)
-      chord = ''
-      singleNote = ''
+      reset()
     } 
     else if ( state === 'multi_end' ) { // 和音完成
       const item = {
@@ -41,13 +43,11 @@ export default function text2struct(text) {
       }
       notes.push(item)
       multiNote = new Note()
-      chord = ''
-      singleNote = ''
+      reset()
     } 
     else if ( state === 'multi_note' ) { // 和音收集
       multiNote.add(singleNote)
-      chord = ''
-      singleNote = ''
+      reset()
     } 
   }
 
