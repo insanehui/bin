@@ -76,6 +76,7 @@ export default function text2struct(text) {
       continue
     } 
     else if ( c==='(' ) {
+      pushNote()
       notes.push(text2struct(text))
       state = 'reset'
     } 
