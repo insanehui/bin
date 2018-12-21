@@ -22,8 +22,11 @@ tracks :
   - name: guitar
     jcx: tab
     beat: 1/8
+patterns :
+  C: '"C"5323'
+  Am: '"Am"5323'
 =================
-<guitar> "C"5323"Am"5323
+<guitar> %C %Am
 `)
 
 export default class App extends React.PureComponent {
