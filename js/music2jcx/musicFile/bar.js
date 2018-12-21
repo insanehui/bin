@@ -4,6 +4,24 @@
  */
 import {fraction} from 'mathjs'
 
+/*
+ * 找到当前和弦. 没有和弦则表示这是普通音符
+ */
+function getChord(text) {
+  text = text.trim()
+  const chordReg = /^"(\S+)"/
+  const exec = chordReg.exec(text)
+  if ( !exec ) {
+    return {
+      text,
+    }
+  } 
+  return {
+    text : text.replace(chordReg, ''),
+    chord : exec[1],
+  }
+}
+
 // 将一个音符系列转成结构化的数据（这里的struct也就是之前说的tree）
 function text2struct(text) {
   /*
@@ -94,8 +112,10 @@ function seqCollapse(seq) {
 }
 
 export default function parse(str) {
-  let res = text2struct(str)
+  const {chord, text} = getChord(str)
+  let res = text2struct(text)
   res = structFlattern(res)
   res = seqCollapse(res)
+  res.chord = chord
   return res
 }
