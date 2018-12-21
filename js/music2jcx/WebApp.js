@@ -31,7 +31,7 @@ patterns :
     Em : '"Em"632123'
     Am : '"Am"532123'
 =================
-<guitar> %C | %Dm | %Em | %Am | "Am"[54321]
+<guitar> %C | %Dm | %Em | %Am | "Am"[54321]-----
 `)
 
 export default class App extends React.PureComponent {
