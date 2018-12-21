@@ -91,22 +91,48 @@ CC/2D/2EE/2F/2|GA/2G/2E2|GF/2E/2DE/2D/2|C4|
     expect(fact.trim()).toEqual(hope.trim())
   })
 
-  xit('简单分解', () => {
+  it('两只老虎', () => {
     const para = [
 `
-title : 简单分解
+title : 两只老虎
+artist : 童话吉他编配
 timeSign : 4/4
 tracks : 
   - name: guitar
     jcx: tab
     beat: 1/8
+  - name: melody
+    jcx: jianpu
 =================
-<guitar> "C"53231323
+<guitar> "C"53231323 | "C"53231323 | "C"53231323 | "C"53231323 
+<melody> 1 2 3 1     | 1 2 3 1 | 3 4 5 - | 3 4 5 -
+w:       两只老虎      两只老虎  跑得快    跑得快
+<guitar> "C"53231323   | "C"53231323   | "G"6323"C"5323 | "G"6323"C"5323 
+<melody> (56) (54) 3 1 | (56) (54) 3 1 | 2 5. 1 -       | 2 5. 1 - 
+w:       一只没有眼睛    一只没有尾巴    真奇怪           真奇怪
 `,
     ]
     const hope = `
+%MUSE2
+T: 两只老虎
+M: 4/4
+L: 1/4
+C: 童话吉他编配
+K: C
+
+V:guitar0 style=tab bracket=10
+V:melody0 style=jianpu 
+
+[V:guitar0]
+"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2bx*1/2cx*1/2|"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2bx*1/2cx*1/2|"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2bx*1/2cx*1/2|"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2bx*1/2cx*1/2|
+"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2bx*1/2cx*1/2|"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2bx*1/2cx*1/2|"G"fx*1/2cx*1/2bx*1/2cx*1/2"C"ex*1/2cx*1/2bx*1/2cx*1/2|"G"fx*1/2cx*1/2bx*1/2cx*1/2"C"ex*1/2cx*1/2bx*1/2cx*1/2|
+[V:melody0]
+CDEC|CDEC|EFG2|EFG2|
+w:       两只老虎      两只老虎  跑得快    跑得快
+G/2A/2G/2F/2EC|G/2A/2G/2F/2EC|DG,C2|DG,C2|
+w:       一只没有眼睛    一只没有尾巴    真奇怪           真奇怪
     `
     const fact = convert(...para)
-    expect(fact).toEqual(hope)
+    expect(fact.trim()).toEqual(hope.trim())
   })
 });
