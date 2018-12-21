@@ -13,7 +13,7 @@ function groupTracks(score) {
     // 如果是曲谱音轨
     const trackPre = /^<(\S+)>/
     const trackExec = trackPre.exec(line)
-    const lyricsPre = /^:w:/
+    const lyricsPre = /^w:/ // 注：前面的冒号可有可无
     if ( trackExec ) { // 是个音轨
       const name = trackExec[1]
       if ( !tracks[name] ) {
@@ -27,7 +27,7 @@ function groupTracks(score) {
       lastTrack = name
     } 
     else if ( lyricsPre.test(line) ) {
-      tracks[lastTrack].lines.push(line.slice(1)) // 去掉前面的“:”
+      tracks[lastTrack].lines.push(line) 
     } 
   }
   return tracks
