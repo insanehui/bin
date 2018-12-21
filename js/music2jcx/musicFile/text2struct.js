@@ -13,14 +13,14 @@ export default function text2struct(text) {
     text = [...text]
   } 
   let notes = []
-  let note = null // 当前音符
+  let singleNote = null // 当前音符
   let chord = ''
   let state = 'reset'
 
   function pushNote() {
     if ( state === 'note' ) {
       const item = {
-        note : new Note(note),
+        note : new Note(singleNote),
         ...(chord && {chord}),
       }
       notes.push(item)
@@ -57,7 +57,7 @@ export default function text2struct(text) {
     } 
     else if ( /[\d-]/.test(c) ) { // 找到音符, - 也暂时代表音符
       pushNote()
-      note = c
+      singleNote = c
       state = 'note'
     } 
     else {
@@ -65,7 +65,7 @@ export default function text2struct(text) {
         chord += c
       } 
       else {
-        note += c
+        singleNote += c
       }
     } 
   }
