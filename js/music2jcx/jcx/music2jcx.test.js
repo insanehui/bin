@@ -1,7 +1,7 @@
 import convert from './music2jcx.js'
 
 describe('music2jcx', () => {
-  it('简单分解', () => {
+  xit('简单分解', () => {
     const para = [
 `
 title : 简单分解
@@ -16,9 +16,7 @@ tracks :
     ]
     const hope = `
     `
-
     const fact = convert(...para)
-    console.log(`=======\n${fact}`)
-    // expect(fact).toEqual(hope)
+    expect(fact).toEqual(hope)
   })
 });
