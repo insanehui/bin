@@ -11,8 +11,8 @@ export default function text2struct(text) {
   } 
   let notes = []
   let note = null // 当前音符
-  let chord = null
-  let state = 'blank'
+  let chord = ''
+  let state = 'reset'
 
   function pushNote() {
     if ( state === 'note' ) {
@@ -21,7 +21,7 @@ export default function text2struct(text) {
         ...(chord && {chord}),
       }
       notes.push(item)
-      chord = null
+      chord = ''
     } 
   }
 
@@ -33,15 +33,24 @@ export default function text2struct(text) {
       pushNote()
       return notes
     } 
-    if ( /\s/.test(c) ) {
+
+    if ( c === '"' ) { // 和弦标记
+      if ( state !== 'chord' ) {
+        pushNote()
+        state = 'chord'
+      } 
+      else { // 处于和弦状态
+        state = 'reset'
+      }
+    } 
+    else if ( /\s/.test(c) ) {
       pushNote()
-      state = 'blank'
+      state = 'reset'
       continue
     } 
-
-    if ( c==='(' ) {
+    else if ( c==='(' ) {
       notes.push(text2struct(text))
-      state = 'blank'
+      state = 'reset'
     } 
     else if ( /[\d-]/.test(c) ) { // 找到音符, - 也暂时代表音符
       pushNote()
@@ -49,7 +58,12 @@ export default function text2struct(text) {
       state = 'note'
     } 
     else {
-      note += c
+      if ( state === 'chord' ) {
+        chord += c
+      } 
+      else {
+        note += c
+      }
     } 
   }
 }
