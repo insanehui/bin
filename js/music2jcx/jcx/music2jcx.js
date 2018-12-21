@@ -15,7 +15,10 @@ function refineObj(obj) {
   obj = wash(obj)
   for (const track of obj.header.tracks) {
     const {jcx} = track
-    track.jcx = _.map(jcx, v=>{
+    if ( typeof jcx === 'string' ) {
+      track.jcx = [jcx]
+    } 
+    track.jcx = _.map(track.jcx, v=>{
       if ( (typeof v) === 'string' ) {
         return {
           type : v,
