@@ -16,17 +16,22 @@ const Score = (S.textarea`
 `)
 
 const musicExample = (`
-title : 简单分解
-timeSign : 4/4
+title : 心愿
+artist : 童话吉他编配
+timeSign : 3/4
 tracks : 
   - name: guitar
     jcx: tab
-    beat: 1/8
-patterns :
-  C: '"C"5323'
-  Am: '"Am"5323'
+    beat : 1/8
+  - name: melody
+    jcx: jianpu
+patterns : 
+    C : '"C"532123'
+    Dm : '"Dm"432123'
+    Em : '"Em"632123'
+    Am : '"Am"532123'
 =================
-<guitar> %C %Am
+<guitar> %C | %Dm | %Em | %Am | "Am"[54321]
 `)
 
 export default class App extends React.PureComponent {
