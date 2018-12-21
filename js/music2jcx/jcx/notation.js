@@ -21,12 +21,20 @@ function seq2JcxScore(seq) {
       note = global.lastNote
     } 
     global.lastNote = note
-    output += jcxNote(note)
+    const name = jcxNote(note)
     duration = duration.toFraction()
     if ( /^1$|^1\//.test(duration) ) { // 省掉不必要的1
       duration = duration.slice(1)
     } 
-    output += duration
+    /*
+     * ！！对 7的特殊处理是muse的bug!
+     */
+    if ( duration === '7' ) {
+      output += `${name}6${name.toLowerCase()==='z'?'':'-'}${name}`
+    } 
+    else {
+      output += name+duration
+    }
   }
   return output
 }
