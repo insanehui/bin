@@ -3,55 +3,8 @@
  * 目前暂时先处理一个小节. 后面看看怎么扩展
  */
 import {fraction} from 'mathjs'
+import text2struct from './text2struct.js'
 
-// 将一个音符系列转成结构化的数据（这里的struct也就是之前说的tree）
-function text2struct(text) {
-  /*
-   * text可以是字符串也可以是数组
-   * 递归。遇到序列尾或者 ) 即结束
-   */
-  if ( typeof text === 'string' ) {
-    text = [...text]
-  } 
-  let notes = []
-  let note = null // 当前音符
-  // let chord = null
-  let state = 'blank'
-
-  function pushNote() {
-    if ( state === 'note' ) {
-      notes.push(note)
-    } 
-  }
-
-  while(1) {
-    const c = text.shift() // 当前字符
-
-    // 越界直接返回
-    if ( c === undefined || c === ')' ) {
-      pushNote()
-      return notes
-    } 
-    if ( /\s/.test(c) ) {
-      pushNote()
-      state = 'blank'
-      continue
-    } 
-
-    if ( c==='(' ) {
-      notes.push(text2struct(text))
-      state = 'blank'
-    } 
-    else if ( /[\d-]/.test(c) ) { // 找到音符, - 也暂时代表音符
-      pushNote()
-      note = c
-      state = 'note'
-    } 
-    else {
-      note += c
-    } 
-  }
-}
 
 // 将树状的数据结构平铺成序列的格式
 function structFlattern(tree, len = fraction(tree.length)) {
