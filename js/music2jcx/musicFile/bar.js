@@ -9,7 +9,8 @@ import text2struct from './text2struct.js'
 // 将树状的数据结构平铺成序列的格式
 function structFlattern(tree, len = fraction(tree.length)) {
   /*
-   * 最终得到一个音符 + 时值组成的数组
+   * 最终得到一个音符 + 时值组成的数组. 
+   * 注意：这里默认写死1/4为一拍！！，后面再想扩展
    */
   let res = []
   const duration = len.div(tree.length)
@@ -48,9 +49,16 @@ function seqCollapse(seq) {
   return res
 }
 
-export default function parse(str) {
+export default function parse(str, opt = {}) {
   let res = text2struct(str)
-  res = structFlattern(res)
+
+  let dura
+  const {beat} = opt
+  if ( beat ) {
+    dura = fraction(beat).div('1/4').mul(res.length)
+  } 
+
+  res = structFlattern(res, dura)
   res = seqCollapse(res)
   return res
 }

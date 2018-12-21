@@ -102,7 +102,7 @@ function makeTracks(obj) {
   for(const key in tracks) {
     const {name, lines} = tracks[key]
     // 先读取jcx的配置
-    const jcx = obj.header.tracksObj[name].jcx
+    const {jcx, beat} = obj.header.tracksObj[name]
     for(const i in jcx) {
       const {type, translate} = jcx[i]
       const parse = (type === 'jianpu' ? notation : toTab)
@@ -117,7 +117,7 @@ function makeTracks(obj) {
           }
         } 
         else {
-          res += parse(line, {translate})
+          res += parse(line, {translate, beat})
         }
         res += '\n'
       }
