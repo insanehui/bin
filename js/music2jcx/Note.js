@@ -5,7 +5,9 @@ export default class Note {
   notes = []
 
   constructor(note) {
-    this.notes.push(note)
+    if ( note ) {
+      this.notes.push(note)
+    } 
   }
 
   add(note){

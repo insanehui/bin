@@ -14,17 +14,23 @@ export default function text2struct(text) {
   } 
   let notes = []
   let singleNote = null // 当前音符
+  let multiNote = new Note()
   let chord = ''
+
   let state = 'reset'
 
   function pushNote() {
     if ( state === 'note' ) {
+      let note
+      note = new Note(singleNote)
       const item = {
-        note : new Note(singleNote),
+        note,
         ...(chord && {chord}),
       }
       notes.push(item)
       chord = ''
+      singleNote = ''
+      state = 'reset'
     } 
   }
 
@@ -36,8 +42,13 @@ export default function text2struct(text) {
       pushNote()
       return notes
     } 
-
-    if ( c === '"' ) { // 和弦标记
+    if ( c === '[' ) {
+      pushNote()
+    } 
+    else if( c === ']'){
+      pushNote()
+    }
+    else if ( c === '"' ) { // 和弦标记
       if ( state !== 'chord' ) {
         pushNote()
         state = 'chord'
