@@ -19,8 +19,11 @@ export default function text2struct(text) {
 
   let state = 'reset'
 
+  /*
+   * 注意：pushNote函数不能改state！，切记！！
+   */
   function pushNote() {
-    if ( state === 'note' ) {
+    if ( state in {note:1, multi_begin:1} ) {
       let note
       note = new Note(singleNote)
       const item = {
@@ -30,7 +33,10 @@ export default function text2struct(text) {
       notes.push(item)
       chord = ''
       singleNote = ''
-      state = 'reset'
+    } 
+    else if ( state === 'multi_end' ) {
+    } 
+    else if ( state === 'multi_note' ) {
     } 
   }
 
@@ -43,9 +49,11 @@ export default function text2struct(text) {
       return notes
     } 
     if ( c === '[' ) {
+      state = 'multi_begin'
       pushNote()
     } 
     else if( c === ']'){
+      state = 'multi_end'
       pushNote()
     }
     else if ( c === '"' ) { // 和弦标记
@@ -68,10 +76,15 @@ export default function text2struct(text) {
     } 
     else if ( /[\d-]/.test(c) ) { // 找到音符, - 也暂时代表音符
       pushNote()
+      if ( state in {multi_begin:1, multi_note:1} ) {
+        state = 'multi_note'
+      } 
+      else {
+        state = 'note'
+      }
       singleNote = c
-      state = 'note'
     } 
-    else {
+    else { // 不改变当前state
       if ( state === 'chord' ) {
         chord += c
       } 
