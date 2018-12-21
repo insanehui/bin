@@ -15,21 +15,25 @@ function text2struct(text) {
   } 
   let notes = []
   let note = null // 当前音符
+  // let chord = null
   let state = 'blank'
+
+  function pushNote() {
+    if ( state === 'note' ) {
+      notes.push(note)
+    } 
+  }
+
   while(1) {
     const c = text.shift() // 当前字符
 
     // 越界直接返回
     if ( c === undefined || c === ')' ) {
-      if ( state === 'note' ) {
-        notes.push(note)
-      } 
+      pushNote()
       return notes
     } 
     if ( /\s/.test(c) ) {
-      if ( state === 'note' ) {
-        notes.push(note)
-      } 
+      pushNote()
       state = 'blank'
       continue
     } 
@@ -39,9 +43,7 @@ function text2struct(text) {
       state = 'blank'
     } 
     else if ( /[\d-]/.test(c) ) { // 找到音符, - 也暂时代表音符
-      if ( state === 'note' ) {
-        notes.push(note)
-      } 
+      pushNote()
       note = c
       state = 'note'
     } 
