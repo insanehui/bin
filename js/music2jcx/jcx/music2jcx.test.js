@@ -1,6 +1,50 @@
 import convert from './music2jcx.js'
 
 describe('music2jcx', () => {
+  it('生日歌', () => {
+    const para = [
+`
+title : 生日歌
+artist : 童话吉他编配
+timeSign : 3/4
+tempo : 1/4=90
+key : C
+tracks : 
+  - name: guitar
+    jcx: [tab, jianpu]
+=================
+<guitar> 0 0 (5.5.) | 6. 5. 1 | 7. - (5.5.) | 6. 5. 2 
+w:      * * 祝 你    生 日 快  乐    祝你    生 日 快
+<guitar> 1 - (5.5.) | 5 3 1 | 7. 6. (44) | 3 1 2 | 1 - -
+w:      乐   祝你    生日快  乐 *  祝你   生日快  乐
+`,
+    ]
+    const hope = `
+%MUSE2
+T: 欢乐颂
+M: 4/4
+L: 1/4
+C: 童话吉他编配
+K: C
+
+V:guitar0 style=tab bracket=10
+V:guitar1 style=jianpu 
+
+[V:guitar0]
+a0a0a1a3|a3a1a0b3|b1b1b3a0|a0*3/2b3*1/2b3*2|
+a0a0a1a3|a3a1a0b3|b1b1b3a0|b3*3/2b1*1/2b1*2|
+b3b3a0b1|b3a0*1/2a1*1/2a0b1|b3a1a0b3|b1b3a3*2|
+a0a0a1a3|a3a1a0b3|b1b1b3a0|b3*3/2b1*1/2b1*2|
+[V:guitar1]
+EEFG|GFED|CCDE|E3/2D/2D2|
+EEFG|GFED|CCDE|D3/2C/2C2|
+DDEC|DE/2F/2EC|DFED|CDG2|
+EEFG|GFED|CCDE|D3/2C/2C2|
+    `
+    const fact = convert(...para)
+    expect(fact.trim()).toEqual(hope.trim())
+  })
+
   it('欢乐颂', () => {
     const para = [
 `
