@@ -23,7 +23,7 @@ export default function text2struct(text) {
    * 注意：pushNote函数不能改state！，切记！！
    */
   function pushNote() {
-    if ( state in {note:1, multi_begin:1} ) {
+    if ( state === 'note') { // 单音完成
       let note
       note = new Note(singleNote)
       const item = {
@@ -34,9 +34,20 @@ export default function text2struct(text) {
       chord = ''
       singleNote = ''
     } 
-    else if ( state === 'multi_end' ) {
+    else if ( state === 'multi_end' ) { // 和音完成
+      const item = {
+        note : multiNote,
+        ...(chord && {chord}),
+      }
+      notes.push(item)
+      multiNote = new Note()
+      chord = ''
+      singleNote = ''
     } 
-    else if ( state === 'multi_note' ) {
+    else if ( state === 'multi_note' ) { // 和音收集
+      multiNote.add(singleNote)
+      chord = ''
+      singleNote = ''
     } 
   }
 
@@ -49,12 +60,12 @@ export default function text2struct(text) {
       return notes
     } 
     if ( c === '[' ) {
-      state = 'multi_begin'
       pushNote()
+      state = 'multi_begin'
     } 
     else if( c === ']'){
-      state = 'multi_end'
       pushNote()
+      state = 'multi_end'
     }
     else if ( c === '"' ) { // 和弦标记
       if ( state !== 'chord' ) {
