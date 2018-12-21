@@ -11,12 +11,17 @@ export default function text2struct(text) {
   } 
   let notes = []
   let note = null // 当前音符
-  // let chord = null
+  let chord = null
   let state = 'blank'
 
   function pushNote() {
     if ( state === 'note' ) {
-      notes.push(note)
+      const item = {
+        note,
+        ...(chord && {chord}),
+      }
+      notes.push(item)
+      chord = null
     } 
   }
 

@@ -14,16 +14,16 @@ function structFlattern(tree, len = fraction(tree.length)) {
   let res = []
   const duration = len.div(tree.length)
   for (const item of tree) {
-    if ( typeof item === 'string' ) { // 这是一个音符
-      res.push({
-        note : item,
-        duration,
-      })
-    } 
     // 如果是一串音符
-    else if ( Array.isArray(item) ) {
+    if ( Array.isArray(item) ) {
       res = [...res, ...structFlattern(item, duration)]
     } 
+    else { // 一个音符
+      res.push({
+        ...item,
+        duration,
+      })
+    }
   }
   return res
 }
