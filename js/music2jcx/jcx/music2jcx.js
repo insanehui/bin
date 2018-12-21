@@ -7,7 +7,7 @@ import wash from '../../utils/modash/arsonWash.js'
 import parseFile from '../musicFile/main.js'
 import {firstor} from '../../utils/modash.js'
 import notation from '../jcx/notation.js'
-import tab from '../jcx/tab.js'
+import toTab from '../jcx/tab.js'
 
 // 调整一下obj，方便读取数据
 function refineObj(obj) {
@@ -105,7 +105,7 @@ function makeTracks(obj) {
     const jcx = obj.header.tracksObj[name].jcx
     for(const i in jcx) {
       const {type, translate} = jcx[i]
-      const parse = (type === 'jianpu' ? notation : tab)
+      const parse = (type === 'jianpu' ? notation : toTab)
       res += `[V:${name}${i}]\n`
       for (const line of lines) {
         if ( line.startsWith('w:') ) {
