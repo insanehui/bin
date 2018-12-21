@@ -61,9 +61,17 @@ function seq2tab(seq, opt) {
       /*
        * 这里没有考虑非和弦形式的多声部转换
        */
-      output += fret(note, opt) + duration
+      const name = fret(note, opt) 
+      /*
+       * ! muse好像对7处理有个bug，所以逢7就得拆开来显示. 但没有测试
+       */
+      if ( duration === '*7' ) {
+          output += `${name}*6${name==='z'?'':'-'}${name}`
+      } 
+      else {
+        output += name + duration
+      }
     }
-
   }
   return output
 }
