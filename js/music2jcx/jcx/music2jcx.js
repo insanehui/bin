@@ -109,10 +109,12 @@ function makeTrackMeta(obj) {
 function makeTracks(obj) {
   const {tracks} = obj 
   let res = ''
+  const {patterns, tracksObj} = obj.header
+
   for(const key in tracks) {
     const {name, lines} = tracks[key]
     // 先读取jcx的配置
-    const {jcx, beat} = obj.header.tracksObj[name]
+    const {jcx, beat} = tracksObj[name]
     for(const i in jcx) {
       const {type, translate} = jcx[i]
       const parse = (type === 'jianpu' ? notation : toTab)
@@ -127,7 +129,7 @@ function makeTracks(obj) {
           }
         } 
         else {
-          res += parse(line, {translate, beat})
+          res += parse(line, {translate, beat, patterns})
         }
         res += '\n'
       }

@@ -1,7 +1,9 @@
 /*
  * 将文本解析为原始的数据结构。即曲谱解析的第一步
  */
+
 export default function text2struct(text) {
+
   /*
    * text可以是字符串也可以是数组
    * 递归。遇到序列尾或者 ) 即结束

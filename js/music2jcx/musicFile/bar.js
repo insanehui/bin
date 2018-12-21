@@ -2,9 +2,16 @@
  * 解释music类型文件. 转成一个序列的格式
  * 目前暂时先处理一个小节. 后面看看怎么扩展
  */
+import _ from 'lodash'
 import {fraction} from 'mathjs'
 import text2struct from './text2struct.js'
 
+function expandPatterns(text, patterns) {
+  _.each(patterns, (v, k) => {
+    text = text.replace(RegExp('%'+k+'\\b', 'g'), v)
+  })
+  return text
+}
 
 // 将树状的数据结构平铺成序列的格式
 function structFlattern(tree, len = fraction(tree.length)) {
@@ -50,13 +57,15 @@ function seqCollapse(seq) {
 }
 
 export default function parse(str, opt = {}) {
-  let res = text2struct(str)
+  const {beat, patterns} = opt
+  str = expandPatterns(str, patterns)
+
+  let res = text2struct(str, opt)
   if ( !res.length ) {
     return []
   } 
 
   let dura
-  const {beat} = opt
   if ( beat ) {
     dura = fraction(beat).div('1/4').mul(res.length)
   } 
