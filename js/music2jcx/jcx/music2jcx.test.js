@@ -7,9 +7,10 @@ describe('music2jcx', () => {
 timeSign : 4/4
 tracks : 
   - name: guitar
-    jcx: [tab]
+    jcx: tab
+    beat: 1/8
 =================
-<guitar> 1 2 3 1
+<guitar> "C"53231323
 `,
     ]
     const hope = `
