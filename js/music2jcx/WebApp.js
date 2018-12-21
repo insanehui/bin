@@ -16,19 +16,14 @@ const Score = (S.textarea`
 `)
 
 const musicExample = (`
-title : 生日歌
-artist : 童话吉他编配
-timeSign : 3/4
-tempo : 1/4=90
-key : C
+title : 简单分解
+timeSign : 4/4
 tracks : 
   - name: guitar
-    jcx: [tab, jianpu]
+    jcx: tab
+    beat: 1/8
 =================
-<guitar> 0 0 (5.5.) | 6. 5. 1 | 7. - (5.5.) | 6. 5. 2 
-:w:      * * 祝 你    生 日 快  乐    祝你    生 日 快
-<guitar> 1 - (5.5.) | 5 3 1 | 7. 6. (44) | 3 1 2 | 1 - -
-:w:      乐   祝你    生日快  乐 *  祝你   生日快  乐
+<guitar> "C"53231323
 `)
 
 export default class App extends React.PureComponent {

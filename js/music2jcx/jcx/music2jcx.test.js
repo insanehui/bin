@@ -3,7 +3,8 @@ import convert from './music2jcx.js'
 describe('music2jcx', () => {
   it('简单分解', () => {
     const para = [
-`title : 简单分解
+`
+title : 简单分解
 timeSign : 4/4
 tracks : 
   - name: guitar

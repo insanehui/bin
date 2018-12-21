@@ -7,7 +7,7 @@ import {fraction} from 'mathjs'
 // 将一个音符系列转成结构化的数据（这里的struct也就是之前说的tree）
 function text2struct(text) {
   /*
-   * text是数组
+   * text可以是字符串也可以是数组
    * 递归。遇到序列尾或者 ) 即结束
    */
   if ( typeof text === 'string' ) {

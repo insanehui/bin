@@ -28,6 +28,7 @@ function seq2tab(seq, opt) {
 
 function parseBar(score, opt) {
   const seq = parseMusic(score, opt)
+  console.log('seq', seq)
   const res = seq2tab(seq, opt) + '|'
   return res
 }
