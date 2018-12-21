@@ -75,6 +75,15 @@ function makeHeader(obj) {
   return res
 }
 
+function makeCustomChords(obj) {
+  const chords = _.get(obj, 'header.customChords')
+  let res = ''
+  _.each(chords, (definition, name) => {
+    res += `%%gchord ${name}=${definition}\n`
+  })
+  return res
+}
+
 function makeTrackMeta(obj) {
   const {header:{tracks}} = obj
   let res = ''
@@ -131,11 +140,13 @@ export default function convert(music) {
   obj = refineObj(obj)
 
   const header = makeHeader(obj)
+  const customChords = makeCustomChords(obj)
   const trackMeta = makeTrackMeta(obj)
   const tracks = makeTracks(obj)
 
   return `%MUSE2
 ${header}
+${customChords}
 ${trackMeta}
 ${tracks}
   `
