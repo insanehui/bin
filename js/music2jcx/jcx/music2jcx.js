@@ -53,12 +53,12 @@ function makeHeader(obj) {
   } 
 
   const table = [
-    ['title', 'T'],
-    ['info', 'I'],
+    ['title', 'T'], // 出现在谱面正上方
+    ['info', 'I'],  // 出现在谱面左上角
     ['timeSign', 'M'],
     ['beat','L'], // 单位长度是多少
     ['tempo','Q'],
-    ['artist','C'],
+    ['artist','C'], // 谱面右上角
     ['key','K'],
   ]
   for (const [name, key] of table) {
