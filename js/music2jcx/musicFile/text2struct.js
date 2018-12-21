@@ -93,6 +93,11 @@ export default function text2struct(text) {
       if ( state === 'chord' ) {
         chord += c
       } 
+      else if ( c === '$' ) { // 往下的琶音
+        if ( state === 'note' || state === 'multi_end' ) {
+          multiNote.arpeggio = true 
+        } 
+      } 
       else {
         singleNote += c
       }

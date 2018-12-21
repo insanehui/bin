@@ -29,6 +29,9 @@ function noteToJcxChordTab(note, duration) {
   if (note.size > 1) {
     res = `[${res}]`
   } 
+  if ( note.arpeggio ) {
+    res = 'B' + res
+  } 
   return res
 }
 

@@ -2,6 +2,7 @@
  * Note类，支持多个声音同时发声
  */
 export default class Note {
+  // 其他对象直接加
   notes = []
 
   constructor(note) {
