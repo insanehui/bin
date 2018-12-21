@@ -1,6 +1,7 @@
 /*
  * 将音符格式转为jcx的吉他谱
  */
+import _ from 'lodash'
 import fromBar from '../musicFile/bar.js'
 import fret from './fret.js'
 
@@ -23,6 +24,14 @@ function calcDuration(d) {
   return ''
 }
 
+function noteToJcxChordTab(note, duration) {
+  let res = _.map(note.notes, v=>`${gtString[v]}x${duration}`).join('')
+  if (note.size > 1) {
+    res = `[${res}]`
+  } 
+  return res
+}
+
 function seq2tab(seq, opt) {
   let output = ''
   let lastChord = null
@@ -36,7 +45,7 @@ function seq2tab(seq, opt) {
     duration = calcDuration(duration)
 
     if ( lastChord ) { // 如果处于和弦状态
-      output += `${gtString[note]}x${duration}`
+      output += noteToJcxChordTab(note, duration)
     } 
     else {
       // 如果第一个就是连音线
@@ -46,6 +55,9 @@ function seq2tab(seq, opt) {
         note = global.lastNote
       } 
       global.lastNote = note
+      /*
+       * 这里没有考虑非和弦形式的多声部转换
+       */
       output += fret(note, opt) + duration
     }
 

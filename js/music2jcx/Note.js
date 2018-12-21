@@ -18,8 +18,8 @@ export default class Note {
     return this.notes.join('')
   }
 
-  get isMulti(){
-    return !!notes.length
+  get size(){
+    return this.notes.length
   }
 
 }
