@@ -4,9 +4,10 @@ timeSign : 4/4
 tracks : 
   - name: guitar
     jcx: tab
+    beat: 1/8
   - name: melody
     jcx: jianpu
 =================
-<guitar> "C"53231323 |
-<melody> 1 2 3 1 | 1 2 3 1 | 3 4 5 - | 3 4 5 -
+<guitar> "C"53231323 | "C"53231323 | "C"53231323 | "C"53231323 
+<melody> 1 2 3 1     | 1 2 3 1 | 3 4 5 - | 3 4 5 -
 <melody> (56) (54) 3 1 | (56) (54) 3 1 | 2 5. 1 - | 2 5. 1 - 

@@ -1,7 +1,7 @@
 /*
  * 将音符格式转为jcx的吉他谱
  */
-import parseMusic from '../musicFile/bar.js'
+import fromBar from '../musicFile/bar.js'
 import fret from './fret.js'
 
 global.lastNote = '1'
@@ -46,8 +46,10 @@ function seq2tab(seq, opt) {
 }
 
 function parseBar(score, opt) {
-  const seq = parseMusic(score, opt)
-  console.log('seq', seq)
+  const seq = fromBar(score, opt)
+  if ( !seq.length ) {
+    return ''
+  } 
   const res = seq2tab(seq, opt) + '|'
   return res
 }

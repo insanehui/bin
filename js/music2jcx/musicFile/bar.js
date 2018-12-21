@@ -51,6 +51,9 @@ function seqCollapse(seq) {
 
 export default function parse(str, opt = {}) {
   let res = text2struct(str)
+  if ( !res.length ) {
+    return []
+  } 
 
   let dura
   const {beat} = opt
