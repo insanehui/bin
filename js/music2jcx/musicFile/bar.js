@@ -42,6 +42,7 @@ function seqCollapse(seq) {
   for(const i in seq) {
     const item = seq[i]
     const {note, duration} = item
+    // eslint-disable-next-line
     if ( note != '-' || i === '0') { // 注：这里要用 '0' 而不是 0！否则条件会不成立
       /*
        * 如果第一个就是延音线，还是先插入

@@ -15,7 +15,8 @@ function seq2JcxScore(seq) {
   for(const i in seq) {
     let {note, duration} = seq[i]
     // 如果第一个就是连音线
-    if ( i === '0' && note === '-' ) {
+    // eslint-disable-next-line
+    if ( i === '0' && note == '-' ) {
       output += '-'
       note = global.lastNote
     } 

@@ -29,6 +29,7 @@ function seq2tab(seq, opt) {
     } 
     else {
       // 如果第一个就是连音线
+      // eslint-disable-next-line
       if ( i === '0' && note == '-' ) {
         output += '-'
         note = global.lastNote
