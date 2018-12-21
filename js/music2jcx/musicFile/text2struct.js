@@ -1,6 +1,7 @@
 /*
  * 将文本解析为原始的数据结构。即曲谱解析的第一步
  */
+import Note from '../Note.js'
 
 export default function text2struct(text) {
 
@@ -19,7 +20,7 @@ export default function text2struct(text) {
   function pushNote() {
     if ( state === 'note' ) {
       const item = {
-        note,
+        note : new Note(note),
         ...(chord && {chord}),
       }
       notes.push(item)

@@ -24,6 +24,10 @@ const scale = {
 }
 
 export function note2number(note) {
+  /*
+   * 这里note为Note类的对象
+   */
+  note = note+'' // 先转成字符串
   const name = /^[#b]?\d/.exec(note)[0]
 
   let res = scale[name]

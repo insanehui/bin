@@ -4,7 +4,16 @@
 export default class Note {
   notes = []
 
-  add(note){
-    notes.push(note)
+  constructor(note) {
+    this.notes.push(note)
   }
+
+  add(note){
+    this.notes.push(note)
+  }
+
+  toString(){
+    return this.notes.join('')
+  }
+
 }

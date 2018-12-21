@@ -13,7 +13,7 @@ const noteTable = {
 }
 
 export default function jcxNote(note){
-  // 将首字母替换
+  note = note+''
   const name = note[0]
   const tail = note.slice(1)
   const newNote = (noteTable[name]||name) + tail.replace(/\./g, ',')
