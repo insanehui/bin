@@ -54,6 +54,7 @@ function makeHeader(obj) {
 
   const table = [
     ['title', 'T'],
+    ['info', 'I'],
     ['timeSign', 'M'],
     ['beat','L'], // 单位长度是多少
     ['tempo','Q'],
