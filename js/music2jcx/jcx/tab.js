@@ -15,6 +15,14 @@ const gtString = {
   6 : 'f',
 }
 
+function calcDuration(d) {
+  d =d.toFraction()
+  if ( d !== '1' ) {
+    return `*${d}`
+  } 
+  return ''
+}
+
 function seq2tab(seq, opt) {
   let output = ''
   let lastChord = null
@@ -24,8 +32,11 @@ function seq2tab(seq, opt) {
       lastChord = chord
       output += `"${chord}"`
     } 
+
+    duration = calcDuration(duration)
+
     if ( lastChord ) { // 如果处于和弦状态
-      output += `${gtString[note]}x`
+      output += `${gtString[note]}x${duration}`
     } 
     else {
       // 如果第一个就是连音线
@@ -35,13 +46,9 @@ function seq2tab(seq, opt) {
         note = global.lastNote
       } 
       global.lastNote = note
-
-      output += fret(note, opt)
+      output += fret(note, opt) + duration
     }
-    duration = duration.toFraction()
-    if ( duration !== '1' ) {
-      output += `*${duration}`
-    } 
+
   }
   return output
 }
