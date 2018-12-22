@@ -12,7 +12,13 @@ global.lastNote = '1'
  */
 function handleMuseBug(duration) {
   const {n,d} = duration
-  if ( n === 7 ){
+  if ( n === 5 ){
+    return [
+      fraction(1).div(d),
+      fraction(4).div(d),
+    ]
+  } 
+  else if ( n === 7 ){
     return [
       fraction(1).div(d),
       fraction(6).div(d),
