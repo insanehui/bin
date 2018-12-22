@@ -13,7 +13,7 @@ export default function text2struct(text) {
     text = [...text]
   } 
   let notes = []
-  let singleNote = null // 当前音符
+  let singleNote = '' // 当前音符
   let multiNote = new Note()
   let chord = ''
 
@@ -29,6 +29,7 @@ export default function text2struct(text) {
         ...(chord && {chord}),
       }
       notes.push(item)
+      singleNote = ''
       chord = ''
     } 
     else if ( state === 'multi_end' ) { // 和音完成
@@ -38,10 +39,12 @@ export default function text2struct(text) {
       }
       notes.push(item)
       chord = ''
+      singleNote = ''
       multiNote = new Note()
     } 
     else if ( state === 'multi_note' ) { // 和音收集
       multiNote.add(singleNote)
+      singleNote = ''
     } 
   }
 
@@ -93,7 +96,7 @@ export default function text2struct(text) {
       else {
         state = 'note'
       }
-      singleNote = c
+      singleNote += c
     } 
     else { // 不改变当前state
       if ( state === 'chord' ) {
