@@ -39,6 +39,10 @@ function noteToJcxChordTab(note, duration) {
     res = 'U' + res
   } 
 
+  if ( note.tie ) {
+    res = '-' + res
+  } 
+
   return res
 }
 

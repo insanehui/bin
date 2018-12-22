@@ -78,6 +78,10 @@ export default function text2struct(text) {
       chord = '='
       state = 'reset'
     } 
+    else if ( c === '_' ) { // 可以连不同的音符
+      pushNote()
+      multiNote.tie = true
+    } 
     else if ( /\s/.test(c) ) {
       pushNote()
       state = 'reset'
