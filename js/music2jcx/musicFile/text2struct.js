@@ -70,6 +70,11 @@ export default function text2struct(text) {
         state = 'reset'
       }
     } 
+    else if ( c === '=' ) { // 取消和弦的标记
+      pushNote()
+      chord = '='
+      state = 'reset'
+    } 
     else if ( /\s/.test(c) ) {
       pushNote()
       state = 'reset'

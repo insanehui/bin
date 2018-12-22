@@ -41,8 +41,13 @@ function seq2tab(seq, opt) {
   for(const i in seq) {
     let {note, duration, chord} = seq[i]
     if ( chord ) { // 如果是和弦，打上和弦状态标记
-      lastChord = chord
-      output += `"${chord}"`
+      if ( chord !== '=' ) {
+        lastChord = chord
+        output += `"${chord}"`
+      } 
+      else {
+        lastChord = null
+      }
     } 
 
     duration = calcDuration(duration)
