@@ -51,7 +51,7 @@ describe('parse', () => {
     const para = [
       "(43)-------"
     ]
-    const hope = `F/2E/2-E-E6`
+    const hope = `F/2E/2-E-E6|`
     const fact = parse(...para)
     expect(fact).toEqual(hope)
   })

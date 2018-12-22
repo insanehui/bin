@@ -1,26 +1,47 @@
 /*
  * 将音乐格式转为jcx的简谱或五线谱
  */
+import {fraction} from 'mathjs'
 import parseMusic from '../musicFile/bar.js'
 import jcxNote from './jcxNote.js'
 
 global.lastNote = '1'
 
-function name_duration(name, duration) {
-  duration = duration.toFraction()
-  if ( /^1$|^1\//.test(duration) ) { // 省掉不必要的1
-    duration = duration.slice(1)
+/*
+ * 特殊处理是muse的bug!
+ */
+function handleMuseBug(duration) {
+  const {n,d} = duration
+  if ( n === 7 ){
+    return [
+      fraction(1).div(d),
+      fraction(6).div(d),
+    ]
   } 
-
-  /*
-   * ！！对 7的特殊处理是muse的bug!
-   */
-  if ( duration === '7' ) {
-    return `${name}6${name.toLowerCase()==='z'?'':'-'}${name}`
+  else if ( n===15 ) {
+    return [
+      fraction(1).div(d),
+      fraction(2).div(d),
+      fraction(12).div(d),
+    ]
   } 
   else {
-    return name+duration
+    return [duration]
   }
+}
+
+function name_duration(name, duration) {
+
+  const ds = handleMuseBug(duration)
+  const names = ds.map(d => {
+    d = d.toFraction()
+    if ( /^1$|^1\//.test(d) ) { // 省掉不必要的1
+      d = d.slice(1)
+    } 
+    return name + d
+  })
+  const isZ = name.toLowerCase() === 'z'
+  return names.join(isZ ? '' : '-')
 }
 
 // 将collapse后的seq转成jcx的简谱格式（一小节）
