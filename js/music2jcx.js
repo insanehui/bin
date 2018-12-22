@@ -1,4 +1,4 @@
-import parse from './music2jcx/jcx/notation.js'
+import parse from './music2jcx/jcx/music2jcx.js'
 
 if ( global.window ) {
   const React = require('react')

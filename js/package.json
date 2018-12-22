@@ -27,13 +27,16 @@
     "music2jcx": "node scripts/music2jcx.js"
   },
   "dependencies": {
+    "arson": "^0.2.6",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "get-stdin": "^6.0.0",
     "jss-cli": "^5.0.0",
+    "mathjs": "^5.4.0",
     "shelljs": "^0.8.1",
+    "styled-components": "^4.1.3",
     "yargs": "^11.1.0"
   }
 }
