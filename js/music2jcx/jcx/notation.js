@@ -6,6 +6,23 @@ import jcxNote from './jcxNote.js'
 
 global.lastNote = '1'
 
+function name_duration(name, duration) {
+  duration = duration.toFraction()
+  if ( /^1$|^1\//.test(duration) ) { // 省掉不必要的1
+    duration = duration.slice(1)
+  } 
+
+  /*
+   * ！！对 7的特殊处理是muse的bug!
+   */
+  if ( duration === '7' ) {
+    return `${name}6${name.toLowerCase()==='z'?'':'-'}${name}`
+  } 
+  else {
+    return name+duration
+  }
+}
+
 // 将collapse后的seq转成jcx的简谱格式（一小节）
 function seq2JcxScore(seq) {
   /*
@@ -22,19 +39,8 @@ function seq2JcxScore(seq) {
     } 
     global.lastNote = note
     const name = jcxNote(note)
-    duration = duration.toFraction()
-    if ( /^1$|^1\//.test(duration) ) { // 省掉不必要的1
-      duration = duration.slice(1)
-    } 
-    /*
-     * ！！对 7的特殊处理是muse的bug!
-     */
-    if ( duration === '7' ) {
-      output += `${name}6${name.toLowerCase()==='z'?'':'-'}${name}`
-    } 
-    else {
-      output += name+duration
-    }
+    
+    output += name_duration(name, duration)
   }
   return output
 }

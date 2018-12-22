@@ -38,5 +38,14 @@ describe('parse', () => {
     expect(fact).toEqual(hope)
   })
 
+  it('逢7的bug', () => {
+    const para = [
+      "1------6"
+    ]
+    const hope = `C6-CA|`
+    const fact = parse(...para)
+    expect(fact).toEqual(hope)
+  })
+
 });
 
