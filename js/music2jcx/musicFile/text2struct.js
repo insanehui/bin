@@ -15,6 +15,130 @@ function setDecor(note, c) {
   } 
 }
 
+// function text2struct_new(text) {
+//   /*
+//    * text可以是字符串也可以是数组
+//    * 递归。遇到序列尾或者 ) 即结束
+//    */
+//   if ( typeof text === 'string' ) {
+//     text = [...text]
+//   } 
+
+//   let notes = []
+//   let state = 'init'
+//   let multiNote = new Note()
+//   let singleNote = ''
+//   let chord = ''
+//   let c = ''
+
+//   function pushNote() {
+//     notes.push(multiNote)
+//     multiNote = new Note()
+//   }
+
+//   function collectSingle() {
+//     singleNote += c
+//   }
+
+//   function collectMulti() {
+//     multiNote.add(singleNote)
+//     singleNote = ''
+//   }
+
+//   while(1) {
+//     c = text.shift() // 当前字符
+
+//     console.log('>', c, state, JSON.stringify(notes))
+
+//     // 越界直接返回
+//     if ( c === undefined || c === ')' ) {
+//       return notes
+//     } 
+//     if ( c === '[' ) {
+//       state = 'multi_begin'
+//     } 
+//     else if( c === ']'){
+//       state = 'multi_end'
+//     }
+//     else if ( c === '"' ) { // 和弦标记
+//       if ( state === 'chord_inside' ) {
+//         state = 'chord_end'
+//       } 
+//       else {
+//         state = 'chord_begin'
+//       }
+//     } 
+//     else if ( c === '=' ) { // 取消和弦的标记
+//       note.chord = '='
+//       state = 'wait_note'
+//     } 
+//     else if ( c === '_' ) { // 可以连不同的音符
+//       note.tie = true
+//       state = 'wait_note'
+//     } 
+//     else if ( /\s/.test(c) ) {
+//       pushNote()
+//       state = 'wait_note'
+//     } 
+//     else if ( c==='(' ) {
+//       pushNote()
+//       notes.push(text2struct_new(text))
+//       state = 'wait_note'
+//     } 
+//     else if ( /[b#]/.test(c) ) { // 升降号
+//       if ( state === 'multi_node' ) {
+//         collectMulti()
+//       } 
+//       else if(state === 'node'){
+//         collectMulti()
+//         pushNote()
+//       }
+//       collectSingle()
+//     } 
+//     else if ( /[\d-]/.test(c) ) { // 找到音符, - 也暂时代表音符
+//       if ( state === 'multi_begin' ){
+//         state = 'multi_node'
+//       } 
+//       else if ( state === 'multi_node' ) {
+//         collectMulti()
+//       } 
+//       else if ( state === 'note' ) {
+//         collectMulti()
+//         pushNote()
+//         state = 'note'
+//       } 
+//       else {
+//         collectSingle()
+//       }
+//     } 
+//     else { // 不改变当前state
+//       if ( state === 'chord' ) {
+//         chord += c
+//       } 
+//       else if ( /[$v^]/.test(c) ) { 
+//         if ( state === 'note' || state === 'multi_end' ) {
+//           setDecor(multiNote, c)
+//           if ( state === 'note' ) {
+//             state = 'single_decor'
+//           } 
+//           else if(state === 'multi_end'){
+//             state = 'multi_decor'
+//           }
+//         } 
+//         else if ( state.endsWith('decor') ) { // 如果紧跟着又来了一个装饰符号，则意味着使用上一个音
+//           pushNote()
+//           multiNote = new Note('_PREVIOUS_' )
+//           setDecor(multiNote, c)
+//           state = 'multi_end'
+//         } 
+//       } 
+//       else {
+//         singleNote += c
+//       }
+//     } 
+//   }
+// }
+
 export default function text2struct(text) {
 
   /*
@@ -147,3 +271,5 @@ export default function text2struct(text) {
     } 
   }
 }
+
+

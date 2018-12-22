@@ -8,6 +8,7 @@ import toNotation from './jcx/notation.js'
 import toTab from './jcx/tab.js'
 import parseFile from './musicFile/main.js'
 import fromMusic from './jcx/music2jcx.js'
+import temp from './musicFile/parseText.js'
 // import {testify,} from '../utils/modash.js'
 
 const Score = (S.textarea`
@@ -106,6 +107,12 @@ export default class App extends React.PureComponent {
     console.log('file', res)
   }
 
+  test = ()=>{
+    const {track} = this.refs
+    const res = temp(track.value) 
+    console.log('res', res)
+  }
+
   render() {
     const {jcx} = this.state 
     // const def = '1 ( (23) (4 (56)) ) | 1 (12) 3 (34)' 
@@ -115,6 +122,7 @@ export default class App extends React.PureComponent {
         单独音轨
         <button onClick={()=>this.make('notation')}>简谱</button>
         <button onClick={()=>this.make('tab')}>吉他谱</button>
+        <button onClick={this.test}>测试</button>
       </div>
       <Score ref='track' defaultValue={def}></Score>
       <div>
