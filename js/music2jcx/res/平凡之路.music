@@ -2,10 +2,10 @@ title : [平凡之路, 朴树]
 artist : 童话吉他编配
 timeSign : 4/4
 key : G
+beat : 1/8
 tracks : 
   - name: guitar
     jcx: tab
-    beat : 1/8
   - name: melody
     jcx: jianpu
 patterns : 
@@ -15,23 +15,29 @@ patterns :
     Em : '"Em"6423'
 =================
 <guitar> %Em %C | %G %Dx
-<melody> 0--- | 0---
+<melody> 0------- | 0-------
 <guitar> %Em %C | %G %Dx
-<melody> 0--- | 0---
+<melody> 0------- | 0-------
 
 <guitar> %Em %C | %G %Dx
-<melody> 0--- | 0---
+<melody> 03 3(66) -1 2(33) | --------
+w: 徘徊着的 在路上的
+
 <guitar> %Em %C | %G %Dx
-<melody> 0--- | 0---
+<melody> 03 3(66) -(-5) 5- | (43)-------
+w: 你要走吗 Vi-a Vi-a
+
 <guitar> %Em %C | %G %Dx
-<melody> 0--- | 0---
+<melody> 03 3(66) -1 2(33) | --------
+
 <guitar> %Em %C | %G %Dx
-<melody> 0--- | 0---
+<melody> 03 3(66) -(-5) 5- | (43)-------
+
 <guitar> %Em %C | %G %Dx
-<melody> 0--- | 0---
+<melody> 0------- | 0-------
 <guitar> %Em %C | %G %Dx
-<melody> 0--- | 0---
+<melody> 0------- | 0-------
 <guitar> %Em %C | %G %Dx
-<melody> 0--- | 0---
+<melody> 0------- | 0-------
 <guitar> %Em %C | %G %Dx
-<melody> 0--- | 0---
+<melody> 0------- | 0-------
