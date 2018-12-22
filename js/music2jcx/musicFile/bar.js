@@ -62,7 +62,7 @@ export default function parse(str, opt = {}) {
   str = expandPatterns(str, patterns)
 
   let res = text2struct(str, opt)
-  console.log('res', res)
+  // console.log('res', res)
   if ( !res.length ) {
     return []
   } 
