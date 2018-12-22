@@ -88,6 +88,10 @@ export default function text2struct(text) {
       notes.push(text2struct(text))
       state = 'reset'
     } 
+    else if ( /[b#]/.test(c) ) { // 升降号
+      pushNote()
+      singleNote = c
+    } 
     else if ( /[\d-]/.test(c) ) { // 找到音符, - 也暂时代表音符
       pushNote()
       if ( state in {multi_begin:1, multi_note:1} ) {
