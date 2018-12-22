@@ -186,12 +186,12 @@ export default function text2struct(text) {
 
   while(1) {
     const c = text.shift() // 当前字符
-    console.log('>', c, state, JSON.stringify(notes), JSON.stringify(multiNote))
+    // console.log('>', c, state, JSON.stringify(notes), JSON.stringify(multiNote))
 
     // 越界直接返回
     if ( c === undefined || c === ')' ) {
       pushNote()
-      console.log('notes', notes)
+      // console.log('notes', notes)
       return notes
     } 
     if ( c === '[' ) {

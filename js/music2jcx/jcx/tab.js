@@ -67,6 +67,7 @@ function seq2tab(seq, opt) {
       output += '-'
       note = global.lastNote
     } 
+    // eslint-disable-next-line
     else if ( note == '_PREVIOUS_' ) {
       note.notes = global.lastNote.notes
     } 

@@ -1,3 +1,5 @@
+import Note from '../Note.js'
+
 export default function main(text) {
   /*
    * text可以是字符串也可以是数组
@@ -51,9 +53,10 @@ export default function main(text) {
 
     // 越界直接返回
     if ( c === undefined || c === ')' ) {
+      collectMulti()
       return notes
     } 
-    else if( /[a-gC-]/.test(c) ){
+    else if( /[\d-]/.test(c) ){
       beginSingle()
       state = 'note'
     }
