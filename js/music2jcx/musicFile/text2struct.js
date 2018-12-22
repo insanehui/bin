@@ -3,6 +3,18 @@
  */
 import Note from '../Note.js'
 
+function setDecor(note, c) {
+  if ( c === '$' ) { 
+    note.arpeggio = true 
+  } 
+  else if( c === 'v'){
+    note.upStroke = true 
+  }
+  else if ( c === '^' ) {
+    note.downStroke = true 
+  } 
+}
+
 export default function text2struct(text) {
 
   /*
@@ -23,7 +35,7 @@ export default function text2struct(text) {
    * 注意：pushNote函数不能改state！，切记！！
    */
   function pushNote() {
-    if ( state === 'note') { // 单音完成
+    if ( state === 'note' || state === 'single_decor' ) { // 单音完成
       const item = {
         note : new Note(singleNote),
         ...(chord && {chord}),
@@ -32,7 +44,7 @@ export default function text2struct(text) {
       singleNote = ''
       chord = ''
     } 
-    else if ( state === 'multi_end' ) { // 和音完成
+    else if ( state === 'multi_end' || state === 'multi_decor') { // 和音完成
       const item = {
         note : multiNote,
         ...(chord && {chord}),
@@ -50,10 +62,12 @@ export default function text2struct(text) {
 
   while(1) {
     const c = text.shift() // 当前字符
+    console.log('>', c, state, JSON.stringify(notes), JSON.stringify(multiNote))
 
     // 越界直接返回
     if ( c === undefined || c === ')' ) {
       pushNote()
+      console.log('notes', notes)
       return notes
     } 
     if ( c === '[' ) {
@@ -112,15 +126,19 @@ export default function text2struct(text) {
       } 
       else if ( /[$v^]/.test(c) ) { 
         if ( state === 'note' || state === 'multi_end' ) {
-          if ( c === '$' ) { // 往下的琶音
-            multiNote.arpeggio = true 
+          setDecor(multiNote, c)
+          if ( state === 'note' ) {
+            state = 'single_decor'
           } 
-          else if( c === 'v'){
-            multiNote.upStroke = true 
+          else if(state === 'multi_end'){
+            state = 'multi_decor'
           }
-          else if ( c === '^' ) {
-            multiNote.downStroke = true 
-          } 
+        } 
+        else if ( state.endsWith('decor') ) { // 如果紧跟着又来了一个装饰符号，则意味着使用上一个音
+          pushNote()
+          multiNote = new Note('_PREVIOUS_' )
+          setDecor(multiNote, c)
+          state = 'multi_end'
         } 
       } 
       else {

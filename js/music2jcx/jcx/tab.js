@@ -61,19 +61,23 @@ function seq2tab(seq, opt) {
       }
     } 
 
+    // 如果第一个就是连音线
+    // eslint-disable-next-line
+    if ( i === '0' && note == '-' ) {
+      output += '-'
+      note = global.lastNote
+    } 
+    else if ( note == '_PREVIOUS_' ) {
+      note.notes = global.lastNote.notes
+    } 
+    global.lastNote = note
+
     duration = calcDuration(duration)
 
     if ( lastChord ) { // 如果处于和弦状态
       output += noteToJcxChordTab(note, duration)
     } 
     else {
-      // 如果第一个就是连音线
-      // eslint-disable-next-line
-      if ( i === '0' && note == '-' ) {
-        output += '-'
-        note = global.lastNote
-      } 
-      global.lastNote = note
       /*
        * 这里没有考虑非和弦形式的多声部转换
        */
