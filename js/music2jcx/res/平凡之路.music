@@ -13,6 +13,10 @@ patterns :
     G : '"G"6423'
     Dx : =#4.5.6.2.
     Em : '"Em"6423'
+    Ems : '"Em"[6543]^-[1234]^([1234]^[1234]v)'
+    Cs : '"C"5423'
+    Gs : '"C"5423'
+    Ds : '"C"5423'
 =================
 <guitar> %Em %C | %G %Dx
 <melody> 0------- | 0-------
@@ -28,16 +32,31 @@ w: 徘徊着的 在路上的
 w: 你要走吗 Vi-a Vi-a
 
 <guitar> %Em %C | %G %Dx
+<melody> 03 36 -1 23 | --------
+w: 易碎的 骄傲着
+
+<guitar> %Em %C | %G %Dx
+<melody> 03 31 3(44) -3 | 1-------
+w: 那也曾是我的模样
+
+<guitar> %Em %C | %G %Dx
 <melody> 03 3(66) -1 2(33) | --------
+w: 沸腾着的 不安着的
 
 <guitar> %Em %C | %G %Dx
 <melody> 03 3(66) -(-5) 5- | (43)-------
+w: 你要去哪 Vi-a Vi-a
+
 
 <guitar> %Em %C | %G %Dx
-<melody> 0------- | 0-------
+<melody> 03 3(66) -1 2(33) | --------
+w: 谜一样的 沉默着的
+
 <guitar> %Em %C | %G %Dx
-<melody> 0------- | 0-------
-<guitar> %Em %C | %G %Dx
-<melody> 0------- | 0-------
-<guitar> %Em %C | %G %Dx
-<melody> 0------- | 0-------
+<melody> 03 31 3(44) -3 | 1----567
+w: 故事你真的在听吗
+
+<guitar> %Ems %Cs | %Gs %Ds
+
+
+

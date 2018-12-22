@@ -32,6 +32,13 @@ function noteToJcxChordTab(note, duration) {
   if ( note.arpeggio ) {
     res = 'B' + res
   } 
+  else if ( note.downStroke ) {
+    res = 'V' + res
+  } 
+  else if ( note.upStroke ) {
+    res = 'U' + res
+  } 
+
   return res
 }
 
@@ -83,6 +90,7 @@ function seq2tab(seq, opt) {
 
 function parseBar(score, opt) {
   const seq = fromBar(score, opt)
+  // console.log('seq', seq)
   if ( !seq.length ) {
     return ''
   } 

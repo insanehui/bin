@@ -106,9 +106,17 @@ export default function text2struct(text) {
       if ( state === 'chord' ) {
         chord += c
       } 
-      else if ( c === '$' ) { // 往下的琶音
+      else if ( /[$v^]/.test(c) ) { 
         if ( state === 'note' || state === 'multi_end' ) {
-          multiNote.arpeggio = true 
+          if ( c === '$' ) { // 往下的琶音
+            multiNote.arpeggio = true 
+          } 
+          else if( c === 'v'){
+            multiNote.upStroke = true 
+          }
+          else if ( c === '^' ) {
+            multiNote.downStroke = true 
+          } 
         } 
       } 
       else {
