@@ -1,6 +1,27 @@
 import Note from '../Note.js'
 
 let chord = ''
+let lastMultiSeq = null
+
+function harmonyWithoutPostfix(multiNote) {
+  return multiNote.size > 1 
+    && multiNote.arpeggio === undefined 
+    && multiNote.downStroke === undefined 
+    && multiNote.upStroke === undefined
+}
+
+function setMultiNotePostfix(multiNote, c) {
+  if ( c === '$' ) {
+    multiNote.arpeggio = true
+  } 
+  else if ( c === '^' ) {
+    multiNote.downStroke = true
+  } 
+  else if ( c === 'v' ) {
+    multiNote.upStroke = true
+  } 
+}
+
 export default function parse(text) {
   /*
    * text可以是字符串也可以是数组
@@ -25,6 +46,9 @@ export default function parse(text) {
         chord = '' // 谁消费谁清空
       } 
       notes.push(multiNote)
+      if ( multiNote.size > 1 ) {
+        lastMultiSeq = multiNote.notes
+      } 
       multiNote = new Note()
       // 不动singleNote
     } 
@@ -52,7 +76,7 @@ export default function parse(text) {
   while(1) {
     c = text.shift() // 当前字符
 
-    // console.log(`>>>>>>> c:${c}, singleNote:${singleNote}, chord:${chord}, fMulti:${fMulti}`, JSON.stringify(notes), JSON.stringify(multiNote))
+    console.log(`>>>>>>> c:${c} | singleNote:${singleNote} | chord:${chord} | fMulti:${fMulti} | notes:${JSON.stringify(notes)} | multiNote:${JSON.stringify(multiNote)} | lastMultiSeq:${JSON.stringify(lastMultiSeq)}`)
 
     // 越界直接返回
     if ( c === undefined || c === ')' ) {
@@ -85,14 +109,8 @@ export default function parse(text) {
       collectSingle()
     } 
     else if ( /[$v^]/.test(c) ) { // 吉他弹奏技巧
-      if ( c === '$' ) {
-        multiNote.arpeggio = true
-      } 
-      else if ( c === '^' ) {
-        multiNote.downStroke = true
-      } 
-      else if ( c === 'v' ) {
-        multiNote.upStroke = true
+      if ( harmonyWithoutPostfix(multiNote)) {
+        setMultiNotePostfix(multiNote, c)
       } 
     } 
     else if ( /[[\]]/.test(c) ) { // 多声部
@@ -123,7 +141,7 @@ export default function parse(text) {
       collectMulti()
       notes.push(parse(text))
     } 
-    // console.log(`<<<<<<< c:${c}, singleNote:${singleNote}, chord:${chord}, fMulti:${fMulti}`, JSON.stringify(notes), JSON.stringify(multiNote))
+    console.log(`<<<<<<< c:${c} | singleNote:${singleNote} | chord:${chord} | fMulti:${fMulti} | notes:${JSON.stringify(notes)} | multiNote:${JSON.stringify(multiNote)} | lastMultiSeq:${JSON.stringify(lastMultiSeq)}`)
     // 其他情况直接无视
   }
 }
