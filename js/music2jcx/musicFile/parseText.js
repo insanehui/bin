@@ -10,20 +10,12 @@ export default function parse(text) {
   } 
 
   let notes = []
-  let state = 'init'
   let multiNote = new Note()
   let singleNote = ''
   let chord = ''
   let c = ''
 
   let fMulti = false
-
-  /*
-   * 状态
-   * init: 初始
-   * note: 正在note当中。不在multi里
-   * wait_note: 等待一个note主体
-   */
 
   function collectNotes() {
     notes.push(multiNote)
@@ -53,7 +45,7 @@ export default function parse(text) {
   while(1) {
     c = text.shift() // 当前字符
 
-    // console.log('before', c, state, JSON.stringify(notes), JSON.stringify(multiNote), singleNote, fMulti)
+    // console.log('before', c, JSON.stringify(notes), JSON.stringify(multiNote), singleNote, fMulti)
 
     // 越界直接返回
     if ( c === undefined || c === ')' ) {
@@ -61,17 +53,15 @@ export default function parse(text) {
       return notes
     } 
     else if( /[\d-]/.test(c) ){ // 音符主体
-      if ( state === 'wait_note' ) {
+      if ( /^[b#]$/.test(singleNote) ) {
         collectSingle()
       } 
       else {
         beginSingle()
       }
-      state = 'note'
     }
     else if ( /[b#]/.test(c) ) { // 升降号
       beginSingle()
-      state = 'wait_note'
     } 
     else if ( /[.']/.test(c) ) { // 高低音
       collectSingle()
