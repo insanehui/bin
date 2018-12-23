@@ -18,7 +18,9 @@ export default function parse(text) {
 
   /*
    * 状态
+   * init: 初始
    * note: 正在note当中。不在multi里
+   * wait_note: 等待一个note主体
    */
 
   function collectNotes() {
@@ -49,17 +51,27 @@ export default function parse(text) {
   while(1) {
     c = text.shift() // 当前字符
 
-    console.log('>', c, state, JSON.stringify(notes))
+    // console.log('>', c, state, JSON.stringify(notes))
 
     // 越界直接返回
     if ( c === undefined || c === ')' ) {
       collectMulti()
       return notes
     } 
-    else if( /[\d-]/.test(c) ){
-      beginSingle()
+    else if( /[\d-]/.test(c) ){ // 音符主体
+      if ( state === 'wait_note' ) {
+        collectSingle()
+      } 
+      else {
+        beginSingle()
+      }
       state = 'note'
     }
+    else if ( /[b#]/.test(c) ) { // 升降号
+      beginSingle()
+      state = 'wait_note'
+    } 
+    // 其他情况直接无视
   }
 }
 
