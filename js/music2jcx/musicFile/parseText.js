@@ -82,7 +82,7 @@ export default function parse(text) {
   while(1) {
     c = text.shift() // 当前字符
 
-    console.log(`>>>>>>> c:${c} | singleNote:${singleNote} | chord:${chord} | fMulti:${fMulti} | notes:${JSON.stringify(notes)} | multiNote:${JSON.stringify(multiNote)} | lastMultiSeq:${JSON.stringify(lastMultiSeq)}`)
+    // console.log(`>>>>>>> c:${c} | singleNote:${singleNote} | chord:${chord} | fMulti:${fMulti} | notes:${JSON.stringify(notes)} | multiNote:${JSON.stringify(multiNote)} | lastMultiSeq:${JSON.stringify(lastMultiSeq)}`)
 
     // 越界直接返回
     if ( c === undefined || c === ')' ) {
@@ -151,7 +151,7 @@ export default function parse(text) {
       collectMulti()
       notes.push(parse(text))
     } 
-    console.log(`<<<<<<< c:${c} | singleNote:${singleNote} | chord:${chord} | fMulti:${fMulti} | notes:${JSON.stringify(notes)} | multiNote:${JSON.stringify(multiNote)} | lastMultiSeq:${JSON.stringify(lastMultiSeq)}`)
+    // console.log(`<<<<<<< c:${c} | singleNote:${singleNote} | chord:${chord} | fMulti:${fMulti} | notes:${JSON.stringify(notes)} | multiNote:${JSON.stringify(multiNote)} | lastMultiSeq:${JSON.stringify(lastMultiSeq)}`)
     // 其他情况直接无视
   }
 }
