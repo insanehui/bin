@@ -115,6 +115,7 @@ export default function parse(text) {
         fChord = !fChord
       } 
       else if ( /=/.test(c) ) { // 取消和弦
+        collectMulti()
         chord = '='
       } 
     } 

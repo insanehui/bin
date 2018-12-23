@@ -4,7 +4,6 @@
  */
 import _ from 'lodash'
 import {fraction} from 'mathjs'
-import text2struct from './text2struct.js'
 import parseText from './parseText.js'
 
 function expandPatterns(text, patterns) {
@@ -29,7 +28,7 @@ function structFlattern(tree, len = fraction(tree.length)) {
     } 
     else { // 一个音符
       res.push({
-        ...item,
+        note:item,
         duration,
       })
     }
@@ -62,10 +61,8 @@ export default function parse(str, opt = {}) {
   const {beat, patterns} = opt
   str = expandPatterns(str, patterns)
 
-  let res = text2struct(str, opt)
-  let new_res = parseText(str)
-  console.log('=======old======\n', JSON.stringify(res))
-  console.log('======new========\n', JSON.stringify(new_res))
+  // let res = text2struct(str, opt)
+  let res = parseText(str)
 
   if ( !res.length ) {
     return []
@@ -77,6 +74,7 @@ export default function parse(str, opt = {}) {
   } 
 
   res = structFlattern(res, dura)
+
   res = seqCollapse(res)
   return res
 }
