@@ -71,6 +71,11 @@ export default function parse(text) {
       beginSingle()
       state = 'wait_note'
     } 
+    else if ( /[.']/.test(c) ) { // 高低音
+      if ( state === 'note' ) {
+        collectSingle()
+      }
+    } 
     // 其他情况直接无视
   }
 }
