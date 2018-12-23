@@ -73,7 +73,7 @@ export default function parse(text) {
     else if ( /[.']/.test(c) ) { // 高低音
       collectSingle()
     } 
-    else if ( /[\[]]/.test(c) ) { // 多声部
+    else if ( /[[\]]/.test(c) ) { // 多声部
       collectMulti()
       if ( /\[/.test(c) ) {
         fMulti = true
