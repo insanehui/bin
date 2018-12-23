@@ -73,6 +73,12 @@ export default function parse(text) {
     singleNote += c
   }
 
+  function collectAbbrMulti() {
+    multiNote.notes = lastMultiSeq
+    setMultiNotePostfix(multiNote, c)
+    collectNotes()
+  }
+
   while(1) {
     c = text.shift() // 当前字符
 
@@ -112,6 +118,10 @@ export default function parse(text) {
       if ( harmonyWithoutPostfix(multiNote)) {
         setMultiNotePostfix(multiNote, c)
       } 
+      else {
+        collectMulti()
+        collectAbbrMulti()
+      }
     } 
     else if ( /[[\]]/.test(c) ) { // 多声部
       collectMulti()

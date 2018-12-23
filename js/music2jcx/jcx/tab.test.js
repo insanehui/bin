@@ -19,6 +19,15 @@ describe('tab', () => {
     expect(fact).toEqual(hope)
   })
 
+  it('扫弦简写', () => {
+    const para = [
+      '"F"[123]^- ^v _^v ^v'
+    ]
+    const hope = `"F"V[ax*2bx*2cx*2]V[axbxcx]U[axbxcx]-V[axbxcx]U[axbxcx]V[axbxcx]U[axbxcx]|`
+    const fact = parse(...para)
+    expect(fact).toEqual(hope)
+  })
+
   it('扫弦', () => {
     const para = [
       '"Em"[6543]^-[1234]^([1234]^[1234]v)'
