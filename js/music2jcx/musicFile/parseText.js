@@ -1,5 +1,6 @@
 import Note from '../Note.js'
 
+let chord = ''
 export default function parse(text) {
   /*
    * text可以是字符串也可以是数组
@@ -12,13 +13,16 @@ export default function parse(text) {
   let notes = []
   let multiNote = new Note()
   let singleNote = ''
-  let chord = ''
   let c = ''
 
   let fMulti = false
   let fChord = false
 
   function collectNotes() {
+    if ( chord ) {
+      multiNote.chord = chord // 消费chord
+      chord = '' // 谁消费谁清空
+    } 
     notes.push(multiNote)
     multiNote = new Note()
     // 不动singleNote
@@ -85,12 +89,10 @@ export default function parse(text) {
     } 
     else if ( /"/.test(c) ) { // 和弦
       if ( fChord ) {
-        multiNote.chord = chord
       } 
       else {
         collectMulti()
       }
-      chord = '' // 清空
       fChord = !fChord
     } 
     else if ( /\(/.test(c) ) {
