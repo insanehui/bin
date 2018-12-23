@@ -3,19 +3,14 @@ import parse from './parseText.js'
 describe('parseText', () => {
   it('基础', () => {
     const para = [
-      "123"
+      "1--2-3"
     ]
     const hope = [
-      {
-        "notes": [
-          "1"
-        ]
-      },
-      {
-        "notes": [
-          "2"
-        ]
-      },
+      { "notes": [ "1" ] },
+      { "notes": [ "-" ] },
+      { "notes": [ "-" ] },
+      { "notes": [ "2" ] },
+      { "notes": [ "-" ] },
       {
         "notes": [
           "3"
