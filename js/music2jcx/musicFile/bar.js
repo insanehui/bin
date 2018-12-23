@@ -5,6 +5,7 @@
 import _ from 'lodash'
 import {fraction} from 'mathjs'
 import text2struct from './text2struct.js'
+import parseText from './parseText.js'
 
 function expandPatterns(text, patterns) {
   _.each(patterns, (v, k) => {
@@ -62,7 +63,10 @@ export default function parse(str, opt = {}) {
   str = expandPatterns(str, patterns)
 
   let res = text2struct(str, opt)
-  // console.log('res', res)
+  let new_res = parseText(str)
+  console.log('=======old======\n', JSON.stringify(res))
+  console.log('======new========\n', JSON.stringify(new_res))
+
   if ( !res.length ) {
     return []
   } 
