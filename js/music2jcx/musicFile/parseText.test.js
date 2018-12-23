@@ -21,7 +21,7 @@ describe('parseText', () => {
 
   it('综合', () => {
     const para = [
-      `"C"(5 ([1-][2..#1-]) 1) =3 "Am"b2.3'' -#4`
+      `"C"(5 ([1-][2..#1-]) 1) =3 "Am"b2._3'' -#4`
     ]
     const hope = [
       [
@@ -34,7 +34,7 @@ describe('parseText', () => {
       ],
       { "notes": [ "3" ], chord : '=' },
       { "notes": [ "b2." ], chord : 'Am' },
-      { "notes": [ "3''" ] },
+      { "notes": [ "3''" ] , tie : true},
       { "notes": [ "-" ] },
       { "notes": [ "#4" ] },
     ]

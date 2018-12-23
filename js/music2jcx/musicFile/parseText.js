@@ -74,6 +74,10 @@ export default function parse(text) {
     else if ( /[b#]/.test(c) ) { // 升降号
       beginSingle()
     } 
+    else if ( /_/.test(c) ) { // tie属性
+      collectMulti()
+      multiNote.tie = true
+    } 
     else if ( /[.']/.test(c) ) { // 高低音
       collectSingle()
     } 
