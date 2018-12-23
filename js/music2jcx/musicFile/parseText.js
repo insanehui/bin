@@ -16,6 +16,8 @@ export default function parse(text) {
   let chord = ''
   let c = ''
 
+  let fMulti = false
+
   /*
    * 状态
    * init: 初始
@@ -30,17 +32,17 @@ export default function parse(text) {
   }
 
   function collectMulti() {
-    multiNote.add(singleNote)
-    singleNote = ''
-    if ( state === 'note' ) {
-      collectNotes()
+    if ( singleNote ) {
+      multiNote.add(singleNote)
+      singleNote = ''
+      if ( !fMulti ) {
+        collectNotes()
+      } 
     } 
   }
 
   function beginSingle() {
-    if ( state === 'note' ) {
-      collectMulti()
-    } 
+    collectMulti()
     singleNote = c
   }
 
@@ -51,7 +53,7 @@ export default function parse(text) {
   while(1) {
     c = text.shift() // 当前字符
 
-    // console.log('>', c, state, JSON.stringify(notes))
+    // console.log('before', c, state, JSON.stringify(notes), JSON.stringify(multiNote), singleNote, fMulti)
 
     // 越界直接返回
     if ( c === undefined || c === ')' ) {
@@ -76,6 +78,17 @@ export default function parse(text) {
         collectSingle()
       }
     } 
+    else if ( /[\[\]]/.test(c) ) { // 多声部
+      collectMulti()
+      if ( /\[/.test(c) ) {
+        fMulti = true
+      } 
+      else if ( /]/.test(c) ) {
+        collectNotes()
+        fMulti = false
+      } 
+    } 
+    // console.log('after', JSON.stringify(notes), JSON.stringify(multiNote))
     // 其他情况直接无视
   }
 }
