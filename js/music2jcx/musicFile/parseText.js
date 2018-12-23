@@ -1,6 +1,6 @@
 import Note from '../Note.js'
 
-export default function main(text) {
+export default function parse(text) {
   /*
    * text可以是字符串也可以是数组
    * 递归。遇到序列尾或者 ) 即结束

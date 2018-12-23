@@ -9,7 +9,9 @@ import toTab from './jcx/tab.js'
 import parseFile from './musicFile/main.js'
 import fromMusic from './jcx/music2jcx.js'
 import temp from './musicFile/parseText.js'
-// import {testify,} from '../utils/modash.js'
+import {testify,} from '../utils/modash.js'
+
+testify(temp)('123') 
 
 const Score = (S.textarea`
     width: 900px;
