@@ -74,9 +74,7 @@ export default function parse(text) {
       state = 'wait_note'
     } 
     else if ( /[.']/.test(c) ) { // 高低音
-      if ( state === 'note' ) {
-        collectSingle()
-      }
+      collectSingle()
     } 
     else if ( /[\[\]]/.test(c) ) { // 多声部
       collectMulti()
