@@ -93,6 +93,10 @@ export default function parse(text) {
       chord = '' // 清空
       fChord = !fChord
     } 
+    else if ( /\(/.test(c) ) {
+      collectMulti()
+      notes.push(parse(text))
+    } 
     console.log('<<<<<<<', JSON.stringify(notes), JSON.stringify(multiNote))
     // 其他情况直接无视
   }

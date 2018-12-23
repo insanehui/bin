@@ -7,7 +7,7 @@ describe('parseText', () => {
       `"C"5[1-]  [2..#1-  ]1 "Am"b2.3'' -#4`
     ]
     const hope = [
-      { "notes": [ "5" ],  chord : 'C',},
+      { "notes": [ "5" ],  chord : 'C',}, 
       { "notes": [ "1", "-" ] },
       { "notes": [ "2..", "#1", '-' ] },
       { "notes": [ "1" ] },
