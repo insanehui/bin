@@ -87,15 +87,20 @@ export default function parse(text) {
         fMulti = false
       } 
     } 
-    else if ( /"/.test(c) ) { // 和弦
-      if ( fChord ) {
+    else if ( /["=]/.test(c) ) { // 和弦
+      if ( /"/.test(c) ) { // 和弦符号
+        if ( fChord ) {
+        } 
+        else {
+          collectMulti()
+        }
+        fChord = !fChord
       } 
-      else {
-        collectMulti()
-      }
-      fChord = !fChord
+      else if ( /=/.test(c) ) { // 取消和弦
+        chord = '='
+      } 
     } 
-    else if ( /\(/.test(c) ) {
+    else if ( /\(/.test(c) ) { // 递归
       collectMulti()
       notes.push(parse(text))
     } 
