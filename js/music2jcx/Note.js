@@ -7,7 +7,12 @@ export default class Note {
 
   constructor(note) {
     if ( note ) {
-      this.notes.push(note)
+      if ( Array.isArray(note) ) {
+        this.notes = note
+      } 
+      else {
+        this.notes.push(note)
+      }
     } 
   }
 
