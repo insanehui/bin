@@ -16,6 +16,7 @@ export default function parse(text) {
   let c = ''
 
   let fMulti = false
+  let fChord = false
 
   function collectNotes() {
     notes.push(multiNote)
@@ -45,14 +46,20 @@ export default function parse(text) {
   while(1) {
     c = text.shift() // 当前字符
 
-    // console.log('before', c, JSON.stringify(notes), JSON.stringify(multiNote), singleNote, fMulti)
+    console.log('>>>>>>>', c, JSON.stringify(notes), JSON.stringify(multiNote), singleNote, fMulti, fChord, chord)
 
     // 越界直接返回
     if ( c === undefined || c === ')' ) {
       collectMulti()
       return notes
     } 
-    else if( /[\d-]/.test(c) ){ // 音符主体
+
+    if ( fChord && /[^"]/.test(c) ) { // 收集和弦
+      chord += c
+      continue
+    } 
+
+    if( /[\d-]/.test(c) ){ // 音符主体
       if ( /^[b#]$/.test(singleNote) ) {
         collectSingle()
       } 
@@ -66,7 +73,7 @@ export default function parse(text) {
     else if ( /[.']/.test(c) ) { // 高低音
       collectSingle()
     } 
-    else if ( /[\[\]]/.test(c) ) { // 多声部
+    else if ( /[\[]]/.test(c) ) { // 多声部
       collectMulti()
       if ( /\[/.test(c) ) {
         fMulti = true
@@ -76,7 +83,17 @@ export default function parse(text) {
         fMulti = false
       } 
     } 
-    // console.log('after', JSON.stringify(notes), JSON.stringify(multiNote))
+    else if ( /"/.test(c) ) { // 和弦
+      if ( fChord ) {
+        multiNote.chord = chord
+      } 
+      else {
+        collectMulti()
+      }
+      chord = '' // 清空
+      fChord = !fChord
+    } 
+    console.log('<<<<<<<', JSON.stringify(notes), JSON.stringify(multiNote))
     // 其他情况直接无视
   }
 }
