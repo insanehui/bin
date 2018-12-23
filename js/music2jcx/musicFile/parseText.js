@@ -19,22 +19,24 @@ export default function parse(text) {
   let fChord = false
 
   function collectNotes() {
-    if ( chord ) {
-      multiNote.chord = chord // 消费chord
-      chord = '' // 谁消费谁清空
+    if ( multiNote.size ) {
+      if ( chord ) {
+        multiNote.chord = chord // 消费chord
+        chord = '' // 谁消费谁清空
+      } 
+      notes.push(multiNote)
+      multiNote = new Note()
+      // 不动singleNote
     } 
-    notes.push(multiNote)
-    multiNote = new Note()
-    // 不动singleNote
   }
 
   function collectMulti() {
     if ( singleNote ) {
       multiNote.add(singleNote)
       singleNote = ''
-      if ( !fMulti ) {
-        collectNotes()
-      } 
+    } 
+    if ( !fMulti ) {
+      collectNotes()
     } 
   }
 
@@ -50,11 +52,12 @@ export default function parse(text) {
   while(1) {
     c = text.shift() // 当前字符
 
-    console.log('>>>>>>>', c, JSON.stringify(notes), JSON.stringify(multiNote), singleNote, fMulti, fChord, chord)
+    // console.log(`>>>>>>> c:${c}, singleNote:${singleNote}, chord:${chord}, fMulti:${fMulti}`, JSON.stringify(notes), JSON.stringify(multiNote))
 
     // 越界直接返回
     if ( c === undefined || c === ')' ) {
       collectMulti()
+      collectNotes() // 强制collect notes
       return notes
     } 
 
@@ -81,13 +84,24 @@ export default function parse(text) {
     else if ( /[.']/.test(c) ) { // 高低音
       collectSingle()
     } 
+    else if ( /[$v^]/.test(c) ) { // 吉他弹奏技巧
+      if ( c === '$' ) {
+        multiNote.arpeggio = true
+      } 
+      else if ( c === '^' ) {
+        multiNote.downStroke = true
+      } 
+      else if ( c === 'v' ) {
+        multiNote.upStroke = true
+      } 
+    } 
     else if ( /[[\]]/.test(c) ) { // 多声部
       collectMulti()
       if ( /\[/.test(c) ) {
+        collectNotes()
         fMulti = true
       } 
       else if ( /]/.test(c) ) {
-        collectNotes()
         fMulti = false
       } 
     } 
@@ -108,7 +122,7 @@ export default function parse(text) {
       collectMulti()
       notes.push(parse(text))
     } 
-    console.log('<<<<<<<', JSON.stringify(notes), JSON.stringify(multiNote))
+    // console.log(`<<<<<<< c:${c}, singleNote:${singleNote}, chord:${chord}, fMulti:${fMulti}`, JSON.stringify(notes), JSON.stringify(multiNote))
     // 其他情况直接无视
   }
 }

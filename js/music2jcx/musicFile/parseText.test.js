@@ -21,7 +21,7 @@ describe('parseText', () => {
 
   it('综合', () => {
     const para = [
-      `"C"(5 ([1-][2..#1-]) 1) =3 "Am"b2._3'' -#4`
+      `"C"(5 ([1-][2..#1-]) 1) =3 "Am"b2._3'' -#4 [123]$`
     ]
     const hope = [
       [
@@ -37,6 +37,7 @@ describe('parseText', () => {
       { "notes": [ "3''" ] , tie : true},
       { "notes": [ "-" ] },
       { "notes": [ "#4" ] },
+      { "notes": [ '1', '2', '3'], arpeggio : true},
     ]
     const fact = parse(...para)
     expect(fact).toEqual(hope)
