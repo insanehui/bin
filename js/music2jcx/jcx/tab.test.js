@@ -19,6 +19,15 @@ describe('tab', () => {
     expect(fact).toEqual(hope)
   })
 
+  it('多声部+和弦外音', () => {
+    const para = [
+      '"Am"[5 5.@3]'
+    ]
+    const hope = `"Am"[exc0]|`
+    const fact = parse(...para)
+    expect(fact).toEqual(hope)
+  })
+
   it('扫弦连接', () => {
     const para = [
       '"F"[123]^- [123]^[123]v _[123]^[123]v [123]^[123]v'
