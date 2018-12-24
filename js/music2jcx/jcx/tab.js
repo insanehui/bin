@@ -93,26 +93,29 @@ function seq2tab(seq, opt) {
 
     duration = calcDuration(duration)
 
-    if ( lastChord && !(note+'').includes('@') ) { // 如果处于和弦状态
-      output += noteToJcxChordTab(note, duration)
-    } 
-    else {
-      /*
-       * 这里没有考虑非和弦形式的多声部转换
-       */
-      const name = fret(note, opt) 
-      /*
-       * ! muse好像对7处理有个bug，所以逢7就得拆开来显示. 但没有测试
-       */
-      let text
-      if ( duration === '*7' ) {
-          text = `${name}*6${name==='z'?'':'-'}${name}`
+    let text = _.map(note.notes, n => {
+      if ( lastChord && !n.includes('@') ) {
+        return `${gtString[n]}x${duration}`
       } 
       else {
-        text = name + duration
+        const name = fret(note, opt) 
+        /*
+         * ! muse好像对7处理有个bug，所以逢7就得拆开来显示. 但没有测试
+         */
+        let text
+        if ( duration === '*7' ) {
+          return `${name}*6${name==='z'?'':'-'}${name}`
+        } 
+        else {
+          return name + duration
+        }
       }
-      output += getPrefix(note) + text
-    }
+    }).join('')
+    if ( note.size > 1 ) {
+      text = `[${text}]`
+    } 
+    text = getPrefix(note) + text
+    output += text
   }
   return output
 }

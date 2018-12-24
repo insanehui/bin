@@ -8,5 +8,7 @@ tracks :
   - name: melody
     jcx: jianpu
 patterns : 
+  Dm : '"Dm"42321323'
 =================
-<guitar> "C"53 (3h6.@3)2 2@21 21
+<guitar> "C"53 (3h6.@3)2 2@21 21 | %Dm
+<guitar> "Dm"4[32][32][32] [32] 1@2 1@2 3 | "Am"[5 5.@3]4321234
