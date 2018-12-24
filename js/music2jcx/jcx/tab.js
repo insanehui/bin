@@ -7,6 +7,7 @@ import fret from './fret.js'
 import handleMuseBug from './museDurationBug.js'
 
 global.lastNote = '1'
+let lastChord = null
 
 const gtString = {
   1 : 'a',
@@ -54,9 +55,42 @@ function getPrefix(note) {
   return res
 }
 
+function item2text(item, opt) {
+  let {note, duration} = item
+  duration = simplifyDuration(duration)
+
+  let text = _.map(note.notes, n => {
+    let name
+    if ( n === '0' ) {
+      name = 'z'
+    } 
+    else if ( lastChord && !n.includes('@') ) {
+      name = `${gtString[n]}x`
+    } 
+    else {
+      name = fret(n, opt) 
+    }
+
+    /*
+     * ! muse好像对7处理有个bug，所以逢7就得拆开来显示. 但没有测试
+     */
+    if ( duration === '*7' ) {
+      return `${name}*6${name==='z'?'':'-'}${name}`
+    } 
+    else {
+      return name + duration
+    }
+  }).join('')
+
+  if ( note.size > 1 ) {
+    text = `[${text}]`
+  } 
+  text = getPrefix(note) + text
+  return text
+}
+
 function seq2tab(seq, opt) {
   let output = ''
-  let lastChord = null
   for(const i in seq) {
     let {note, duration} = seq[i]
     const {chord} = note
@@ -82,37 +116,7 @@ function seq2tab(seq, opt) {
     } 
     global.lastNote = note
 
-    duration = simplifyDuration(duration)
-
-    // eslint-disable-next-line
-    let text = _.map(note.notes, n => {
-      let name
-      if ( n === '0' ) {
-        name = 'z'
-      } 
-      else if ( lastChord && !n.includes('@') ) {
-        name = `${gtString[n]}x`
-      } 
-      else {
-        name = fret(n, opt) 
-      }
-
-      /*
-        * ! muse好像对7处理有个bug，所以逢7就得拆开来显示. 但没有测试
-        */
-      if ( duration === '*7' ) {
-        return `${name}*6${name==='z'?'':'-'}${name}`
-      } 
-      else {
-        return name + duration
-      }
-    }).join('')
-
-    if ( note.size > 1 ) {
-      text = `[${text}]`
-    } 
-    text = getPrefix(note) + text
-    output += text
+    output += item2text(seq[i], opt)
   }
   return output
 }
