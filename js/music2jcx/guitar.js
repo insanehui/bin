@@ -24,10 +24,10 @@ export function findNote(note, opt = {}) {
 
   note = note+''
   if ( note.includes('@') ) {
-    const [name,string] = note.split('@')
-    const fret = interval(name, tuning[string])
+    const [name, str] = note.split('@')
+    const fret = interval(name, tuning[str])
     return {
-      string : +string,
+      string : +str,
       fret,
     }
   } 

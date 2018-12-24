@@ -98,11 +98,10 @@ function seq2tab(seq, opt) {
         return `${gtString[n]}x${duration}`
       } 
       else {
-        const name = fret(note, opt) 
+        const name = fret(n, opt) 
         /*
          * ! muse好像对7处理有个bug，所以逢7就得拆开来显示. 但没有测试
          */
-        let text
         if ( duration === '*7' ) {
           return `${name}*6${name==='z'?'':'-'}${name}`
         } 
