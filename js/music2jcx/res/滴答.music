@@ -1,0 +1,12 @@
+title : [滴答, 侃侃]
+artist : 童话吉他编配
+timeSign : 4/4
+beat : 1/8
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+patterns : 
+=================
+<guitar> "C"53 6. 2 2 121
