@@ -8,7 +8,7 @@ import parseText from './parseText.js'
 
 function expandPatterns(text, patterns) {
   _.each(patterns, (v, k) => {
-    text = text.replace(RegExp('%'+k+'\\b', 'g'), v)
+    text = text.replace(RegExp('%'+k+'(\s)', 'g'), v+'$1')
   })
   return text
 }
