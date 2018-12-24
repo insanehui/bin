@@ -21,11 +21,13 @@ describe('parseText', () => {
 
   it('击勾弦，滑弦', () => {
     const para = [
-      `#4@2s5@2`
+      `#4@2s5@2 h5 p4`
     ]
     const hope = [
       { "notes": [ "#4@2" ], }, 
       { "notes": [ "5@2" ], slide : true}, 
+      { "notes": [ "5" ], hammerOn : true}, 
+      { "notes": [ "4" ], pullOff : true}, 
     ]
     const fact = parse(...para)
     expect(fact).toEqual(hope)

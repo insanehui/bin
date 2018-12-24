@@ -22,6 +22,18 @@ function setMultiNotePostfix(multiNote, c) {
   } 
 }
 
+function setSHP(note, c) {
+  if ( c === 's' ) {
+    note.slide = true
+  } 
+  else if ( c === 'h' ) {
+    note.hammerOn = true
+  } 
+  else if ( c === 'p' ) {
+    note.pullOff = true
+  } 
+}
+
 export default function parse(text) {
   /*
    * text可以是字符串也可以是数组
@@ -134,9 +146,9 @@ export default function parse(text) {
       collectSingle()
       fString = true
     } 
-    else if ( /s/.test(c) ) {
+    else if ( /[shp]/.test(c) ) {
       collectMulti()
-      multiNote.slide = true
+      setSHP(multiNote, c)
     } 
     else if ( /[[\]]/.test(c) ) { // 多声部
       collectMulti()
