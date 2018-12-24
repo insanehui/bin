@@ -39,6 +39,16 @@ function noteToJcxChordTab(note, duration) {
     res = 'U' + res
   } 
 
+  if ( note.slide ) {
+    res = '-S-' + res
+  } 
+  else if ( note.hammerOn ) {
+    res = '-H-' + res
+  } 
+  else if ( note.pullOff ) {
+    res = '-P-' + res
+  } 
+
   if ( note.tie ) {
     res = '-' + res
   } 

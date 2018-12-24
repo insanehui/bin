@@ -10,6 +10,15 @@ describe('tab', () => {
     expect(fact).toEqual(hope)
   })
 
+  it('h, s, p', () => {
+    const para = [
+      '"C"53 (3s3)22121'
+    ]
+    const hope = `"C"excxcx*1/2-S-cx*1/2bxbxaxbxax|`
+    const fact = parse(...para)
+    expect(fact).toEqual(hope)
+  })
+
   it('扫弦连接', () => {
     const para = [
       '"F"[123]^- [123]^[123]v _[123]^[123]v [123]^[123]v'
