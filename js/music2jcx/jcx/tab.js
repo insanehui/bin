@@ -24,11 +24,8 @@ function calcDuration(d) {
   return ''
 }
 
-function noteToJcxChordTab(note, duration) {
-  let res = _.map(note.notes, v=>`${gtString[v]}x${duration}`).join('')
-  if (note.size > 1) {
-    res = `[${res}]`
-  } 
+function getPrefix(note) {
+  let res = ''
   if ( note.arpeggio ) {
     res = 'B' + res
   } 
@@ -53,6 +50,17 @@ function noteToJcxChordTab(note, duration) {
     res = '-' + res
   } 
 
+  return res
+}
+
+function noteToJcxChordTab(note, duration) {
+  let res = _.map(note.notes, v=>`${gtString[v]}x${duration}`).join('')
+  if (note.size > 1) {
+    res = `[${res}]`
+  } 
+
+  res = getPrefix(note) + res
+  console.log(`note:${note} res:${res}`)
   return res
 }
 
@@ -86,7 +94,7 @@ function seq2tab(seq, opt) {
 
     duration = calcDuration(duration)
 
-    if ( lastChord ) { // 如果处于和弦状态
+    if ( lastChord && !(note+'').includes('@') ) { // 如果处于和弦状态
       output += noteToJcxChordTab(note, duration)
     } 
     else {
@@ -103,6 +111,7 @@ function seq2tab(seq, opt) {
       else {
         output += name + duration
       }
+      // output = getPrefix(note) + output
     }
   }
   return output
