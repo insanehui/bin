@@ -12,7 +12,7 @@ describe('tab', () => {
 
   it('h, s, p', () => {
     const para = [
-      '"C"53 (3s3)22121'
+      '"C"53 (3s6.@3)2 2@2121'
     ]
     const hope = `"C"excxcx*1/2-S-cx*1/2bxbxaxbxax|`
     const fact = parse(...para)
