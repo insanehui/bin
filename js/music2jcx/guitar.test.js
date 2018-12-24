@@ -49,4 +49,16 @@ describe('guitar', () => {
     expect(fact).toEqual(hope)
   })
 
+  it('指定弦', () => {
+    const para = [
+      "#1@3"
+    ]
+    const hope = {
+      "string": 3,
+      "fret": 6,
+    }
+    const fact = findNote(...para)
+    expect(fact).toEqual(hope)
+  })
+
 });

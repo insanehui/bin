@@ -60,7 +60,6 @@ function noteToJcxChordTab(note, duration) {
   } 
 
   res = getPrefix(note) + res
-  console.log(`note:${note} res:${res}`)
   return res
 }
 
@@ -105,13 +104,14 @@ function seq2tab(seq, opt) {
       /*
        * ! muse好像对7处理有个bug，所以逢7就得拆开来显示. 但没有测试
        */
+      let text
       if ( duration === '*7' ) {
-          output += `${name}*6${name==='z'?'':'-'}${name}`
+          text = `${name}*6${name==='z'?'':'-'}${name}`
       } 
       else {
-        output += name + duration
+        text = name + duration
       }
-      // output = getPrefix(note) + output
+      output += getPrefix(note) + text
     }
   }
   return output
