@@ -53,16 +53,6 @@ function getPrefix(note) {
   return res
 }
 
-function noteToJcxChordTab(note, duration) {
-  let res = _.map(note.notes, v=>`${gtString[v]}x${duration}`).join('')
-  if (note.size > 1) {
-    res = `[${res}]`
-  } 
-
-  res = getPrefix(note) + res
-  return res
-}
-
 function seq2tab(seq, opt) {
   let output = ''
   let lastChord = null
@@ -93,6 +83,7 @@ function seq2tab(seq, opt) {
 
     duration = calcDuration(duration)
 
+    // eslint-disable-next-line
     let text = _.map(note.notes, n => {
       if ( lastChord && !n.includes('@') ) {
         return `${gtString[n]}x${duration}`
