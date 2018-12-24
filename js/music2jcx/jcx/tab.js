@@ -85,20 +85,25 @@ function seq2tab(seq, opt) {
 
     // eslint-disable-next-line
     let text = _.map(note.notes, n => {
-      if ( lastChord && !n.includes('@') ) {
-        return `${gtString[n]}x${duration}`
+      let name
+      if ( n === '0' ) {
+        name = 'z'
+      } 
+      else if ( lastChord && !n.includes('@') ) {
+        name = `${gtString[n]}x`
       } 
       else {
-        const name = fret(n, opt) 
-        /*
-         * ! muse好像对7处理有个bug，所以逢7就得拆开来显示. 但没有测试
-         */
-        if ( duration === '*7' ) {
-          return `${name}*6${name==='z'?'':'-'}${name}`
-        } 
-        else {
-          return name + duration
-        }
+        name = fret(n, opt) 
+      }
+
+      /*
+        * ! muse好像对7处理有个bug，所以逢7就得拆开来显示. 但没有测试
+        */
+      if ( duration === '*7' ) {
+        return `${name}*6${name==='z'?'':'-'}${name}`
+      } 
+      else {
+        return name + duration
       }
     }).join('')
     if ( note.size > 1 ) {
