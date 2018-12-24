@@ -1,40 +1,11 @@
 /*
  * 将音乐格式转为jcx的简谱或五线谱
  */
-import {fraction} from 'mathjs'
 import parseMusic from '../musicFile/bar.js'
 import jcxNote from './jcxNote.js'
+import handleMuseBug from './museDurationBug.js'
 
 global.lastNote = '1'
-
-/*
- * 特殊处理是muse的bug!
- */
-function handleMuseBug(duration) {
-  const {n,d} = duration
-  if ( n === 5 ){
-    return [
-      fraction(1).div(d),
-      fraction(4).div(d),
-    ]
-  } 
-  else if ( n === 7 ){
-    return [
-      fraction(1).div(d),
-      fraction(6).div(d),
-    ]
-  } 
-  else if ( n===15 ) {
-    return [
-      fraction(1).div(d),
-      fraction(2).div(d),
-      fraction(12).div(d),
-    ]
-  } 
-  else {
-    return [duration]
-  }
-}
 
 function name_duration(name, duration) {
 
