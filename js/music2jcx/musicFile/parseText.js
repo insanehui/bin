@@ -38,6 +38,7 @@ export default function parse(text) {
 
   let fMulti = false
   let fChord = false
+  let fString = false // 是否在读string
 
   function collectNotes() {
     if ( multiNote.size ) {
@@ -97,11 +98,17 @@ export default function parse(text) {
     } 
 
     if( /[\d-]/.test(c) ){ // 音符主体
-      if ( /^[b#]$/.test(singleNote) ) {
+      if ( fString ) {
         collectSingle()
+        fString = false
       } 
       else {
-        beginSingle()
+        if ( /^[b#]$/.test(singleNote) ) {
+          collectSingle()
+        } 
+        else {
+          beginSingle()
+        }
       }
     }
     else if ( /[b#]/.test(c) ) { // 升降号
@@ -122,6 +129,10 @@ export default function parse(text) {
         collectMulti()
         collectAbbrMulti()
       }
+    } 
+    else if ( /@/.test(c) ) {
+      collectSingle()
+      fString = true
     } 
     else if ( /[[\]]/.test(c) ) { // 多声部
       collectMulti()
