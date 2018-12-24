@@ -55,9 +55,29 @@ function getPrefix(note) {
   return res
 }
 
+// 修正版的name + duration
+function nameWithDuration(name, dura) {
+  const ds = handleMuseBug(dura)
+  const names = ds.map(du => {
+    // 省掉不必要的1
+    if ( du.n === 1 ) {
+      if ( du.d === 1 ) {
+        return name
+      } 
+      return `${name}/${du.d}`
+    } 
+    else {
+      return `${name}*${du}`
+    }
+  })
+
+  const isZ = name.toLowerCase() === 'z'
+  return names.join(isZ ? '' : '-')
+}
+
 function item2text(item, opt) {
   let {note, duration} = item
-  duration = simplifyDuration(duration)
+  // duration = simplifyDuration(duration)
 
   let text = _.map(note.notes, n => {
     let name
@@ -71,15 +91,18 @@ function item2text(item, opt) {
       name = fret(n, opt) 
     }
 
-    /*
-     * ! muse好像对7处理有个bug，所以逢7就得拆开来显示. 但没有测试
-     */
-    if ( duration === '*7' ) {
-      return `${name}*6${name==='z'?'':'-'}${name}`
-    } 
-    else {
-      return name + duration
-    }
+    return nameWithDuration(name, duration)
+
+    // // TODO: 后面用handleMuseBug来重写这段逻辑
+    // /*
+    //  * ! muse好像对7处理有个bug，所以逢7就得拆开来显示. 但没有测试
+    //  */
+    // if ( duration === '*7' ) {
+    //   return `${name}*6${name==='z'?'':'-'}${name}`
+    // } 
+    // else {
+    //   return name + duration
+    // }
   }).join('')
 
   if ( note.size > 1 ) {
@@ -92,7 +115,7 @@ function item2text(item, opt) {
 function seq2tab(seq, opt) {
   let output = ''
   for(const i in seq) {
-    let {note, duration} = seq[i]
+    let {note} = seq[i]
     const {chord} = note
     if ( chord ) { // 如果是和弦，打上和弦状态标记
       if ( chord !== '=' ) {
