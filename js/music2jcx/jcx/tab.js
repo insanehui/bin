@@ -18,14 +18,6 @@ const gtString = {
   6 : 'f',
 }
 
-function simplifyDuration(d) {
-  d =d.toFraction()
-  if ( d !== '1' ) {
-    return `*${d}`
-  } 
-  return ''
-}
-
 function getPrefix(note) {
   let res = ''
   if ( note.arpeggio ) {
