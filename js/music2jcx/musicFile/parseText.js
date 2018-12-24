@@ -134,6 +134,10 @@ export default function parse(text) {
       collectSingle()
       fString = true
     } 
+    else if ( /s/.test(c) ) {
+      collectMulti()
+      multiNote.slide = true
+    } 
     else if ( /[[\]]/.test(c) ) { // 多声部
       collectMulti()
       if ( /\[/.test(c) ) {

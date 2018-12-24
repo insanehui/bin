@@ -19,6 +19,18 @@ describe('parseText', () => {
     expect(fact).toEqual(hope)
   })
 
+  it('击勾弦，滑弦', () => {
+    const para = [
+      `#4@2s5@2`
+    ]
+    const hope = [
+      { "notes": [ "#4@2" ], }, 
+      { "notes": [ "5@2" ], slide : true}, 
+    ]
+    const fact = parse(...para)
+    expect(fact).toEqual(hope)
+  })
+
   it('综合', () => {
     const para = [
       `"C"(5 ([1-][2..#1-]) 1) =3 "Am"b2._3'' -#4 [123]$`
