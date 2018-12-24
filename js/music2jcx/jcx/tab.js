@@ -4,6 +4,7 @@
 import _ from 'lodash'
 import fromBar from '../musicFile/bar.js'
 import fret from './fret.js'
+import handleMuseBug from './museDurationBug.js'
 
 global.lastNote = '1'
 
@@ -16,7 +17,7 @@ const gtString = {
   6 : 'f',
 }
 
-function calcDuration(d) {
+function simplifyDuration(d) {
   d =d.toFraction()
   if ( d !== '1' ) {
     return `*${d}`
@@ -81,7 +82,7 @@ function seq2tab(seq, opt) {
     } 
     global.lastNote = note
 
-    duration = calcDuration(duration)
+    duration = simplifyDuration(duration)
 
     // eslint-disable-next-line
     let text = _.map(note.notes, n => {
@@ -106,6 +107,7 @@ function seq2tab(seq, opt) {
         return name + duration
       }
     }).join('')
+
     if ( note.size > 1 ) {
       text = `[${text}]`
     } 
