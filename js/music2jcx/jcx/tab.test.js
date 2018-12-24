@@ -14,7 +14,7 @@ describe('tab', () => {
     const para = [
       '"C"53 (3h6.@3)2 2@2121'
     ]
-    const hope = `"C"excxcx*1/2-H-c2*1/2bxb3axbxax|`
+    const hope = `"C"excxcx/2-H-c2/2bxb3axbxax|`
     const fact = parse(...para)
     expect(fact).toEqual(hope)
   })
@@ -50,7 +50,7 @@ describe('tab', () => {
     const para = [
       '"Em"[6543]^-[1234]^([1234]^[1234]v)'
     ]
-    const hope = `"Em"V[fx*2ex*2dx*2cx*2]V[axbxcxdx]V[ax*1/2bx*1/2cx*1/2dx*1/2]U[ax*1/2bx*1/2cx*1/2dx*1/2]|`
+    const hope = `"Em"V[fx*2ex*2dx*2cx*2]V[axbxcxdx]V[ax/2bx/2cx/2dx/2]U[ax/2bx/2cx/2dx/2]|`
     const fact = parse(...para)
     expect(fact).toEqual(hope)
   })

@@ -33,8 +33,8 @@ V:guitar0 style=tab bracket=10
 V:guitar1 style=jianpu 
 
 [V:guitar0]
-zzc0*1/2c0*1/2|c2c0b1|b0*2c0*1/2c0*1/2|c2c0b3|
-b1*2c0*1/2c0*1/2|a3a0b1|b0c2a1*1/2a1*1/2|a0b1b3|b1*3|
+zzc0/2c0/2|c2c0b1|b0*2c0/2c0/2|c2c0b3|
+b1*2c0/2c0/2|a3a0b1|b0c2a1/2a1/2|a0b1b3|b1*3|
 [V:guitar1]
 ZZG,/2G,/2|A,G,C|B,2G,/2G,/2|A,G,D|
 w:      * * 祝 你    生 日 快  乐    祝你    生 日 快
@@ -74,10 +74,10 @@ V:guitar0 style=tab bracket=10
 V:guitar1 style=jianpu 
 
 [V:guitar0]
-a0a0a1a3|a3a1a0b3|b1b1b3a0|a0*3/2b3*1/2b3*2|
-a0a0a1a3|a3a1a0b3|b1b1b3a0|b3*3/2b1*1/2b1*2|
-b3b3a0b1|b3a0*1/2a1*1/2a0b1|b3a1a0b3|b1b3a3*2|
-a0a0a1a3|a3a1a0b3|b1b1b3a0|b3*3/2b1*1/2b1*2|
+a0a0a1a3|a3a1a0b3|b1b1b3a0|a0*3/2b3/2b3*2|
+a0a0a1a3|a3a1a0b3|b1b1b3a0|b3*3/2b1/2b1*2|
+b3b3a0b1|b3a0/2a1/2a0b1|b3a1a0b3|b1b3a3*2|
+a0a0a1a3|a3a1a0b3|b1b1b3a0|b3*3/2b1/2b1*2|
 [V:guitar1]
 EEFG|GFED|CCDE|E3/2D/2D2|
 EEFG|GFED|CCDE|D3/2C/2C2|
@@ -123,10 +123,10 @@ V:guitar0 style=tab bracket=10
 V:guitar1 style=jianpu 
 
 [V:guitar0]
-e3e3*1/2d0*1/2d2d2*1/2d3*1/2|c0c2*1/2c0*1/2d2*2|c0d3*1/2d2*1/2d0*2|d3d2*1/2d0*1/2e3*2|
-e3e3*1/2d0*1/2d2d2*1/2d3*1/2|c0c2*1/2c0*1/2d2*2|c0d3*1/2d2*1/2d0d2*1/2d0*1/2|e3*4|
-c0d3*1/2d2*1/2d0f3*1/2f3*1/2|d3d2*1/2d0*1/2e3*2|c0d3*1/2d2*1/2d0f3*1/2f3*1/2|d3d2*1/2d0*1/2e3*2|
-e3e3*1/2d0*1/2d2d2*1/2d3*1/2|c0c2*1/2c0*1/2d2*2|c0d3*1/2d2*1/2d0d2*1/2d0*1/2|e3*4|
+e3e3/2d0/2d2d2/2d3/2|c0c2/2c0/2d2*2|c0d3/2d2/2d0*2|d3d2/2d0/2e3*2|
+e3e3/2d0/2d2d2/2d3/2|c0c2/2c0/2d2*2|c0d3/2d2/2d0d2/2d0/2|e3*4|
+c0d3/2d2/2d0f3/2f3/2|d3d2/2d0/2e3*2|c0d3/2d2/2d0f3/2f3/2|d3d2/2d0/2e3*2|
+e3e3/2d0/2d2d2/2d3/2|c0c2/2c0/2d2*2|c0d3/2d2/2d0d2/2d0/2|e3*4|
 [V:guitar1]
 CC/2D/2EE/2F/2|GA/2G/2E2|GF/2E/2D2|FE/2D/2C2|
 CC/2D/2EE/2F/2|GA/2G/2E2|GF/2E/2DE/2D/2|C4|
@@ -171,8 +171,8 @@ V:guitar0 style=tab bracket=10
 V:melody0 style=jianpu 
 
 [V:guitar0]
-"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2bx*1/2cx*1/2|"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2bx*1/2cx*1/2|"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2bx*1/2cx*1/2|"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2bx*1/2cx*1/2|
-"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2bx*1/2cx*1/2|"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2bx*1/2cx*1/2|"G"fx*1/2cx*1/2bx*1/2cx*1/2"C"ex*1/2cx*1/2bx*1/2cx*1/2|"G"fx*1/2cx*1/2bx*1/2cx*1/2"C"ex*1/2cx*1/2bx*1/2cx*1/2|
+"C"ex/2cx/2bx/2cx/2ax/2cx/2bx/2cx/2|"C"ex/2cx/2bx/2cx/2ax/2cx/2bx/2cx/2|"C"ex/2cx/2bx/2cx/2ax/2cx/2bx/2cx/2|"C"ex/2cx/2bx/2cx/2ax/2cx/2bx/2cx/2|
+"C"ex/2cx/2bx/2cx/2ax/2cx/2bx/2cx/2|"C"ex/2cx/2bx/2cx/2ax/2cx/2bx/2cx/2|"G"fx/2cx/2bx/2cx/2"C"ex/2cx/2bx/2cx/2|"G"fx/2cx/2bx/2cx/2"C"ex/2cx/2bx/2cx/2|
 [V:melody0]
 CDEC|CDEC|EFG2|EFG2|
 w:       两只老虎      两只老虎  跑得快    跑得快
@@ -220,8 +220,8 @@ V:guitar0 style=tab bracket=10
 V:melody0 style=jianpu 
 
 [V:guitar0]
-z*3|"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2|"G"fx*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2|"G"fx*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2|
-"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2|"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2|"F"dx*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2|"G"fx*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2|"C"ex*1/2cx*1/2bx*1/2cx*1/2ax*1/2cx*1/2|
+z*3|"C"ex/2cx/2bx/2cx/2ax/2cx/2|"G"fx/2cx/2bx/2cx/2ax/2cx/2|"G"fx/2cx/2bx/2cx/2ax/2cx/2|
+"C"ex/2cx/2bx/2cx/2ax/2cx/2|"C"ex/2cx/2bx/2cx/2ax/2cx/2|"F"dx/2cx/2bx/2cx/2ax/2cx/2|"G"fx/2cx/2bx/2cx/2ax/2cx/2|"C"ex/2cx/2bx/2cx/2ax/2cx/2|
 [V:melody0]
 ZZG,/2G,/2|A,G,C|B,2G,/2G,/2|A,G,D|
 w:      * * 祝 你    生 日 快  乐    祝你    生 日 快

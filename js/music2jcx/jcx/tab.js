@@ -67,7 +67,7 @@ function nameWithDuration(name, dura) {
       return `${name}/${du.d}`
     } 
     else {
-      return `${name}*${du}`
+      return `${name}*${du.toFraction()}`
     }
   })
 
