@@ -1,0 +1,97 @@
+title : [再见, 张震岳]
+info : 原调1=bG
+artist : 童话吉他编配
+timeSign : 4/4
+beat : 1/4
+key : G
+tracks : 
+  - name: guitar
+    jcx: tab
+    beat : 1/8
+  - name: melody
+    jcx: jianpu
+patterns : 
+    G : '"G"[123456]^-^v^-^v'
+    G7 : '"G7"[123456]^-^v^-^v'
+    Em : '"Em"[123456]^-^v^-^v'
+    C : '"C"[123456]^-^v^-^v'
+    A : '"A"[123456]^-^v^-^v'
+    Bm : '"Bm"[123456]^-^v^-^v'
+    CD : '"C"[123456]^-^v"D"[12345]^-^v'
+    D : '"D"[12345]^-^v^-^v'
+=================
+<guitar> %G | %G | %G 
+<melody> 0---|0---|0---
+
+<guitar> "G"[123456]^0^0----
+<melody> 0-35
+w: 我怕
+
+<guitar> %G | %G7 
+<melody> 5(-5)56 | (53)-3(21) 
+w: 我没有机会 跟你*
+
+<guitar> %C | %G
+<melody> 1(-1)(12)(6.5.) | 5.-5.6. 
+w: 说一声*再*见 因为
+
+<guitar> %Em | %A
+<melody> 1-12  | 3 (33) (21) (32)
+w: 也许就再也见不*到*
+
+<guitar> %G | %G
+<melody> 2--- | --35
+w: 你 明天
+
+<guitar> %G | %G7
+<melody> 5-56 | (53)-(23)(21) 
+w: 我要离开* 熟*悉的
+
+<guitar> %C | %G
+<melody> 1-(21)(6.5.) | 5.-5.6. 
+w: 地方*的*你 要分
+
+<guitar> %Em | %CD
+<melody> 1--2  | 3 (33) (21) (21)
+w: 离 我眼泪就掉*下*
+
+<guitar> %G | %G
+<melody> 1--- | 0-35
+w: 去 我会
+
+<guitar> %Em | %Bm
+<melody> (66)(66)(65)(53) | 3-23
+w: 牢牢记住你*的*脸 我会
+
+<guitar> %C | %G
+<melody> (11)(11)12 | 3-35
+w: 珍惜你给的思念 这些
+
+<guitar> %Em | %A
+<melody> (66)(66)(65)5 | (33)(33)(21)(32)
+w: 日子在我心*中永远都不会*抹*
+
+<guitar> %D | "D"[12345]^0^0----
+<melody> 2--- | 0-35
+w: 去 我不
+
+
+<guitar> %G | %G7
+<melody> 5-5(65) | (53)- (23)(21) 
+w: 能答应*你* 我*是*
+
+<guitar> %C | %G
+<melody> 1(-1) (21) (6.5.) | 5. - 5. 6. 
+w: 否会再*回*来 不回
+
+<guitar> %Em | %CD
+<melody> 1--2 | 3 (33) (21) (21) 
+w: 头 不回头的走*下*
+
+<guitar> %G 
+<melody> 1---
+w: 去
+
+
+
+
