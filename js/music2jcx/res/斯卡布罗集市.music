@@ -1,0 +1,37 @@
+title : [斯卡布罗集市]
+artist : 童话吉他编配
+timeSign : 3/4
+key : C
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+=================
+<guitar> [6..6.]-6. | [6..3]-3
+<melody> 6. -6. | 3 -3
+
+<guitar> [7.5..](-1) 7. | [6.6..] 3. 6..
+<melody> 7.(-1)7. | 6.-- 
+
+<guitar> 1.35 | [66..]-5 | [31.][#42.]2
+<melody> 035 | 6-5 | 3#42
+
+<guitar> [36..]3.6. | 1-6
+<melody> 3-- | --6
+
+<guitar> [66..]-6 | [51.]-3
+<melody> 6-6 | 5-3
+
+<guitar> [31.][27..][16..]| [7.5..]5.-
+<melody> 321| 7.5.-
+
+<guitar> [6.6..]-3
+<melody> 6.-3
+
+<guitar> [25..]-1 | [7.5..]6.5.
+<melody> 2-1| 7.6.5.
+
+<guitar> [6.6..]--
+<melody> 6.--
+
