@@ -14,8 +14,14 @@ const noteTable = {
 
 export default function jcxNote(note){
   note = note+''
+  let prefix = ''
+  if ( /^[b#]/.test(note) ) {
+    prefix = (note[0] === 'b' ? '_' : '^')
+    note = note.slice(1)
+  } 
+
   const name = note[0]
   const tail = note.slice(1)
-  const newNote = (noteTable[name]||name) + tail.replace(/\./g, ',')
+  const newNote = prefix + (noteTable[name]||name) + tail.replace(/\./g, ',')
   return newNote
 }

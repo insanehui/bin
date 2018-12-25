@@ -10,6 +10,15 @@ describe('parse', () => {
     expect(fact).toEqual(hope)
   })
 
+  it('升降号', () => {
+    const para = [
+      "1. 2 b3' #4'"
+    ]
+    const hope = `C,D_E'^F'|`
+    const fact = parse(...para)
+    expect(fact).toEqual(hope)
+  })
+
   it('跨小节连音线', () => {
     // 标注琴弦的位置
     const para = [
