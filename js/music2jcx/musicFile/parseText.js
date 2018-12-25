@@ -101,16 +101,16 @@ export default function parse(text) {
 
     // console.log(`>>>>>>> c:${c} | singleNote:${singleNote} | chord:${chord} | fMulti:${fMulti} | notes:${JSON.stringify(notes)} | multiNote:${JSON.stringify(multiNote)} | lastMultiSeq:${JSON.stringify(lastMultiSeq)}`)
 
+    if ( fChord && /[^"]/.test(c) ) { // 收集和弦
+      chord += c
+      continue
+    } 
+
     // 越界直接返回
     if ( c === undefined || c === ')' ) {
       collectMulti()
       collectNotes() // 强制collect notes
       return notes
-    } 
-
-    if ( fChord && /[^"]/.test(c) ) { // 收集和弦
-      chord += c
-      continue
     } 
 
     if( /[\d-]/.test(c) ){ // 音符主体

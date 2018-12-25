@@ -56,4 +56,17 @@ describe('parseText', () => {
     const fact = parse(...para)
     expect(fact).toEqual(hope)
   })
+
+  it('有括号的和弦', () => {
+    const para = [
+      '"F(3)"12'
+    ]
+    const hope = [
+      { "notes": [ "1" ], chord : 'F(3)' },
+      { "notes": [ "2" ], },
+    ]
+    const fact = parse(...para)
+    expect(fact).toEqual(hope)
+  })
+
 });
