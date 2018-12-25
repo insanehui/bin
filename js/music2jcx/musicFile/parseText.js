@@ -7,6 +7,7 @@ function harmonyWithoutPostfix(multiNote) {
   return multiNote.size > 1 
     && multiNote.arpeggio === undefined 
     && multiNote.downStroke === undefined 
+    && multiNote.downStrokeStacc === undefined 
     && multiNote.upStroke === undefined
 }
 
@@ -19,6 +20,9 @@ function setMultiNotePostfix(multiNote, c) {
   } 
   else if ( c === 'v' ) {
     multiNote.upStroke = true
+  } 
+  else if ( c === 'i' ) {
+    multiNote.downStrokeStacc = true
   } 
 }
 
@@ -133,7 +137,7 @@ export default function parse(text) {
     else if ( /[.']/.test(c) ) { // 高低音
       collectSingle()
     } 
-    else if ( /[$v^]/.test(c) ) { // 吉他弹奏技巧
+    else if ( /[$vi^]/.test(c) ) { // 吉他弹奏技巧
       if ( harmonyWithoutPostfix(multiNote)) {
         setMultiNotePostfix(multiNote, c)
       } 

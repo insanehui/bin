@@ -28,6 +28,15 @@ describe('tab', () => {
     expect(fact).toEqual(hope)
   })
 
+  it('扫弦向下切音', () => {
+    const para = [
+      '"G"[123456]^-iv^-iv'
+    ]
+    const hope = `"G"V[ax*2bx*2cx*2dx*2ex*2fx*2]V!STACC![axbxcxdxexfx]U[axbxcxdxexfx]V[ax*2bx*2cx*2dx*2ex*2fx*2]V!STACC![axbxcxdxexfx]U[axbxcxdxexfx]|`
+    const fact = parse(...para)
+    expect(fact).toEqual(hope)
+  })
+
   it('扫弦连接', () => {
     const para = [
       '"F"[123]^- [123]^[123]v _[123]^[123]v [123]^[123]v'

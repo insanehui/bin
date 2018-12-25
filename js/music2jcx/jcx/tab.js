@@ -29,6 +29,9 @@ function getPrefix(note) {
   else if ( note.upStroke ) {
     res = 'U' + res
   } 
+  else if ( note.downStrokeStacc ) {
+    res = 'V!STACC!'
+  } 
 
   if ( note.slide ) {
     res = '-S-' + res
@@ -69,7 +72,6 @@ function nameWithDuration(name, dura) {
 
 function item2text(item, opt) {
   let {note, duration} = item
-  // duration = simplifyDuration(duration)
 
   let text = _.map(note.notes, n => {
     let name
@@ -85,16 +87,6 @@ function item2text(item, opt) {
 
     return nameWithDuration(name, duration)
 
-    // // TODO: 后面用handleMuseBug来重写这段逻辑
-    // /*
-    //  * ! muse好像对7处理有个bug，所以逢7就得拆开来显示. 但没有测试
-    //  */
-    // if ( duration === '*7' ) {
-    //   return `${name}*6${name==='z'?'':'-'}${name}`
-    // } 
-    // else {
-    //   return name + duration
-    // }
   }).join('')
 
   if ( note.size > 1 ) {
