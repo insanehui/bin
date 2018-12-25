@@ -1,0 +1,25 @@
+title : [董小姐, 宋冬野]
+artist : 童话吉他编配
+timeSign : 4/4
+beat : 1/8
+key : E
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+customChords : 
+  'Eadd9' : 1;0,X,4,1,0,0
+  'C#m' : 4;X,1,3,3,2,1
+  'G#m' : 1;4,X,X,4,4,X
+  
+patterns : 
+  L1 : '"E"[123456]^-^(^v)'
+  L5 : '"B"[123456]^-^(^v)'
+  L6 : '"C#m"[123456]^-^(^v)'
+  L3 : '"G#m"[123456]^-^(^v)'
+  L4 : '"A"[123456]^-^(^v)'
+=================
+<guitar> "Eadd9"(64)3 -- "Asus2"542-
+<guitar> "G#m"[62]3 3@1 (23) "C#m"54-2
+<guitar> "Asus2"5423 "C#m"54-2
