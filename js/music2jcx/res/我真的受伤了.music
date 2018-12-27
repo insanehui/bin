@@ -1,0 +1,129 @@
+title : [我真的受伤了, 张学友]
+artist : 童话吉他编配
+timeSign : 4/4
+beat : 1/8
+key : G
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+customChords : 
+  'Am7' : 1;X,0,2,0,1,0
+patterns : 
+  A1 : '"G7"63231323'
+  A4 : '"C"5432'
+  A5 : '"D"4315'
+  B5 : '"D7"4312'
+  A6m : '"Em"6432'
+  A6 : '"E"6432'
+  A3m : '"Bm"5423'
+  A2m : '"Am7"5423'
+=================
+<guitar> "Cmaj7"5432 "D"4323
+<melody> 0-------
+<guitar> %A3m %A6m
+<melody> 0-------
+<guitar> %A2m "D7sus4"4312
+<melody> 0-------
+<guitar> "G"64 [1@2 3][23] _[23]---
+<melody> 0-------
+
+<guitar> %A4 %A5
+<melody> 06. 16. 32 --
+w: 灯光也暗了
+
+<guitar> %A3m %A6m
+<melody> 05. 7.5. 21 --
+w: 音乐低声了
+
+<guitar> %A2m %B5
+<melody> 06. 16. 32 21
+w: 口中的棉花糖也
+
+<guitar> %A1
+<melody> 2- 53 -- --
+w: 融化了
+
+<guitar> %A4 %A5
+<melody> 06. 16. 32 --
+w: 窗外阴天了
+
+<guitar> %A3m %A6m
+<melody> 05. 7.5. 21 -6.
+w: 人是无聊了 我
+
+<guitar> %A2m %B5
+<melody> 43 16. 1- 21
+w: 的心开始想你了
+
+<guitar> %A1
+<melody> -- -- -- --
+
+
+<guitar> %A4 %A5
+<melody> 04 43 32 -- 
+w: 电话响起了
+
+<guitar> %A3m %A6m
+<melody> 02 52 3(21) -- 
+w: 你要说话了*
+
+<guitar> %A2m %B5
+<melody> 04 4(33) -(22) -(12) 
+w: 还以为你心里对我
+
+<guitar> %A1
+<melody> 3- 3(43) -- --
+w: 又想念了
+
+<guitar> %A4 %A5
+<melody> 06 6(66) -5 24
+w: 怎么你声音变得
+
+<guitar> %A3m %A6
+<melody> 3- 2- #1- -6
+w: 冷淡了 是
+
+<guitar> "Am7"54 7.@2 3 2@2 4 7.@2 3
+<melody> 3(11) -- -- -5
+w: 你变了*是
+
+<guitar> "Dsus4"4321 #4@1 ---
+<melody> 3(22) 2- -- --
+w: 你变了
+
+
+<guitar> %A4 %A5
+<melody> 06. 16. 32 --
+w: 灯光熄灭了
+
+<guitar> %A3m %A6m
+<melody> 05. 7.5. 21 --
+w: 音乐静止了
+
+<guitar> %A2m %B5
+<melody> 06. 16. 32 21
+w: 滴下的眼泪已停
+
+<guitar> %A1
+<melody> 2- 53 -- --
+w: 不住了
+
+
+<guitar> %A4 %A5
+<melody> 06 6(66) -5 -2
+w: 天下起雨了人
+
+<guitar> %A3m %A6m
+<melody> 52 3(21) -- -6.
+w: 是不快乐** 我
+
+<guitar> %A2m %B5
+<melody> 43 16. 1- 2-
+w: 的心真的受伤
+
+<guitar> "G"643 [1@2] [6432]---
+<melody> 1- -- -- --
+w: 了
+
