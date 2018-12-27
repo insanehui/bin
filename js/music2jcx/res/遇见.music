@@ -1,0 +1,28 @@
+title : [遇见, 孙燕姿]
+info : 原调1=#G 变调夹1品
+artist : 童话吉他编配
+timeSign : 4/4
+key : G
+beat : 1/8
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+patterns : 
+    G : '"G"[123456]^-iv^-iv'
+=================
+<guitar> 0- -- -- 2 7.
+<guitar> 5..2. 26. #4..2. 25. 
+
+<guitar> 3..3. [37.5.]- -7.. 2.5.
+<guitar> 1.3.25. 7..2.5.2
+
+<guitar> 6..3.5.(12) [7.2.]5.15.
+
+<guitar> [7.5..]5.25. [3#4..]5.#45.
+<guitar> [#43..]5.55. [62.]5.75.
+<guitar> [71.@6]- 3.@6 5@2 -- --
+
+<guitar> [2'5@22@32.]-------
+
