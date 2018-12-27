@@ -30,6 +30,12 @@ export default function handleBug(duration) {
       fraction(8).div(d),
     ]
   }
+  else if (n === 13){
+    return [
+      fraction(1).div(d),
+      fraction(12).div(d),
+    ]
+  }
   else if ( n===15 ) {
     return [
       fraction(1).div(d),
