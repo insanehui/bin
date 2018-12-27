@@ -1,0 +1,160 @@
+title : [爱我别走, 张震岳]
+artist : 童话吉他编配
+timeSign : 4/4
+beat : 1/8
+key : C
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+customChords : 
+  'C#m' : 4;X,1,3,3,2,1
+  'Em7/bB' : 1;X,1,X,0,3,0
+  'Am7' : 1;X,0,2,0,1,3
+  'G#maj7' : 4;1,3,2,2,1,1
+  'Gadd9' : 1;3,X,0,2,0,3
+patterns : 
+  A1 : '"E"64321-23'
+=================
+<guitar> "Cadd9"5321 -323
+<melody> 0-------
+
+<guitar> "Em7"5321 -323
+<melody> 0-------
+
+<guitar> "Em7/bB"5321 -323
+<melody> 0-------
+
+<guitar> "Am7"5321 -323
+<melody> 0-------
+
+<guitar> "G#maj7"6432 ---- 
+<melody> 0-------
+
+<guitar> "Gm7"6432 ---- 
+<melody> 0-------
+
+<guitar> "Cadd9"5321 -313
+<melody> 05 55 55 55
+w: 我到了这个时候
+
+<guitar> "Em7"5321 -313
+<melody> 54 43 -- --
+w: 还是一样
+
+<guitar> "Em7/bB"5321 -323
+<melody> 05 55 55 55
+w: 夜里的寂寞容易
+
+<guitar> "Am7"5321 -323
+<melody> 54 31 -- --
+w: 叫人悲伤
+
+<guitar> "Dm7"4321 -313
+<melody> 04 44 43 41'
+w: 我不敢想的太多
+
+<guitar> "Gadd9"4321 -313
+<melody> -- -- -1 11
+w: **因为我
+
+<guitar> "Cadd9"4321 -323
+<melody> 23 3- -- --
+w: 一个人
+
+<guitar> "G"[23456]$- -[1@2 3456] -- [2@2 3456]-
+<melody> 0- -- -- --
+
+<guitar> "Cadd9"5321 -313
+<melody> 05 55 55 55
+w: 迎面而来的月光
+
+<guitar> "Em7"5321 -313
+<melody> 54 43 -- --
+w: 拉长身影
+
+<guitar> "Em7/bB"5321 -323
+<melody> 05 55 55 55
+w: 漫无目地的走在
+
+<guitar> "Am7"5321 -323
+<melody> 54 31 -- --
+w: 冷冷的街
+
+<guitar> "Dm7"4321 -313
+<melody> 04 44 43 41'
+w: 我没有你的消息
+
+<guitar> "Gadd9"4321 -313
+<melody> -- -- -1 11
+w: **因为我
+
+<guitar> "Cadd9"4321 -323
+<melody> 23 3- -- -6
+w: 在想你 *yeah
+
+<guitar> "G"64 2 1@2 1 3 1@2 3@1
+<melody> 5- -3' 1'- 64
+
+<guitar> "Cadd9"53[12]3 "Em7"53[12]3
+<melody> 0- 3'2' -- 3'1'
+w: 爱我别走
+
+<guitar> "Am7"53[12]3 "Gsus4"53[12]3
+<melody> 0- 1'7 -- 56
+w: 如果 你说
+
+<guitar> "Dm7"53[12]3 "Gadd9"63[12]3
+<melody> 0- 1'3' 2'1' -3'
+w: 你不*爱我
+
+<guitar> "Cadd9"5321 -323
+<melody> -- -- -- --
+
+<guitar> "E"6321 -323
+<melody> 0- 3'3' 3'3' 3'3'
+w: 不要听见你真
+
+<guitar> "Am7"5321 -323
+<melody> 4'3' 2'1' -6 64'
+w: 的说出口 再给我
+
+<guitar> "Dm7"53[12]3 "Gadd9"63[12]3
+<melody> 03' -1' -3' -2'
+w: 一点温柔
+
+<guitar> "Gsus4"6321- 323
+<melody> -- -- -- --
+
+
+<guitar> "Cadd9"53[12]3 "Em7"53[12]3
+<melody> 0- 3'2' -- 3'1'
+w: 爱我别走
+
+<guitar> "Am7"53[12]3 "Gsus4"53[12]3
+<melody> 0- 1'7 -- 56
+w: 如果你说
+
+<guitar> "Dm7"53[12]3 "Gadd9"63[12]3
+<melody> 0- 1'3' 2'1' -3'
+w: 你不*爱我
+
+<guitar> "Cadd9"5321 -323
+<melody> -- -- -- --
+
+
+<guitar> "E"6321 -323
+<melody> 0- 3'3' 3'3' 3'3'
+w: 不要听见你真
+
+<guitar> "Am7"5321 -323
+<melody> 4'3' 2'1' -6 64'
+w: 的说出口 再给我
+
+<guitar> "Dm7"53[12]3 "Gadd9"63[12]3
+<melody> 03' -1' -2' -1'
+w: 一点温柔
+
+<guitar> "Cadd9"5321 -323
+<melody> -- -- -- --
