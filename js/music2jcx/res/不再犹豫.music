@@ -1,0 +1,193 @@
+title : [不再犹豫, Beyond]
+artist : 童话吉他编配
+timeSign : 4/4
+beat : 1/8
+key : G
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+patterns : 
+    G : '"G"[123456]^-^v_^v^v'
+    Em : '"Em"[123456]^-^v_^v^v'
+    C : '"C"[12345]^-^v_^v^v'
+    D : '"D"[1234]^-^v_^v^v'
+    Am : '"Am"[12345]^-^v_^v^v'
+    Bm : '"Bm"[12345]^-^v_^v^v'
+=================
+<guitar> 0-------
+<melody> 0- -- -- 12
+w: 无聊
+
+<guitar> %G
+<melody> 3- 5- 53-2
+w: 望见了犹豫
+
+<guitar> %D
+<melody> -- -- -- 35
+w: *达到
+
+<guitar> %Em
+<melody> 6- 7- 65-3
+w: 理想不太易
+
+<guitar> %Bm
+<melody> -- -- -- 32
+w: *即使
+
+
+<guitar> %Am
+<melody> 1- 12 -- --
+w: 有信心
+
+<guitar> %C
+<melody> 1- 12 -- 3-
+w: 斗志却抑
+
+<guitar> %D
+<melody> 2- -- -- --
+w: 止
+
+<guitar> %D
+<melody> -- -- -- 12
+w: *谁人
+
+
+<guitar> %G
+<melody> 3- 5- 53-2
+w: 定我去或留
+
+<guitar> %D
+<melody> -- -- -- 35
+w: *定我
+
+<guitar> %Em
+<melody> 6- 7- 65-3
+w: 心中的宇宙
+
+<guitar> %Bm
+<melody> -- -- -- 32
+w: *只想
+
+
+<guitar> %Am
+<melody> 1- 12 -- --
+w: 靠两手
+
+<guitar> %C
+<melody> 1- 12 -- 3-
+w: 向理想挥
+
+<guitar> %D
+<melody> 2- -- -- --
+w: 手
+
+<guitar> %D
+<melody> -- -- -- 35
+w: *问句
+
+
+<guitar> %Em
+<melody> 6- 66 -- -7
+w: 天几高心
+
+<guitar> %Em
+<melody> 6- 55 32 1-
+w: 中志比天*更
+
+<guitar> %D
+<melody> 2- -- -- --
+w: 高
+
+<guitar> %D
+<melody> -- -- -- 35
+w: *自信
+
+
+<guitar> %Em
+<melody> 6- 66 -- -7
+w: 打不死的
+
+<guitar> %Em
+<melody> 6- 5- 35 -5
+w: 心态活到
+
+<guitar> %D
+<melody> 5- -- -- --
+w: 老
+
+<guitar> %D
+<melody> -- -- 6- 7-
+w: *wo oh
+
+
+<guitar> %G
+<melody> 1'- -- -- --
+w: oh
+
+<guitar> %D
+<melody> 7- -- -- 55
+w: oo 我有
+
+<guitar> %Em
+<melody> 6- 76 -- 5-
+w: 我心底故
+
+<guitar> %Bm
+<melody> 3- -- -- 55
+w: 事 亲手
+
+<guitar> %Am
+<melody> 5- 44 -- 3-
+w: 写上每段
+
+<guitar> %C
+<melody> 3- 2- 1- 2-
+w: 得失乐与
+
+<guitar> %D
+<melody> 3- -- -4 32
+w: 悲*与梦儿
+
+<guitar> %D
+<melody> -- -- 6- 7-
+w: *wo oh
+
+
+<guitar> %G
+<melody> 1'- -- -- --
+w: oh
+
+<guitar> %D
+<melody> 7- -- -- 55
+w: oo 纵有
+
+<guitar> %Am
+<melody> 6- 76 -- 5-
+w: 创伤不退
+
+<guitar> %Bm
+<melody> 3- -- -- 35
+w: 避 梦想
+
+<guitar> %Am
+<melody> 4- 32 -- 1-
+w: 有日达成
+
+<guitar> %C
+<melody> 4- 33 -2 12
+w: 找到心底梦想
+
+<guitar> %D
+<melody> 3- -2 2- --
+w: 的世界
+
+<guitar> %D
+<melody> -- -- 3- 21
+w: *终可
+
+
+<guitar> %G
+<melody> 1'- -- -- --
+w: 见
