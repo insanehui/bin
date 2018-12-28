@@ -1,0 +1,9 @@
+title : C调简单音阶
+artist : 童话吉他编配
+timeSign : 4/4
+key : C
+tracks : 
+  - name: guitar
+    jcx: [tab, jianpu]
+=================
+<guitar> 3.. 4.. 5.. 6.. 7.. 1. 2. 3. 4. 5. 6. 7. 1 2 3 4 5

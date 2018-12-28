@@ -1,0 +1,29 @@
+title : 日常用语中的节奏型
+artist : 童话吉他制谱
+timeSign : 4/4
+key : C
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+=================
+<guitar> "C"((33)3) (33)
+<melody> ((11)1) (11)
+w: 中国队 加油
+
+<guitar> "C"(3(33)) (33)
+<melody> (1(11)) (11)
+w: 小兔子 乖乖
+
+<guitar> "C"(33-3)
+<melody> (11-1)
+w: 必须滴
+
+<guitar> "C"(33--) 3
+<melody> (11--) 1
+w: 齐步走
+
+<guitar> "C"(3--3) (33)
+<melody> (1--1) (11)
+w: 哎呀妈呀
