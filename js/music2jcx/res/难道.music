@@ -1,0 +1,14 @@
+title : [难道, 羽泉]
+artist : 童话吉他编配
+timeSign : 4/4
+beat : 1/8
+key : C
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+patterns : 
+  A64 : '"Em"[4321]^-^(^"Cmaj7"[4321]v)( _^v)(^v)^(^v)'
+=================
+<melody> 0(11)

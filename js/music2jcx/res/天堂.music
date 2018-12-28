@@ -1,0 +1,86 @@
+title : [天堂, 腾格尔]
+artist : 童话吉他编配
+timeSign : 4/4
+beat : 1/8
+key : C
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+patterns : 
+  Am : '"Am"53231323'
+  Em : '"Em"63231323'
+  Dm : '"Dm"43231323'
+=================
+<guitar> %Am | %Am
+<melody> 0------- | 0-------
+
+<guitar> %Am | %Am
+<melody> 3(56) 76 -- -- | -- ------
+w: 蓝蓝的天空
+
+<guitar> %Em | %Em
+<melody> 3(56) 76 -- -- | 53 ------
+w: 清清的湖水
+
+<guitar> %Dm | %Dm
+<melody> 6.(12) 32 -- -- | -- ------
+w: 绿绿的草原
+
+<guitar> %Em | %Am
+<melody> (5.(-6.))(12) 32 -- -1 | 6.- ------
+w: 这是我的家
+
+<guitar> %Am | %Am
+<melody> 3(56) 76 -- -- | -- ------
+w: 奔驰的骏马
+
+<guitar> %Em | %Em
+<melody> 3(56) 76 -- -- | 53 ------
+w: 洁白的羊群
+
+<guitar> %Dm | %Dm
+<melody> 6.(12) 32 -- -- | -- ------
+w: 还有你姑娘
+
+<guitar> %Em | %Am
+<melody> (5.(-6.))(12) 32 -- -1 | 6.- ------
+w: 这是我的家
+
+<guitar> %Am
+<melody> ------63'
+w: *我爱
+
+<guitar> %Dm
+<melody> -2' -- -- --
+w: *你
+
+<guitar> %Am
+<melody> 62' -1' -- --
+w: 我的*家
+
+<guitar> %Em
+<melody> (61')(2'3') -(-3) -- -(56)
+w: 我*的*家*我的
+
+<guitar> %Am
+<melody> (2'1')(66) -- -- -- 
+w: 天**堂
+
+<guitar> %Dm
+<melody> 63' -2' -- -1
+w: 我爱你
+
+<guitar> %Am
+<melody> 62' -1' -- --
+w: 我的家
+
+<guitar> %Em
+<melody> (61')(2'3') -(-3) -- -(56)
+w: 我*的*家*我的
+
+<guitar> %Am
+<melody> (2'1')(66) -- -- -- 
+w: 天**堂
+
