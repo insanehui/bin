@@ -1,0 +1,26 @@
+title : 分解和弦节奏型
+artist : 童话吉他制谱
+timeSign : 4/4
+beat: 1/8
+key : C
+tracks : 
+  - name: guitar
+    jcx: tab
+=================
+<guitar> "C"53231323
+<guitar> "C"5321-323
+<guitar> "C"54321234
+<guitar> "C"53[12]3 [12]3 [12]3
+<guitar> "C"[512]3[12]3 [512]3 [12]3
+<guitar> "C"5321 5321
+<guitar> "C"5325 3212
+<guitar> "C"5(-4)2(34)5(-4)2(34)
+<guitar> "C"5[123]4[123]5[123]4[123]
+<guitar> "C"5(23)4(23)5(23)4(23)
+<guitar> "C"5(23)(41)(23)5(23)(41)(23)
+
+<guitar> "C"532313
+<guitar> "C"532123
+<guitar> "C"5[123][123]4[123][123]
+<guitar> "C"5-3 123
+<guitar> "C"5-3 [12]-3
