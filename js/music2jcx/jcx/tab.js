@@ -21,17 +21,20 @@ const gtString = {
 function getPrefix(note) {
   let res = ''
   if ( note.arpeggio ) {
-    res = 'B' + res
+    res = 'B'
   } 
   else if ( note.downStroke ) {
-    res = 'V' + res
+    res = 'V'
   } 
   else if ( note.upStroke ) {
-    res = 'U' + res
+    res = 'U'
   } 
   else if ( note.downStrokeStacc ) {
     res = 'V!STACC!'
   } 
+  else if (note.patString){
+    res = '!STACC!'
+  }
 
   if ( note.slide ) {
     res = '-S-' + res

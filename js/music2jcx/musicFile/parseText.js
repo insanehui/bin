@@ -24,6 +24,9 @@ function setMultiNotePostfix(multiNote, c) {
   else if ( c === 'i' ) {
     multiNote.downStrokeStacc = true
   } 
+  else if ( c === '!' ) {
+    multiNote.patString = true
+  } 
 }
 
 function setSHP(note, c) {
@@ -137,7 +140,7 @@ export default function parse(text) {
     else if ( /[.']/.test(c) ) { // 高低音
       collectSingle()
     } 
-    else if ( /[$vi^]/.test(c) ) { // 吉他弹奏技巧
+    else if ( /[$vi!^]/.test(c) ) { // 吉他弹奏技巧
       if ( harmonyWithoutPostfix(multiNote)) {
         setMultiNotePostfix(multiNote, c)
       } 
