@@ -11,7 +11,25 @@ tracks :
 customChords : 
   'D/#F' : 1;2,0,0,2,3,2
 patterns : 
-  A1 : '"G7"63231323'
+  A15 : '"G"643 2@2 "D/#F"6432'
+  A6m : '"Emadd9"65432---'
+  A5 : '"D"43231---'
+  Em_a : '"Em"[6432]-------'
+  C : '"C"54321234'
+  D_a : '"D"[1234]-------'
+  Em9 : '"Emadd9"65432432'
+  G_b : '"G"[62]3452345'
+  F : '"F"[62]3452345'
+  D_b : '"D"[41]2341234'
+  C_b : '"C"[52]3452345'
+  B_b : '"B"[52]3452345'
+  Am7 : '"Am7"[52]3452345'
+  G_c : '"G"[1234]^-^v_^v^v'
+  D_c : '"D"[1234]^-^v_^v^v'
+  C_c : '"C"[1234]^-^v_^v^v'
+  Em_c : '"Em"[1234]^-^v_^v^v'
+  B_c : '"B"[1234]^-^v_^v^v'
+  C_m_c : '"C"[1234]^-^v"Cm"[1234]^-^v'
 =================
 <guitar> "G"643 2@2 "D/#F"6432
 <melody> 0-------
@@ -32,130 +50,172 @@ patterns :
 <melody> 0-----12
 w: 如果
 
+<guitar> %A15
 <melody> 3-3-2-3-
 w: 那两个字
 
+<guitar> %A6m
 <melody> 217.6. --3.6.
 w: 没有颤抖 我不
 
+<guitar> %A5
 <melody> 5.- -6. 7.6.-5.
 w: 会发现我难
 
+<guitar> %Em_a
 <melody> 6.- -- 17.6.7.
 w: 受 怎么说出
 
+<guitar> %C
 <melody> 6.- -- -- --
 w: 口
 
+<guitar> %D_a
 <melody> -- -3. 17.6.7.
-w: 也不过是分
+w: *也不过是分
 
+<guitar> %Em9
 <melody> 6.- -- -- --
 w: 手
 
+<guitar> %Em9
 <melody> 0- -- -- 12
 w: 如果
 
 
+<guitar> %A15
 <melody> 3-3-2-3-
 w: 对于明天
 
+<guitar> %A6m
 <melody> 2351 -- -3
 w: 没有要求 牵
 
+<guitar> %A5
 <melody> 2- 2- 21 7.1
 w: 牵手就像旅游
 
+<guitar> %Em_a
 <melody> -- -1 17.6.7.
-w: 成千上万个
+w: *成千上万个
 
+<guitar> %C
 <melody> 16. -- -- --
 w: 门口
 
+<guitar> %D_a
 <melody> -- -3. 17.6.7.
-w: 总有一个人
+w: *总有一个人
 
+<guitar> %Em9
 <melody> 6.- 7.6. -- --
 w: 要先走
 
+<guitar> "Emadd9"6543 2@2---
 <melody> -- -- -- --
 
 
+<guitar> %G_b
 <melody> -- -5. 3- 21
-w: 怀抱既然
+w: *怀抱既然
 
+<guitar> %D_b
 <melody> 2- 32 -5. --
 w: 不能逗留
 
-<melody> -1 6.7. 16 51
+<guitar> %C_b
+<melody> 01 6.7. 16 51
 w: 何不在离开的时
 
+<guitar> %G_b
 <melody> 3- -- -3 23
-w: 候 一边享
+w: 候*一边享
 
+<guitar> %Am7
 <melody> 4- -- -- --
 w: 受
 
+<guitar> %F
 <melody> 2- -3 -- 4-
 w: 一边泪
 
+<guitar> %B_b
 <melody> 3- -- -- --
 w: 流
 
+<guitar> "B"[54321]$-------
 <melody> -- -1 25 -3
-w: 十年之
+w: *十年之
 
 
+<guitar> %G_c
 <melody> 3- -3 -4 56
 w: 前 我不认识
 
+<guitar> %D_c
 <melody> 2- -2 -4 32
 w: 你 你不属于
 
+<guitar> %Em_c
 <melody> 1- -3.-2 17.
 w: 我 我们还是
 
+<guitar> %C_m_c
 <melody> 1- 6.- 017.6.
 w: 一样 陪在一
 
-<melody> 7. 43 2- 7.1
+<guitar> %B_c
+<melody> 7.- 43 2- 7.1
 w: 个陌生人左右
 
+<guitar> %Em_c
 <melody> -- -- -1 23
-w: 走过渐
+w: **走过渐
 
+<guitar> %C_c
 <melody> 6- -3 4- 53
 w: 渐熟悉的街
 
+<guitar> %D_c
 <melody> -2 -1 25 -3
-w: 头 十年之
+w: *头 十年之
 
 
+<guitar> %G_c 
 <melody> 3- -3 -4 56
 w: 后 我们是朋
 
+<guitar> %D_c
 <melody> 2- -2 -4 32
 w: 友 还可以问
 
+<guitar> %Em_c
 <melody> 1- -3.-2 17.
 w: 候 只是那种
 
+<guitar> %C_m_c
 <melody> 1- 6.- 017.6.
 w: 温柔 再也找
 
-<melody> 7. 43 2- 32
+<guitar> %B_c
+<melody> 7.- 43 2- 32
 w: 不到拥抱的理
 
+<guitar> %Em_c
 <melody> -1 -- -1 23
-w: 由 情人最
+w: 由*情人最
 
+<guitar> %C_c
 <melody> 6- -3 3- 12
 w: 后难免沦为
 
+<guitar> %D_c
 <melody> -- -- -- 17.
-w: 朋
+w: *朋
 
+<guitar> %G_c
 <melody> 1- -- -- --
 w: 友
 
+<guitar> %G_c
 <melody> 0- -- -- --
