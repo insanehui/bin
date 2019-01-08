@@ -1,0 +1,46 @@
+title : 兰花草
+artist : 童话吉他编配
+timeSign : 4/4
+beat : 1/8
+key : C
+tracks : 
+  - name: guitar
+    jcx: tab
+  - name: melody
+    jcx: jianpu
+patterns : 
+  Am : '"Am"53231323'
+  Em : '"Em"63231323'
+=================
+<guitar> %Am
+<melody> 6.3 33 3- -2
+w: 我从山中来
+
+<guitar> %Am
+<melody> 12 17. 6.- -- 
+w:  带着兰花草
+
+<guitar> %Am
+<melody> 66 66 6- -5
+w: 种在小园中
+
+<guitar> %Em
+<melody> 35 54 3- --
+w:  希望花开早
+
+<guitar> %Am
+<melody> 36 65 3- -2
+w: 一日看三回
+
+<guitar> %Am
+<melody> 12 17. 6.- 3.-
+w:  看的花时过
+
+<guitar> %Am
+<melody> 3.1 17. 6.- -3
+w: 兰花却依然
+
+<guitar> "Em"5323 "Am"5323
+<melody> 21 7.5. 6.- --
+w:  苞也无一个
+
