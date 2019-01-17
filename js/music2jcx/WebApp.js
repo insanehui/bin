@@ -8,10 +8,7 @@ import toNotation from './jcx/notation.js'
 import toTab from './jcx/tab.js'
 import parseFile from './musicFile/main.js'
 import fromMusic from './jcx/music2jcx.js'
-import temp from './musicFile/parseText.js'
-import {testify,} from '../utils/modash.js'
-
-testify(temp)('123') 
+// import {testify,} from '../utils/modash.js'
 
 const Score1 = (S.textarea`
     width: 900px;
@@ -70,24 +67,6 @@ w: 不出在什么场合我曾让你动心 说不出
 <melody> -- 6.1 1- 7.- | 1-------
 w: *离开的原因
 `)
-/*
-你累积了许多飞行
-你用心挑选纪念品
-你收集了地图上每一次的风和日丽
-你拥抱热情的岛屿
-你埋葬记忆的土耳其
-你留恋电影里美丽的不真实的场景
-却说不出你爱我的原因
-却说不出你欣赏我哪一种表情
-你却说不出在什么场合我曾让你分心
-说不出旅行的意义
-旅行的意义 MV
-旅行的意义 MV(2张)
-你勉强说出你爱我的原因
-却说不出你欣赏我哪一种表情
-却说不出在什么场合我曾让你动心
-说不出旅行的意义
-*/
 
 export default class App extends React.PureComponent {
   state = {
@@ -113,22 +92,14 @@ export default class App extends React.PureComponent {
     console.log('file', res)
   }
 
-  test = ()=>{
-    const {track} = this.refs
-    const res = temp(track.value) 
-    console.log('res', res)
-  }
-
   render() {
     const {jcx} = this.state 
-    // const def = '1 ( (23) (4 (56)) ) | 1 (12) 3 (34)' 
     const def = '0 0 (5.5.) | 6. 5. 1 | 7. - (5.5.) | 6. 5. 2 | 1 - (5.5.) | 5 3 1 | 7. 6. (44) | 3 1 2 | 1 - -' 
     return <div>
       <div>
         单独音轨
         <button onClick={()=>this.make('notation')}>简谱</button>
         <button onClick={()=>this.make('tab')}>吉他谱</button>
-        <button onClick={this.test}>测试</button>
       </div>
       <Score1 ref='track' defaultValue={def}></Score1>
       <div>
