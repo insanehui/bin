@@ -13,7 +13,11 @@ import {testify,} from '../utils/modash.js'
 
 testify(temp)('123') 
 
-const Score = (S.textarea`
+const Score1 = (S.textarea`
+    width: 900px;
+    height: 30px;
+`)
+const Score2 = (S.textarea`
     width: 900px;
     height: 300px;
 `)
@@ -126,12 +130,12 @@ export default class App extends React.PureComponent {
         <button onClick={()=>this.make('tab')}>吉他谱</button>
         <button onClick={this.test}>测试</button>
       </div>
-      <Score ref='track' defaultValue={def}></Score>
+      <Score1 ref='track' defaultValue={def}></Score1>
       <div>
         完整曲谱
         <button onClick={this.doFile}>转换</button>
       </div>
-      <Score ref='file' defaultValue={musicExample}></Score>
+      <Score2 ref='file' defaultValue={musicExample}></Score2>
       <pre>
         {jcx}
       </pre>
