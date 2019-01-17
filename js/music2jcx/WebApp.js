@@ -3,6 +3,7 @@
  */
 import React from 'react'
 import S from 'styled-components'
+import {saveAs} from 'file-saver'
 
 import toNotation from './jcx/notation.js'
 import toTab from './jcx/tab.js'
@@ -10,6 +11,7 @@ import parseFile from './musicFile/main.js'
 import fromMusic from './jcx/music2jcx.js'
 
 import musicExample from './musicExample.js'
+
 // import {testify,} from '../utils/modash.js'
 
 const Score1 = (S.textarea`
@@ -45,6 +47,10 @@ export default class App extends React.PureComponent {
     console.log('file', res)
   }
 
+  downGTP = ()=>{
+    saveAs(new Blob(['abcde']), 'a.txt')
+  }
+
   render() {
     const {jcx} = this.state 
     const def = '0 0 (5.5.) | 6. 5. 1 | 7. - (5.5.) | 6. 5. 2 | 1 - (5.5.) | 5 3 1 | 7. 6. (44) | 3 1 2 | 1 - -' 
@@ -58,6 +64,7 @@ export default class App extends React.PureComponent {
       <div>
         完整曲谱
         <button onClick={this.doFile}>转换</button>
+        <button onClick={this.downGTP}>下载GTP</button>
       </div>
       <Score2 ref='file' defaultValue={musicExample}></Score2>
       <pre>
