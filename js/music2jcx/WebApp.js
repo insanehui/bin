@@ -11,6 +11,7 @@ import parseFile from './musicFile/main.js'
 import fromMusic from './jcx/music2jcx.js'
 
 import musicExample from './musicExample.js'
+import {dumpGTP} from './gtp/writer.js'
 
 // import {testify,} from '../utils/modash.js'
 
@@ -48,7 +49,7 @@ export default class App extends React.PureComponent {
   }
 
   downGTP = ()=>{
-    saveAs(new Blob(['abcde']), 'a.txt')
+    saveAs(new Blob([dumpGTP()]), 'a.gp5')
   }
 
   render() {
