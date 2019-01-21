@@ -1,10 +1,7 @@
 /*
  * music文件的整体解析
  */
-import yaml from 'js-yaml'
-import _ from 'lodash'
-
-import wash from '../../utils/modash/arsonWash.js'
+import parseHeader from './header.js'
 
 function groupTracks(score) {
   const tracks = {}
@@ -35,44 +32,14 @@ function groupTracks(score) {
   return tracks
 }
 
-function parseHeader(a) {
-  const header = yaml.load(a)
-  const {tracks} = header
-  header.tracksObj = _.mapKeys(tracks, v=>v.name)
-  return header
-}
-
-// 调整一下obj，方便读取数据
-function refineObj(obj) {
-  // 之所以要用arson的wash是因为obj里有交叉引用的结构
-  obj = wash(obj)
-  for (const track of obj.header.tracks) {
-    const {jcx} = track
-    if ( typeof jcx === 'string' ) {
-      track.jcx = [jcx]
-    } 
-    track.jcx = _.map(track.jcx, v=>{
-      if ( (typeof v) === 'string' ) {
-        return {
-          type : v,
-        }
-      } 
-      else {
-        return v
-      }
-    })
-  }
-  return obj
-}
-
 export default function parse(file = '') {
   // 先分成两部分，按 ==========（三个以上） 区分
   const [a, b] = file.split(/===+\n/)
   const header = parseHeader(a)
   const tracks = groupTracks(b)
 
-  return refineObj({
+  return {
     header,
     tracks,
-  })
+  }
 }
