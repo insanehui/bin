@@ -1,6 +1,8 @@
 // 解析music文件的tracks
 import _ from 'lodash'
 
+import parseBar from './bar.js'
+
 // 把每个track分到一起
 function collectLines(score) {
   const tracks = {}
@@ -37,6 +39,7 @@ function splitBars(tracks) {
     track.lines = _.map(track.lines, line => {
       let bars = line.split('|')
       bars = _.compact(bars)
+      bars = _.map(bars, parseBar)
       return bars
     })
   })
