@@ -13,6 +13,18 @@ function readNote(str) {
 
 // 读取多声部
 function readChorus(str) {
+  let notes = []
+  while(1){
+    str = _.trim(str)
+    if (str.startsWith(']')) {
+      return [notes, str.slice(1)]
+    } 
+    else {
+      let [note, res] = readNote(str)
+      str = res
+      notes.push(note)
+    }
+  }
 }
 
 // 收集每个音，"-"也算
@@ -32,12 +44,16 @@ function collectBeats(str) {
       beats.push(a)
       str = res
     } 
+    else if ( str.startsWith('[') ) {
+      let [notes, res] = readChorus(str.slice(1))
+      beats.push({notes})
+      str = res
+    } 
     else {
       let [note, res] = readNote(str)
       str = res
       beats.push({notes:[note]})
     }
-
   }
 }
 
