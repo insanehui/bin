@@ -6,5 +6,6 @@ import parseFile from '../musicParser/main.js'
 
 export default function convert(music) {
   let obj = parseFile(music)
+  console.log(JSON.stringify(obj, null, '  '))
   console.log('obj', obj)
 }
