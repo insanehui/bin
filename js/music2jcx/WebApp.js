@@ -3,16 +3,16 @@
  */
 import React from 'react'
 import S from 'styled-components'
-import {saveAs} from 'file-saver'
+// import {saveAs} from 'file-saver'
 
 import toNotation from './jcx/notation.js'
 import toTab from './jcx/tab.js'
 import parseFile from './musicFile/main.js'
 import fromMusic from './jcx/music2jcx.js'
+import toGTP from './gtp/music2gtp.js'
 
 import musicExample from './musicExample.js'
-import {dumpGTP} from './gtp/writer.js'
-
+// import {dumpGTP} from './gtp/writer.js'
 // import {testify,} from '../utils/modash.js'
 
 const Score1 = (S.textarea`
@@ -49,7 +49,9 @@ export default class App extends React.PureComponent {
   }
 
   downGTP = ()=>{
-    saveAs(new Blob([dumpGTP()]), 'a.gp5')
+    const {file} = this.refs
+    toGTP(file.value)
+    // saveAs(new Blob([dumpGTP()]), 'a.gp5')
   }
 
   render() {
