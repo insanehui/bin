@@ -2,35 +2,11 @@
  * 将一个完整的music文件转成jcx格式
  */
 import _ from 'lodash'
-import wash from '../../utils/modash/arsonWash.js'
 
 import parseFile from '../musicFile/main.js'
 import {firstor} from '../../utils/modash.js'
 import notation from '../jcx/notation.js'
 import toTab from '../jcx/tab.js'
-
-// 调整一下obj，方便读取数据
-function refineObj(obj) {
-  // 之所以要用arson的wash是因为obj里有交叉引用的结构
-  obj = wash(obj)
-  for (const track of obj.header.tracks) {
-    const {jcx} = track
-    if ( typeof jcx === 'string' ) {
-      track.jcx = [jcx]
-    } 
-    track.jcx = _.map(track.jcx, v=>{
-      if ( (typeof v) === 'string' ) {
-        return {
-          type : v,
-        }
-      } 
-      else {
-        return v
-      }
-    })
-  }
-  return obj
-}
 
 function makeHeader(obj) {
   let res = ''
@@ -140,7 +116,6 @@ function makeTracks(obj) {
 
 export default function convert(music) {
   let obj = parseFile(music)
-  obj = refineObj(obj)
 
   const header = makeHeader(obj)
   const customChords = makeCustomChords(obj)
