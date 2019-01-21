@@ -1,6 +1,8 @@
 // 解析music文件的tracks
+import _ from 'lodash'
 
-export default function parseTracks(score) {
+// 把每个track分到一起
+function collectLines(score) {
   const tracks = {}
   // 按行拆分
   const lines = score.split('\n')
@@ -26,6 +28,23 @@ export default function parseTracks(score) {
       tracks[lastTrack].lines.push(line) 
     } 
   }
+  return tracks
+}
+
+// 把tracks里的一行一行分解成小节
+function splitBars(tracks) {
+  _.each(tracks, track => {
+    track.lines = _.map(track.lines, line => {
+      let bars = line.split('|')
+      bars = _.compact(bars)
+      return bars
+    })
+  })
+}
+
+export default function parseTracks(score){
+  const tracks = collectLines(score)
+  splitBars(tracks)
   return tracks
 }
 
