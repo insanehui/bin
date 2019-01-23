@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import S from 'styled-components'
-// import {saveAs} from 'file-saver'
+import {saveAs} from 'file-saver'
 
 import toNotation from './jcx/notation.js'
 import toTab from './jcx/tab.js'
@@ -50,8 +50,8 @@ export default class App extends React.PureComponent {
 
   downGTP = ()=>{
     const {file} = this.refs
-    toGTP(file.value)
-    // saveAs(new Blob([dumpGTP()]), 'a.gp5')
+    const data = toGTP(file.value)
+    saveAs(new Blob([data]), 'a.gp5')
   }
 
   render() {
