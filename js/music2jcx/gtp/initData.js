@@ -4,6 +4,8 @@
 import _ from 'lodash'
 import {repeat} from 'ramda'
 
+import {UInt32, UInt8, Int} from './types.js'
+
 // 返回Buffer类型
 function dump(obj) {
   if ( obj instanceof Buffer ) {
@@ -41,37 +43,9 @@ class Data {
   }
 }
 
-class Int {
-  constructor(v = 0) {
-    this.value = v
-  }
-}
-
 class ArrayData {
   constructor(v = []) {
     this.value = v
-  }
-}
-
-class ObjectData {
-  constructor(v = {}) {
-    _.assign(this, v)
-  }
-}
-
-class UInt32 extends Int {
-  dump() {
-    const buf = new Buffer(4)
-    buf.writeUInt32LE(this.value)
-    return buf
-  }
-}
-
-class UInt8 extends Int {
-  dump() {
-    const buf = new Buffer(1)
-    buf.writeUInt8(this.value)
-    return buf
   }
 }
 
@@ -183,58 +157,8 @@ class BeatFlags extends UInt8 {}
 class BeatStringFlags extends UInt8 {}
 class NoteFlags extends UInt8 {} 
 
-class MeasureCount extends UInt32 { }
 class TrackCount extends UInt32 { }
 class BeatCount extends UInt32 { }
-
-class MeasureHeader extends ObjectData {
-  dump() {
-    const {
-      beat_count, // 每小节几拍
-      beat_unit, // 以几分音符为一拍
-      key_sign, // 调号
-      // triplet_feel, // 三连音节拍，先写死
-      // repeat_open, // 重复记号开始，先不处理
-    } = this
-
-    let load = []
-
-    const BEAT_COUNT = 0x01
-    const BEAT_UNIT = 0x02 
-    const KEY_SIGN = 0x40
-
-    let flags = 0
-
-    if ( beat_count ) {
-      flags |= BEAT_COUNT
-      load.push(new UInt8(beat_count))
-    } 
-    if ( beat_unit ) {
-      flags |= BEAT_UNIT
-      load.push(new UInt8(beat_unit))
-    } 
-    if ( key_sign !== undefined ) {
-      flags |= KEY_SIGN 
-      load.push(new UInt8(key_sign))
-      load.push(new UInt8(0))
-    } 
-    if ( beat_count || beat_unit ) {
-      load.push(Buffer.from([3,3,0,0]))
-    } 
-    load.push(Buffer.from([0])) // if ((flags & 0x10) === 0) 
-
-    load.push(new UInt8(0)) // triplet_feel
-
-    load.push(Buffer.from([0])) // 补空位，现在还不知道是在前面补还是后面
-
-    load.unshift(new UInt8(flags))
-
-    // flags占一字节
-    // 如果有指定节拍，共占两字节，第一小节必有
-    // 可能有调号
-    return dump(load)
-  }
-}
 
 class Channels {
   dump(){
