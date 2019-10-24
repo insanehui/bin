@@ -8,6 +8,8 @@ tracks :
     jcx: tab
   - name: melody
     jcx: jianpu
+customChords : 
+  'G1' : 1;3,X,0,0,3,X
 patterns : 
   A64 : '"Em"[4321]^-^(^"Cmaj7"[4321]v)( _^v)(^v)^(^v)'
   A6 : '"Em7"[4321]^-^(^v)( _^v)(^v)^(^v)'
@@ -19,14 +21,14 @@ patterns :
   B4 : '"C"[4321]^-^(^v)'
   B5 : '"D"[4321]^-^(^v)'
 =================
-<guitar> "Em7"4323 "Cadd9"5(2.@4 h4)23
+<guitar> "Cadd9"4323 5(2.@4 h3.@4)23
 <melody> 0-------
-<guitar> "G"64 2@2 3 6 2@2 #4..@6 2@2
+<guitar> "G1"64 23 62 #4..@62
 <melody> 0-------
 
-<guitar> "Em7"4324 "Cadd9"5(2.@4 h4)23
+<guitar> "Cadd9"4324 5(2.@4 h3.@4)23
 <melody> 0-------
-<guitar> "G"64 2@2 3 6 2@2 (#4..@63) 2@2
+<guitar> "G1"64 23 (63)2 (#4..@63) 2
 <melody> 0-------
 
 <guitar> %A64
