@@ -20,10 +20,10 @@ else {
 }
 
 Send !f
-sleep 30
+sleep 20
 MouseClick, ,20, 254
 Send !f
-sleep 30
+sleep 20
 MouseClick, ,20, 254
 
 ; 移回页面视图
