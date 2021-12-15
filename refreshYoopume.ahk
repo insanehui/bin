@@ -19,7 +19,10 @@ else {
 }
 
 WinWait 打开
-Send 领悟.jcx{Enter}
+Sleep 900
+Send %1%{Enter}
+
+
 ; 
 ; ; 移回页面视图
 ; ImageSearch, FoundX, FoundY, 0, 0, A_ScreenWidth, A_ScreenHeight, yemianshitu.bmp
