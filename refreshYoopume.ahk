@@ -20,8 +20,12 @@ else {
 
 WinWait 打开
 Sleep 900
-Send %1%{Enter}
+Send %1%
+Sleep 800
+Send {Enter}
 
+;Sleep 1500
+;Send {F5}
 
 ; 
 ; ; 移回页面视图
