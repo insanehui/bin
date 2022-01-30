@@ -7,3 +7,4 @@
 *.tmp
 package-lock.json
 node_modules
+/muse/autosave.jcx
