@@ -19,9 +19,9 @@ else {
 }
 
 WinWait ´ò¿ª
-Sleep 900
+Sleep 1000
 Send %1%
-Sleep 800
+Sleep 1200
 Send {Enter}
 
 ;Sleep 1500

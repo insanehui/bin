@@ -5,7 +5,9 @@ const js = {
   test: /\.js$/,
   loader: require.resolve('babel-loader'),
   options: {
-    presets : ['env', 'stage-1', 'react'],
+    presets : ['env', 'stage-1', 
+      // 'react',
+    ],
   },
 }
 
@@ -15,8 +17,8 @@ module.exports = {
   target: 'node',
   entry : {
     syncCode : d('./syncCode.js'),
-    numberList : d('./numberList.js'),
-    music2jcx : d('./music2jcx.js'),
+    // numberList : d('./numberList.js'),
+    // music2jcx : d('./music2jcx.js'),
   },
   output : {
     filename : '[name].js',
